@@ -3,313 +3,435 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Jack Pertzel — instruments of independence</title>
-<meta name="description" content="Melbourne founder building instruments that let individuals and small organisations do what only large institutions could afford — measurement, privacy, compliance. One finished, documented object every six weeks.">
-<meta property="og:title" content="Jack Pertzel — instruments of independence">
-<meta property="og:description" content="Building instruments that let individuals and small organisations do what only large institutions could afford. One finished object every six weeks.">
+<title>J &amp; Co Ventures — instruments of independence</title>
+<meta name="description" content="J & Co Ventures is a Melbourne company building instruments that give individuals and small organisations capability that used to need an institution — measurement, privacy, compliance. Every object ships finished.">
+<meta property="og:title" content="J &amp; Co Ventures — instruments of independence">
+<meta property="og:description" content="A Melbourne company building instruments that give individuals and small organisations capability that used to need an institution. Every object ships finished.">
 <meta property="og:type" content="website">
 <meta property="og:url" content="https://jco.ventures">
 <link rel="canonical" href="https://jco.ventures">
-<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' fill='%2314181d'/%3E%3Ctext x='16' y='21' font-family='monospace' font-size='13' fill='%23ffb454' text-anchor='middle'%3EJP%3C/text%3E%3C/svg%3E">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' fill='%2312161b'/%3E%3Ctext x='16' y='22' font-family='Georgia,serif' font-style='italic' font-size='15' fill='%23ffb454' text-anchor='middle'%3EJ%26Co%3C/text%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=Instrument+Sans:ital,wght@0,400;0,500;0,600;1,400&family=Instrument+Serif:ital@0;1&display=swap" rel="stylesheet">
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
-  "@type": "Person",
-  "name": "Jack Pertzel",
+  "@type": "Organization",
+  "name": "J & Co Ventures Pty Ltd",
   "url": "https://jco.ventures",
-  "jobTitle": "Founder",
-  "worksFor": { "@type": "Organization", "name": "J & Co Ventures Pty Ltd" },
   "address": { "@type": "PostalAddress", "addressLocality": "Melbourne", "addressCountry": "AU" },
-  "sameAs": [
-    "https://github.com/jackpertzel-ai",
-    "https://www.linkedin.com/in/pertzel",
-    "https://jackpertzel.substack.com"
-  ]
+  "email": "hello@jco.ventures",
+  "founder": {
+    "@type": "Person",
+    "name": "Jack Pertzel",
+    "url": "https://jco.ventures",
+    "sameAs": [
+      "https://www.instagram.com/j_co_adventures",
+      "https://github.com/jackpertzel-ai",
+      "https://www.linkedin.com/in/pertzel",
+      "https://jackpertzel.substack.com"
+    ]
+  }
 }
 </script>
 <style>
   :root {
-    --page: #f1efe9; --ink: #20232a; --muted: #6d6f68; --line: #d8d4c8;
-    --grid: rgba(32,35,42,0.05); --accent: #e8590c; --accent-dark: #c94a08;
-    --glass: #14181d; --glass-ink: #e6edf3; --glass-muted: #7f8a95;
-    --amber: #ffb454; --cyan: #4dd0e1; --card: #faf9f5;
-    --mono: "Cascadia Code", Consolas, "SF Mono", ui-monospace, monospace;
-    --sans: "Segoe UI", -apple-system, system-ui, sans-serif;
+    --paper: #f5f6f4; --ink: #171a1f; --muted: #626a75; --line: #d9ddd9;
+    --frame: #aab2ad; --cobalt: #2144d1; --cobalt-dark: #1a36ac;
+    --tile: #12161b; --tile-ink: #e8edf2; --tile-muted: #8a95a1; --amber: #ffb454;
+    --card: #fbfcfa;
+    --serif: "Instrument Serif", Georgia, serif;
+    --sans: "Instrument Sans", -apple-system, "Segoe UI", sans-serif;
+    --mono: "IBM Plex Mono", ui-monospace, Consolas, monospace;
   }
   * { margin: 0; padding: 0; box-sizing: border-box; }
   html { scroll-behavior: smooth; }
-  @media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } }
   body {
-    background: var(--page); color: var(--ink); font-family: var(--sans);
-    background-image:
-      linear-gradient(var(--grid) 1px, transparent 1px),
-      linear-gradient(90deg, var(--grid) 1px, transparent 1px);
-    background-size: 56px 56px;
-    line-height: 1.6;
+    background: var(--paper); color: var(--ink); font-family: var(--sans);
+    font-size: 16px; line-height: 1.6; -webkit-font-smoothing: antialiased;
   }
+  ::selection { background: var(--cobalt); color: #fff; }
   a { color: inherit; }
-  a:hover { color: var(--accent); }
-  :focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; }
-  .wrap { max-width: 1060px; margin: 0 auto; padding: 0 32px; }
+  :focus-visible { outline: 2px solid var(--cobalt); outline-offset: 3px; }
 
-  header {
-    border-bottom: 1px solid var(--line); background: rgba(241,239,233,0.9); backdrop-filter: blur(4px);
-    position: sticky; top: 0; z-index: 10;
+  /* ---- the sheet frame: the page is a drawing ---- */
+  .sheet {
+    position: fixed; inset: 10px; border: 1px solid var(--frame);
+    pointer-events: none; z-index: 50;
   }
-  .nav { display: flex; justify-content: space-between; align-items: center; padding: 18px 32px; max-width: 1060px; margin: 0 auto; }
-  .nav-name { font-family: var(--mono); font-size: 13px; letter-spacing: .18em; text-decoration: none; }
-  .nav-links { display: flex; gap: 22px; font-size: 13.5px; color: var(--muted); }
-  .nav-links a { text-decoration: none; }
-  .nav-entity { font-family: var(--mono); font-size: 9.5px; color: var(--muted); letter-spacing: .12em; }
-  @media (max-width: 720px) { .nav-entity { display: none; } .nav-links { gap: 14px; } }
+  .sheet::before, .sheet::after,
+  .sheet i::before, .sheet i::after {
+    content: ""; position: absolute; background: var(--ink);
+  }
+  /* corner crop ticks */
+  .sheet::before { top: -1px; left: 18px; width: 1px; height: 9px; }
+  .sheet::after  { top: 18px; left: -1px; width: 9px; height: 1px; }
+  .sheet i::before { bottom: -1px; right: 18px; width: 1px; height: 9px; }
+  .sheet i::after  { bottom: 18px; right: -1px; width: 9px; height: 1px; }
+  @media (max-width: 900px) { .sheet { display: none; } }
 
-  .hero { padding: 72px 0 0; }
-  .eyebrow { font-family: var(--mono); font-size: 11.5px; letter-spacing: .2em; color: var(--accent); margin-bottom: 22px; }
-  h1 { font-size: clamp(30px, 4.6vw, 50px); font-weight: 300; line-height: 1.16; letter-spacing: -.01em; max-width: 18em; }
-  h1 strong { font-weight: 600; }
-  .sub { margin-top: 20px; color: var(--muted); font-size: 17px; max-width: 36em; }
-  .ctas { margin-top: 30px; display: flex; gap: 12px; flex-wrap: wrap; }
+  .wrap { max-width: 1120px; margin: 0 auto; padding: 0 40px; }
+  @media (max-width: 720px) { .wrap { padding: 0 22px; } }
+
+  /* ---- header ---- */
+  header { position: sticky; top: 0; z-index: 40; background: rgba(245,246,244,0.88); backdrop-filter: blur(8px); border-bottom: 1px solid var(--line); }
+  .nav { display: flex; align-items: baseline; justify-content: space-between; max-width: 1120px; margin: 0 auto; padding: 18px 40px; }
+  @media (max-width: 720px) { .nav { padding: 16px 22px; } }
+  .wordmark { font-family: var(--serif); font-size: 21px; text-decoration: none; letter-spacing: .01em; white-space: nowrap; }
+  .wordmark em { font-style: italic; color: var(--cobalt); }
+  .nav-links { display: flex; gap: 26px; font-family: var(--mono); font-size: 11.5px; letter-spacing: .1em; }
+  .nav-links a { text-decoration: none; color: var(--muted); text-transform: uppercase; }
+  .nav-links a:hover { color: var(--cobalt); }
+  @media (max-width: 720px) { .nav-links { gap: 16px; } .nav-links a:nth-child(2) { display: none; } }
+
+  /* ---- hero ---- */
+  .hero { padding: 88px 0 40px; }
+  @media (max-width: 900px) { .hero { padding: 60px 0 32px; } }
+  .hero-grid { display: grid; grid-template-columns: minmax(0, 1.25fr) minmax(0, 1fr); gap: 56px; align-items: center; }
+  @media (max-width: 900px) { .hero-grid { grid-template-columns: 1fr; gap: 40px; } }
+  .eyebrow { font-family: var(--mono); font-size: 11px; letter-spacing: .22em; color: var(--muted); text-transform: uppercase; }
+  .eyebrow b { color: var(--ink); font-weight: 500; }
+  h1 {
+    font-family: var(--serif); font-weight: 400; font-size: clamp(42px, 6.2vw, 76px);
+    line-height: 1.04; letter-spacing: -.015em; margin-top: 26px; max-width: 11em;
+  }
+  h1 em { font-style: italic; color: var(--cobalt); }
+  .sub { margin-top: 26px; color: var(--muted); font-size: 18px; max-width: 30em; }
+  .ctas { margin-top: 36px; display: flex; gap: 14px; flex-wrap: wrap; }
   .btn {
-    font-family: var(--mono); font-size: 12.5px; letter-spacing: .08em; text-decoration: none; display: inline-block;
-    padding: 12px 22px; border: 1px solid #b9b5a8; color: var(--ink); background: none; cursor: pointer; transition: all .15s;
+    font-family: var(--mono); font-size: 12px; letter-spacing: .1em; text-transform: uppercase;
+    text-decoration: none; display: inline-block; padding: 14px 26px; transition: all .18s ease;
   }
-  .btn:hover, .btn:focus-visible { border-color: var(--accent); color: var(--accent); }
-  .btn.primary { border-color: var(--accent); background: var(--accent); color: #fff; }
-  .btn.primary:hover { background: var(--accent-dark); border-color: var(--accent-dark); color: #fff; }
+  .btn.primary { background: var(--ink); color: var(--paper); }
+  .btn.primary:hover { background: var(--cobalt); color: #fff; }
+  .btn.ghost { border: 1px solid var(--ink); color: var(--ink); }
+  .btn.ghost:hover { border-color: var(--cobalt); color: var(--cobalt); }
 
-  .panelrow { display: grid; grid-template-columns: 1.2fr 1fr; gap: 18px; margin-top: 56px; }
-  @media (max-width: 800px) { .panelrow { grid-template-columns: 1fr; } }
-  .tile { background: var(--glass); color: var(--glass-ink); padding: 22px 24px; }
-  .tile-head {
-    display: flex; justify-content: space-between; align-items: baseline; gap: 10px; flex-wrap: wrap;
-    font-family: var(--mono); font-size: 10.5px; letter-spacing: .14em; color: var(--glass-muted); margin-bottom: 16px;
+  /* load choreography */
+  .rise { opacity: 0; transform: translateY(14px); animation: rise .7s cubic-bezier(.22,.8,.3,1) forwards; }
+  .rise.d1 { animation-delay: .08s; } .rise.d2 { animation-delay: .18s; }
+  .rise.d3 { animation-delay: .3s; } .rise.d4 { animation-delay: .42s; }
+  @keyframes rise { to { opacity: 1; transform: none; } }
+
+  /* ---- bench tile ---- */
+  .bench {
+    background: var(--tile); color: var(--tile-ink); padding: 26px 28px 24px; position: relative;
+    box-shadow: 0 28px 56px -28px rgba(18,22,27,.4);
   }
-  .tile-head .live { color: var(--amber); }
-  .reading { display: flex; gap: 38px; align-items: flex-end; flex-wrap: wrap; }
-  .big { font-family: var(--mono); font-size: 60px; line-height: 1; color: var(--amber); }
-  .big small { font-size: 15px; color: var(--glass-muted); margin-left: 6px; }
-  .sm { font-family: var(--mono); font-size: 21px; color: var(--cyan); }
-  .sm small { font-size: 11.5px; color: var(--glass-muted); display: block; margin-top: 4px; letter-spacing: .1em; }
-  .spark { margin-top: 18px; width: 100%; height: 42px; }
-  .spark polyline { fill: none; stroke: var(--amber); stroke-width: 1.5; opacity: .85; }
-  .tilenote { font-family: var(--mono); font-size: 10px; color: var(--glass-muted); margin-top: 14px; letter-spacing: .06em; }
-  .card { border: 1px solid var(--line); background: var(--card); padding: 22px 24px; }
-  .card .k { font-family: var(--mono); font-size: 11px; letter-spacing: .18em; color: var(--cyan); margin-bottom: 10px; filter: brightness(.7); }
-  .card h3 { font-weight: 600; font-size: 18px; }
-  .card p { color: var(--muted); font-size: 14.5px; margin-top: 8px; }
-
-  section { padding: 72px 0 0; }
-  .sec-head {
-    font-family: var(--mono); font-size: 12px; letter-spacing: .22em; color: var(--ink);
-    border-bottom: 2px solid var(--ink); padding-bottom: 10px; margin-bottom: 26px;
-    display: flex; justify-content: space-between; align-items: baseline;
+  .bench::after {
+    content: ""; position: absolute; inset: 8px; border: 1px solid rgba(232,237,242,.1); pointer-events: none;
   }
-  .sec-head .note { color: var(--muted); letter-spacing: .05em; font-size: 11px; }
-
-  .ventures { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; }
-  @media (max-width: 800px) { .ventures { grid-template-columns: 1fr; } }
-  .venture { border: 1px solid var(--line); background: var(--card); padding: 24px; display: flex; flex-direction: column; }
-  .venture h3 { font-size: 18px; font-weight: 600; }
-  .venture .vk { font-family: var(--mono); font-size: 10.5px; letter-spacing: .18em; color: var(--accent); margin-bottom: 12px; }
-  .venture p { color: var(--muted); font-size: 14.5px; margin-top: 8px; flex: 1; }
-  .venture a.vlink { font-family: var(--mono); font-size: 12px; margin-top: 16px; color: var(--accent); text-decoration: none; letter-spacing: .06em; }
-  .venture a.vlink:hover { text-decoration: underline; }
-  .venture.reserved { border-style: dashed; background: none; }
-  .venture.reserved h3, .venture.reserved p { color: var(--muted); }
-
-  .obj-row {
-    display: grid; grid-template-columns: 76px 1fr 170px; gap: 18px; align-items: baseline;
-    padding: 16px 0; border-bottom: 1px solid var(--line); font-size: 15px;
+  .bench-head {
+    display: flex; justify-content: space-between; gap: 10px; flex-wrap: wrap;
+    font-family: var(--mono); font-size: 10.5px; letter-spacing: .14em; color: var(--tile-muted); margin-bottom: 22px;
   }
-  @media (max-width: 720px) { .obj-row { grid-template-columns: 52px 1fr; } .obj-row .status { grid-column: 2; text-align: left; } }
-  .obj-row .no { font-family: var(--mono); font-weight: 700; font-size: 17px; }
-  .obj-row .status { font-family: var(--mono); font-size: 10.5px; letter-spacing: .14em; color: var(--muted); text-align: right; }
-  .obj-row .status.hot { color: var(--accent); }
-  .obj-row.muted { color: var(--muted); }
-  .obj-note { font-size: 13.5px; color: var(--muted); margin-top: 14px; }
+  .bench-head .sim { color: var(--amber); }
+  .bench-read { display: flex; align-items: flex-end; gap: 34px; flex-wrap: wrap; }
+  .bench-big { font-family: var(--mono); font-size: 58px; line-height: 1; color: var(--amber); font-weight: 500; font-variant-numeric: tabular-nums; }
+  .bench-big small { font-size: 14px; color: var(--tile-muted); font-weight: 400; margin-left: 8px; letter-spacing: .06em; }
+  .bench-sm { font-family: var(--mono); font-size: 19px; color: var(--tile-ink); font-variant-numeric: tabular-nums; }
+  .bench-sm small { display: block; font-size: 10px; color: var(--tile-muted); letter-spacing: .12em; margin-top: 5px; }
+  .bench svg { display: block; width: 100%; height: 52px; margin-top: 22px; }
+  .bench polyline { fill: none; stroke: var(--amber); stroke-width: 1.4; opacity: .85; }
+  .bench line { stroke: rgba(232,237,242,.09); stroke-width: 1; }
+  .bench-note { font-family: var(--mono); font-size: 10px; color: var(--tile-muted); letter-spacing: .05em; margin-top: 16px; line-height: 1.7; }
 
-  .essay-row {
-    display: flex; justify-content: space-between; gap: 18px; align-items: baseline;
-    padding: 14px 0; border-bottom: 1px solid var(--line);
+  /* ---- sections ---- */
+  section { padding: 88px 0 0; }
+  @media (max-width: 720px) { section { padding: 64px 0 0; } }
+  .sec-head { display: flex; align-items: baseline; justify-content: space-between; gap: 16px; border-bottom: 1px solid var(--ink); padding-bottom: 12px; margin-bottom: 34px; }
+  .sec-head .tag { font-family: var(--mono); font-size: 11px; letter-spacing: .22em; text-transform: uppercase; }
+  .sec-head .tag b { color: var(--cobalt); font-weight: 500; margin-right: 10px; }
+  .sec-head .note { font-family: var(--mono); font-size: 10.5px; color: var(--muted); letter-spacing: .06em; text-align: right; }
+  @media (max-width: 720px) { .sec-head .note { display: none; } }
+
+  html.js-anim .reveal { opacity: 0; transform: translateY(16px); transition: opacity .6s ease, transform .6s cubic-bezier(.22,.8,.3,1); }
+  html.js-anim .reveal.in { opacity: 1; transform: none; }
+
+  /* ---- portfolio ---- */
+  .lines { display: grid; grid-template-columns: repeat(3, 1fr); gap: 18px; }
+  @media (max-width: 900px) { .lines { grid-template-columns: 1fr; } }
+  .line-card {
+    background: var(--card); border: 1px solid var(--line); padding: 30px 28px 26px;
+    display: flex; flex-direction: column; min-height: 280px; position: relative; transition: border-color .2s ease;
   }
-  .essay-row a { font-size: 16px; text-decoration: none; }
-  .essay-row .date { font-family: var(--mono); font-size: 11px; color: var(--muted); letter-spacing: .1em; white-space: nowrap; }
+  .line-card:hover { border-color: var(--cobalt); }
+  .line-card .part { font-family: var(--mono); font-size: 10px; letter-spacing: .18em; color: var(--muted); text-transform: uppercase; }
+  .line-card:hover .part { color: var(--cobalt); }
+  .line-card h3 { font-family: var(--serif); font-weight: 400; font-size: 30px; margin-top: 16px; letter-spacing: -.01em; }
+  .line-card p { color: var(--muted); font-size: 15px; margin-top: 12px; flex: 1; }
+  .line-card .go { font-family: var(--mono); font-size: 11.5px; letter-spacing: .1em; margin-top: 22px; text-decoration: none; color: var(--cobalt); text-transform: uppercase; }
+  .line-card .go:hover { text-decoration: underline; text-underline-offset: 4px; }
+  .line-card.reserved { background: none; border-style: dashed; }
+  .line-card.reserved h3, .line-card.reserved p { color: var(--muted); }
 
-  .about-text p { margin-top: 14px; font-size: 15.5px; max-width: 42em; }
-  .about-text p:first-child { margin-top: 0; }
+  /* ---- how we work: general notes ---- */
+  .notes-grid { display: grid; grid-template-columns: minmax(0, 1.1fr) minmax(0, 1fr); gap: 48px; align-items: start; }
+  @media (max-width: 900px) { .notes-grid { grid-template-columns: 1fr; gap: 36px; } }
+  .lede { font-family: var(--serif); font-size: clamp(26px, 3vw, 34px); line-height: 1.25; font-weight: 400; max-width: 17em; }
+  .lede em { font-style: italic; color: var(--cobalt); }
+  .lede + p { margin-top: 18px; color: var(--muted); max-width: 34em; }
+  .gen-notes { border: 1px solid var(--ink); }
+  .gen-notes .gn-head { font-family: var(--mono); font-size: 10.5px; letter-spacing: .2em; padding: 12px 18px; border-bottom: 1px solid var(--ink); text-transform: uppercase; }
+  .gen-notes ol { list-style: none; counter-reset: n; }
+  .gen-notes li {
+    counter-increment: n; display: grid; grid-template-columns: 40px 1fr; gap: 8px;
+    font-family: var(--mono); font-size: 12px; line-height: 1.75; letter-spacing: .02em;
+    padding: 14px 18px; border-bottom: 1px solid var(--line); color: var(--ink);
+  }
+  .gen-notes li:last-child { border-bottom: none; }
+  .gen-notes li::before { content: counter(n) "."; color: var(--cobalt); }
+  .log { margin-top: 44px; }
+  .log-row {
+    display: grid; grid-template-columns: 96px 1fr 150px; gap: 18px; align-items: baseline;
+    padding: 15px 0; border-bottom: 1px solid var(--line); font-size: 15px;
+  }
+  @media (max-width: 720px) { .log-row { grid-template-columns: 64px 1fr; } .log-row .st { grid-column: 2; text-align: left; } }
+  .log-row .obj { font-family: var(--mono); font-size: 12px; letter-spacing: .08em; color: var(--muted); }
+  .log-row .st { font-family: var(--mono); font-size: 10.5px; letter-spacing: .14em; color: var(--muted); text-align: right; text-transform: uppercase; }
+  .log-row .st.hot { color: var(--cobalt); }
+  .log-row.muted, .log-row.muted .st { color: var(--muted); }
 
-  .subscribe { background: var(--glass); color: var(--glass-ink); margin-top: 72px; padding: 56px 0; }
-  .subscribe h2 { font-weight: 300; font-size: 28px; }
-  .subscribe h2 strong { font-weight: 600; }
-  .subscribe p { color: var(--glass-muted); margin-top: 10px; max-width: 38em; font-size: 15px; }
-  .sub-embed { margin-top: 22px; max-width: 480px; }
-  .sub-embed iframe { width: 100%; height: 96px; border: 1px solid rgba(230,237,243,0.2); background: #fff; }
+  /* ---- founder ---- */
+  .founder-grid { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1.35fr); gap: 56px; align-items: start; }
+  @media (max-width: 900px) { .founder-grid { grid-template-columns: 1fr; gap: 30px; } }
+  .founder-name { font-family: var(--serif); font-size: clamp(34px, 4vw, 48px); font-weight: 400; line-height: 1.1; }
+  .founder-name em { font-style: italic; color: var(--cobalt); }
+  .founder-role { font-family: var(--mono); font-size: 11px; letter-spacing: .18em; color: var(--muted); margin-top: 14px; text-transform: uppercase; }
+  .founder-text p { margin-top: 16px; font-size: 16.5px; max-width: 36em; }
+  .founder-text p:first-child { margin-top: 0; }
+  .follow { margin-top: 30px; display: flex; flex-wrap: wrap; gap: 12px 28px; font-family: var(--mono); font-size: 12px; letter-spacing: .08em; }
+  .follow a { text-decoration: none; color: var(--ink); border-bottom: 1px solid var(--line); padding-bottom: 3px; transition: all .15s; }
+  .follow a:hover { color: var(--cobalt); border-color: var(--cobalt); }
+  .follow .ig { color: var(--cobalt); border-color: var(--cobalt); }
 
-  .elsewhere { display: flex; gap: 14px 26px; flex-wrap: wrap; font-family: var(--mono); font-size: 13px; }
-  .elsewhere a { text-decoration: none; letter-spacing: .06em; }
-  footer { margin-top: 72px; border-top: 1px solid var(--line); padding: 40px 0 56px; }
-  .titleblock { display: inline-block; border: 2px solid var(--ink); background: var(--card); }
-  .titleblock table { border-collapse: collapse; font-family: var(--mono); font-size: 10.5px; }
-  .titleblock td { border: 1px solid var(--ink); padding: 6px 12px; letter-spacing: .08em; }
-  .titleblock td.k { color: var(--muted); font-size: 9px; }
-  .fineprint { margin-top: 18px; font-size: 12.5px; color: var(--muted); }
+  /* ---- subscribe ---- */
+  .band { background: var(--tile); color: var(--tile-ink); margin-top: 96px; padding: 72px 0; position: relative; }
+  @media (max-width: 720px) { .band { margin-top: 64px; padding: 56px 0; } }
+  .band h2 { font-family: var(--serif); font-weight: 400; font-size: clamp(30px, 3.6vw, 44px); }
+  .band h2 em { font-style: italic; color: var(--amber); }
+  .band p { color: var(--tile-muted); margin-top: 12px; max-width: 36em; font-size: 15.5px; }
+  .sub-embed { margin-top: 26px; max-width: 480px; }
+  .sub-embed iframe { width: 100%; height: 96px; border: 1px solid rgba(232,237,242,.18); background: #fff; }
+
+  /* ---- contact ---- */
+  .contact { text-align: center; padding-bottom: 8px; }
+  .contact .eyebrow { justify-content: center; }
+  .mailto {
+    display: inline-block; margin-top: 22px; font-family: var(--serif); font-style: italic;
+    font-size: clamp(30px, 5vw, 58px); text-decoration: none; line-height: 1.15;
+    border-bottom: 2px solid var(--ink); padding-bottom: 6px; transition: all .18s;
+  }
+  .mailto:hover { color: var(--cobalt); border-color: var(--cobalt); }
+  .contact p { margin-top: 18px; color: var(--muted); font-size: 15px; }
+
+  /* ---- footer / title block ---- */
+  footer { margin-top: 96px; border-top: 1px solid var(--ink); padding: 44px 0 64px; }
+  @media (max-width: 720px) { footer { margin-top: 64px; } }
+  .foot { display: flex; justify-content: space-between; align-items: flex-end; gap: 32px; flex-wrap: wrap; }
+  .titleblock { border: 1.5px solid var(--ink); background: var(--card); }
+  .titleblock table { border-collapse: collapse; font-family: var(--mono); font-size: 10.5px; letter-spacing: .06em; }
+  .titleblock td { border: 1px solid var(--ink); padding: 7px 14px; white-space: nowrap; }
+  .titleblock td.k { color: var(--muted); font-size: 8.5px; letter-spacing: .14em; }
+  @media (max-width: 720px) { .titleblock { overflow-x: auto; max-width: 100%; display: block; } }
+  .fineprint { font-size: 12.5px; color: var(--muted); max-width: 30em; }
+
+  @media (prefers-reduced-motion: reduce) {
+    html { scroll-behavior: auto; }
+    .rise, .reveal { opacity: 1; transform: none; animation: none; transition: none; }
+  }
 </style>
 </head>
 <body>
 
+<div class="sheet" aria-hidden="true"><i></i></div>
+
 <header>
   <nav class="nav" aria-label="Main">
-    <a class="nav-name" href="#top">JACK&nbsp;PERTZEL</a>
+    <a class="wordmark" href="#top">J<em>&amp;</em>Co Ventures</a>
     <div class="nav-links">
-      <a href="#ventures">Ventures</a><a href="#objects">Objects</a><a href="#writing">Writing</a><a href="#about">About</a><a href="#subscribe">Subscribe</a>
+      <a href="#portfolio">Portfolio</a><a href="#how">How we work</a><a href="#founder">Founder</a><a href="#contact">Contact</a>
     </div>
-    <span class="nav-entity">J&amp;CO VENTURES PTY LTD</span>
   </nav>
 </header>
 
 <main id="top">
   <div class="wrap">
     <div class="hero">
-      <div class="eyebrow">MELBOURNE, AUSTRALIA · ONE FINISHED OBJECT EVERY SIX WEEKS</div>
-      <h1>I build <strong>instruments</strong> that let individuals and small organisations do what only large institutions could afford.</h1>
-      <p class="sub">Measurement, privacy, compliance. Everything published here is finished, documented and usable by a stranger — nothing half-built, no roadmaps.</p>
-      <div class="ctas">
-        <a class="btn primary" href="#subscribe">GET THE BUILD LOG →</a>
-        <a class="btn" href="https://github.com/jackpertzel-ai">GITHUB</a>
-      </div>
-
-      <div class="panelrow">
-        <div class="tile">
-          <div class="tile-head">
-            <span>BENCH-01 · AIR · <span id="clock">--:--:--</span></span>
-            <span class="live">● SIMULATED</span>
+      <div class="hero-grid">
+        <div>
+          <div class="eyebrow rise"><b>J &amp; CO VENTURES PTY LTD</b> · MELBOURNE, AUSTRALIA</div>
+          <h1 class="rise d1">Instruments of <em>independence.</em></h1>
+          <p class="sub rise d2">We're a Melbourne company building tools that give individuals and small organisations capability that used to need an institution — measurement, privacy, compliance. Everything we publish is finished, documented and usable by a stranger.</p>
+          <div class="ctas rise d3">
+            <a class="btn primary" href="#portfolio">See the portfolio</a>
+            <a class="btn ghost" href="#contact">Work with us</a>
           </div>
-          <div class="reading">
-            <div class="big"><span id="co2">743</span><small>ppm CO₂</small></div>
-            <div class="sm">4.2<small>µg/m³ PM2.5</small></div>
-            <div class="sm">21.8<small>°C</small></div>
-          </div>
-          <svg class="spark" viewBox="0 0 400 42" preserveAspectRatio="none" aria-hidden="true">
-            <polyline points="0,28 30,26 60,29 90,23 120,20 150,24 180,17 210,19 240,13 270,16 300,11 330,14 360,9 400,12"/>
-          </svg>
-          <div class="tilenote">These numbers are simulated. When Object 01 ships, this becomes a live feed from the instrument on my desk.</div>
         </div>
-        <div class="card">
-          <div class="k">NOW BUILDING · OBJECT 01</div>
-          <h3>Open air-quality station</h3>
-          <p>ESP32-S3 · CO₂ · PM2.5 · VOC → MQTT → Grafana. Finding out what the air in my house is actually doing — starting with what happens in a closed bedroom overnight. Repo opens with the launch.</p>
+        <div class="bench rise d4">
+          <div class="bench-head">
+            <span>BENCH-01 · AIR · <span id="clock">--:--:--</span></span>
+            <span class="sim">● SIMULATED</span>
+          </div>
+          <div class="bench-read">
+            <div class="bench-big"><span id="co2">743</span><small>ppm CO₂</small></div>
+            <div class="bench-sm">4.2<small>µG/M³ PM2.5</small></div>
+            <div class="bench-sm">21.8<small>°C</small></div>
+          </div>
+          <svg viewBox="0 0 400 52" preserveAspectRatio="none" aria-hidden="true">
+            <line x1="0" y1="13" x2="400" y2="13"/><line x1="0" y1="26" x2="400" y2="26"/><line x1="0" y1="39" x2="400" y2="39"/>
+            <line x1="80" y1="0" x2="80" y2="52"/><line x1="160" y1="0" x2="160" y2="52"/><line x1="240" y1="0" x2="240" y2="52"/><line x1="320" y1="0" x2="320" y2="52"/>
+            <polyline points="0,36 30,34 60,37 90,30 120,26 150,31 180,23 210,25 240,18 270,21 300,16 330,19 360,13 400,17"/>
+          </svg>
+          <div class="bench-note">Simulated feed. When Object 01 ships, this becomes live telemetry from the instrument on our bench.</div>
         </div>
       </div>
     </div>
 
-    <section id="ventures">
-      <div class="sec-head"><span>VENTURES</span><span class="note">the lines of work under J &amp; Co</span></div>
-      <div class="ventures">
-        <div class="venture">
-          <div class="vk">CONFIDENTIAL AI</div>
+    <section id="portfolio">
+      <div class="sec-head reveal">
+        <span class="tag"><b>§1</b> The portfolio</span>
+        <span class="note">lines of work under J &amp; Co</span>
+      </div>
+      <div class="lines">
+        <div class="line-card reveal">
+          <span class="part">Confidential AI</span>
           <h3>Magpie Net</h3>
           <p>Practical AI sovereignty for Australian organisations that can't hand sensitive work to a hyperscaler — choose your model, set your rules, verify what runs, keep the freedom to move.</p>
-          <a class="vlink" href="https://magpienet.com">magpienet.com →</a>
+          <a class="go" href="https://magpienet.com">magpienet.com →</a>
         </div>
-        <div class="venture">
-          <div class="vk">INSTRUMENTS</div>
+        <div class="line-card reveal">
+          <span class="part">Instruments</span>
           <h3>Precision sensing</h3>
-          <p>Measurement capability that currently costs institutions six figures, at a price a classroom or a small lab can afford. First object: the open air-quality station below.</p>
-          <a class="vlink" href="#objects">object index ↓</a>
+          <p>Measurement capability that currently costs institutions six figures, at a price a classroom or a small lab can afford. First object: an open air-quality station, on the bench now.</p>
+          <a class="go" href="#how">the build log ↓</a>
         </div>
-        <div class="venture reserved">
-          <div class="vk">RESERVED</div>
+        <div class="line-card reserved reveal">
+          <span class="part">Reserved</span>
           <h3>Next line</h3>
-          <p>New lines of work appear here when they ship — not before.</p>
+          <p>New lines of work appear here when they ship — not before. That rule is the company.</p>
         </div>
       </div>
     </section>
 
-    <section id="objects">
-      <div class="sec-head"><span>OBJECT INDEX</span><span class="note">listed only when a stranger could build or use it</span></div>
-      <div class="obj-row">
-        <span class="no">01</span>
-        <span>Open air-quality station — ESP32-S3, CO₂ / PM2.5 / VOC, MQTT → Grafana</span>
-        <span class="status hot">NOW BUILDING</span>
+    <section id="how">
+      <div class="sec-head reveal">
+        <span class="tag"><b>§2</b> How we work</span>
+        <span class="note">general notes apply to all work</span>
       </div>
-      <div class="obj-row muted">
-        <span class="no">02</span>
-        <span>Reserved — one finished object every six weeks</span>
-        <span class="status">—</span>
+      <div class="notes-grid">
+        <div class="reveal">
+          <p class="lede">One finished object every six weeks — <em>shipped</em>, documented, and honest about its limits.</p>
+          <p>We'd rather show you an object than a deck. The company is small on purpose: it ships real things on a cadence, publishes the data, and lets the work make the argument.</p>
+        </div>
+        <div class="gen-notes reveal">
+          <div class="gn-head" id="gn-label">General notes</div>
+          <ol aria-labelledby="gn-label">
+            <li><span>"Finished" means: public repo, a README a stranger can follow, bill of materials with real prices, measured data.</span></li>
+            <li><span>Every release includes an honest section on what it does not do.</span></li>
+            <li><span>Nothing appears on this page before it ships.</span></li>
+            <li><span>Measurements are reported as measured. No health claims, ever.</span></li>
+          </ol>
+        </div>
       </div>
-      <div class="obj-row muted">
-        <span class="no">03</span>
-        <span>Reserved</span>
-        <span class="status">—</span>
+      <div class="log reveal">
+        <div class="log-row">
+          <span class="obj">OBJ-01</span>
+          <span>Open air-quality station — ESP32-S3, CO2 / PM2.5 / VOC, MQTT → Grafana</span>
+          <span class="st hot">Now building</span>
+        </div>
+        <div class="log-row muted">
+          <span class="obj">OBJ-02</span>
+          <span>Reserved — one finished object every six weeks</span>
+          <span class="st">—</span>
+        </div>
       </div>
-      <p class="obj-note">"Finished" means: public repo, README a stranger can follow, bill of materials with real prices, measured data, and an honest section on what it does <em>not</em> do.</p>
     </section>
 
-    <section id="writing">
-      <div class="sec-head"><span>WRITING</span><span class="note">theory here, objects above</span></div>
-      <div class="essay-row">
-        <a href="https://jackpertzel.substack.com">Economics From First Principles: A Modern Toolkit — Part 1</a>
-        <span class="date">SEP 2025</span>
+    <section id="founder">
+      <div class="sec-head reveal">
+        <span class="tag"><b>§3</b> Drawn by</span>
+        <span class="note">the person behind the company</span>
       </div>
-      <div class="essay-row">
-        <a href="https://jackpertzel.substack.com">The Paradox of Democratic Coercion</a>
-        <span class="date">JUL 2025</span>
-      </div>
-      <div class="essay-row">
-        <a href="https://jackpertzel.substack.com">Language: The Sixth Sense</a>
-        <span class="date">MAY 2025</span>
-      </div>
-      <p class="obj-note">Essays are deliberately rationed — they ship when there's a finished object standing behind them, not on a schedule.</p>
-    </section>
-
-    <section id="about">
-      <div class="sec-head"><span>ABOUT</span></div>
-      <div class="about-text">
-        <p>I'm Jack Pertzel. I build instruments that give people control over things normally controlled by institutions — their data, their money, their health, their compliance obligations.</p>
-        <p>I started by running a small NDIS provider, which meant living the administrative burden personally, then building the software to carry it. That turned into building in two directions: confidential AI for organisations that can't hand sensitive work to a hyperscaler, and precision sensing instruments anyone can afford and verify.</p>
-        <p>I'm on the way to medicine — the endgame is a clinic that is also a lab. Everything here is a step toward that.</p>
-        <p>I ship one finished, documented, publicly usable thing every six weeks. I'd rather show you an object than a deck.</p>
+      <div class="founder-grid">
+        <div class="reveal">
+          <p class="founder-name">Jack <em>Pertzel.</em></p>
+          <p class="founder-role">Founder · Melbourne</p>
+        </div>
+        <div class="founder-text reveal">
+          <p>J &amp; Co is founded and run by Jack Pertzel. He started by running a small disability-services provider — living its administrative burden personally, then building the software to carry it. That turned into a company that builds in two directions: confidential AI for organisations with sensitive work, and precision instruments anyone can afford and verify.</p>
+          <p>Jack is on his way to medicine; the endgame is a clinic that is also a lab. The company is how he gets there — one finished, useful object at a time.</p>
+          <p>The company's story lives here. Jack's lives on the channels below — follow the person, not just the portfolio.</p>
+          <div class="follow">
+            <a class="ig" href="https://www.instagram.com/j_co_adventures">INSTAGRAM · @j_co_adventures</a>
+            <a href="https://github.com/jackpertzel-ai">GITHUB</a>
+            <a href="https://www.linkedin.com/in/pertzel">LINKEDIN</a>
+            <a href="https://jackpertzel.substack.com">SUBSTACK</a>
+          </div>
+        </div>
       </div>
     </section>
   </div>
 
-  <section class="subscribe" id="subscribe">
+  <section class="band" id="subscribe">
     <div class="wrap">
-      <h2>Follow <strong>the build.</strong></h2>
-      <p>One email when something ships, an essay occasionally. Real measurements, real costs, what broke and why. No noise — the archive above is exactly what you'll get.</p>
-      <div class="sub-embed">
+      <h2 class="reveal">Follow <em>the build.</em></h2>
+      <p class="reveal">One email when something ships, an essay occasionally. Real measurements, real costs, what broke and why — written by Jack, published by the company.</p>
+      <div class="sub-embed reveal">
         <iframe src="https://jackpertzel.substack.com/embed" title="Subscribe via Substack" loading="lazy" frameborder="0" scrolling="no"></iframe>
       </div>
     </div>
   </section>
 
   <div class="wrap">
-    <section aria-label="Elsewhere">
-      <div class="sec-head"><span>ELSEWHERE</span></div>
-      <div class="elsewhere">
-        <a href="https://github.com/jackpertzel-ai">GITHUB / jackpertzel-ai</a>
-        <a href="https://www.linkedin.com/in/pertzel">LINKEDIN / pertzel</a>
-        <a href="https://jackpertzel.substack.com">SUBSTACK / jackpertzel</a>
-      </div>
+    <section class="contact" id="contact">
+      <div class="eyebrow reveal"><b>§4</b> · WORK WITH J &amp; CO</div>
+      <a class="mailto reveal" href="mailto:hello@jco.ventures">hello@jco.ventures</a>
+      <p class="reveal">Business enquiries, partnerships, ideas. Replies come from Jack.</p>
     </section>
   </div>
 </main>
 
 <footer>
-  <div class="wrap">
-    <div class="titleblock" role="img" aria-label="Title block: drawn by J. Pertzel, J and Co Ventures Pty Ltd, Melbourne, revision A, 2026">
+  <div class="wrap foot">
+    <div class="titleblock" role="img" aria-label="Drawing title block: J and Co Ventures Pty Ltd, drawn by J. Pertzel, Melbourne Australia, revision B, 2026, sheet 1 of 1">
       <table>
-        <tr><td class="k">DRAWN BY</td><td>J. PERTZEL</td><td class="k">ENTITY</td><td>J &amp; CO VENTURES PTY LTD</td></tr>
-        <tr><td class="k">LOCATION</td><td>MELBOURNE, AUS</td><td class="k">REV</td><td>A · 2026</td></tr>
+        <tr>
+          <td class="k">ENTITY</td><td>J &amp; CO VENTURES PTY LTD</td>
+          <td class="k">DRAWN BY</td><td>J. PERTZEL</td>
+          <td class="k">REV</td><td>B</td>
+        </tr>
+        <tr>
+          <td class="k">LOCATION</td><td>MELBOURNE, AUS</td>
+          <td class="k">DATE</td><td>2026</td>
+          <td class="k">SHEET</td><td>1 OF 1</td>
+        </tr>
       </table>
     </div>
-    <p class="fineprint">Sensor readings shown on this page report what the instrument measures. They are not health advice, and nothing here is.</p>
+    <p class="fineprint">Sensor readings on this page report what the instrument measures. They are not health advice, and nothing here is.</p>
   </div>
 </footer>
 
 <script>
   (function () {
-    if (window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+    var reduced = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+    // scroll reveals — hidden state exists only when JS is running
+    if (!reduced && 'IntersectionObserver' in window) {
+      document.documentElement.classList.add('js-anim');
+      var io = new IntersectionObserver(function (entries) {
+        entries.forEach(function (e) {
+          if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); }
+        });
+      }, { rootMargin: '0px 0px -8% 0px' });
+      document.querySelectorAll('.reveal').forEach(function (el) { io.observe(el); });
+    } else {
+      document.querySelectorAll('.reveal').forEach(function (el) { el.classList.add('in'); });
+    }
+
+    // simulated bench feed
+    if (reduced) return;
     var v = 743;
     var co2 = document.getElementById('co2'), clock = document.getElementById('clock');
     function tick() {
