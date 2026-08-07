@@ -16,6 +16,9 @@ the site-vs-socials brand split in `~/brand`.
 
 ## Decisions and hazards that remain open
 
+- **Protected decision changed 2026-08-07:** Coco now appears publicly as founder (photo + first
+  name only) — Jack approved explicitly. `~/brand` (LLM_HANDOFF "Coco not part of the public
+  brand story") is now stale and must be updated at the next brand session.
 - Jack to delete the `jco-email-routing` Cloudflare API token (all its jobs are done) unless it
   was created with an expiry.
 - Optional: manually submit `sitemap.xml` in Search Console (robots.txt already advertises it).

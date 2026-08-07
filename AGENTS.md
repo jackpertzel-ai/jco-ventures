@@ -20,7 +20,10 @@ hello@jco.ventures delivers to Jack.
 ## Content rules (protected)
 
 - Company-first voice: the site is about J & Co Ventures; Jack-as-brand lives on social channels.
-- Never name MicroVibe (until trademark/FTO clear). Never mention Holistic or Coco.
+- Never name MicroVibe (until trademark/FTO clear). Never mention Holistic.
+- Coco appears as founder — photo and first name only, approved by Jack 2026-08-07 (reversing the
+  earlier keep-private default; `~/brand` still needs updating). Never add her surname, story or
+  any further personal detail without fresh explicit approval.
 - No health claims — sensor data is reported as measured, with the fine-print disclaimer kept.
 - Nothing appears in the portfolio or object log before it ships; the simulated bench feed stays
   labelled SIMULATED until real telemetry exists.
