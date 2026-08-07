@@ -1,24 +1,25 @@
 # NEXT — jco-ventures
 
-- **Capability:** Company-first website (v2 redesign, spec:
-  `docs/superpowers/specs/2026-08-07-company-first-site-design.md`)
-- **Slice:** Rebuild `index.html` company-first with upgraded visuals — complete
-- **Finish-line movement:** v2 deployed to https://jco.ventures (approved by Jack 2026-08-07:
-  "yep deploy and push"). hello@jco.ventures routing enabled and config-verified on Cloudflare;
-  end-to-end test email drafted in Jack's Gmail, awaiting his send.
+- **Capability:** Company-first website (v2) — complete and live
+- **Slice:** Level-up pass (share card, analytics, search) — complete
+- **Finish-line movement:** v2 live at https://jco.ventures · hello@jco.ventures proven end to end
+  by a real email (Jack, 2026-08-07) · og:image share card live · Cloudflare Web Analytics beacon
+  live (site tag bf5fa43d…) · Google Search Console domain property verified by Jack ·
+  sitemap.xml + robots.txt live
 
 ## Single next action
 
-Confirm Jack's test email to hello@jco.ventures arrives in his inbox; then this slice is fully
-closed. Next slice candidates: CLAUDE.md tool adapter; record the site-vs-socials brand split in
-`~/brand`.
+Nothing pending in this repo. Next slice candidates, in rough value order: live bench telemetry
+replacing the simulated feed (gated on desk-sensor streaming); CLAUDE.md tool adapter file.
+Off-repo but linked: fill in the GitHub profile and LinkedIn rewrite (Jack, human tasks); record
+the site-vs-socials brand split in `~/brand`.
 
 ## Decisions and hazards that remain open
 
-- Jack to delete/expire the `jco-email-routing` Cloudflare API token now that setup is done.
-- Record the site-vs-socials brand split in `~/brand` at the next brand session.
+- Jack to delete the `jco-email-routing` Cloudflare API token (all its jobs are done) unless it
+  was created with an expiry.
+- Optional: manually submit `sitemap.xml` in Search Console (robots.txt already advertises it).
 
 ## Current approval boundary
 
-Deploy of this v2 was explicitly approved 2026-08-07. Any further public change to the live site
-needs fresh approval that session.
+This slice is closed. Any further change to the live site needs fresh approval that session.
