@@ -2,25 +2,23 @@
 
 - **Capability:** Company-first website (v2 redesign, spec:
   `docs/superpowers/specs/2026-08-07-company-first-site-design.md`)
-- **Slice:** Rebuild `index.html` company-first with upgraded visuals
-- **Finish-line movement:** page exists and is locally verified (screenshots at 375/1440,
-  benchmarked against Linear/Stripe); **not pushed, not deployed** — live site still serves v1
+- **Slice:** Rebuild `index.html` company-first with upgraded visuals — complete
+- **Finish-line movement:** v2 deployed to https://jco.ventures (approved by Jack 2026-08-07:
+  "yep deploy and push"). hello@jco.ventures routing enabled and config-verified on Cloudflare;
+  end-to-end test email drafted in Jack's Gmail, awaiting his send.
 
 ## Single next action
 
-Show Jack the rendered page; on his approval: set up Cloudflare Email Routing for
-hello@jco.ventures (needs his Cloudflare access), then push `main` to deploy (needs his explicit
-go), then verify https://jco.ventures live and test-email hello@.
+Confirm Jack's test email to hello@jco.ventures arrives in his inbox; then this slice is fully
+closed. Next slice candidates: CLAUDE.md tool adapter; record the site-vs-socials brand split in
+`~/brand`.
 
 ## Decisions and hazards that remain open
 
-- hello@jco.ventures appears on the page but does not receive mail until Cloudflare Email Routing
-  is configured — do not deploy before routing works or the address bounces.
-- CLAUDE.md tool adapter not yet added (trivial, add with next slice).
+- Jack to delete/expire the `jco-email-routing` Cloudflare API token now that setup is done.
 - Record the site-vs-socials brand split in `~/brand` at the next brand session.
 
 ## Current approval boundary
 
-Approved: local implementation of the approved spec, including visual iteration. NOT approved:
-pushing `main`, deploying, DNS/email changes, or any public surface change — each needs Jack's
-explicit go this session.
+Deploy of this v2 was explicitly approved 2026-08-07. Any further public change to the live site
+needs fresh approval that session.
