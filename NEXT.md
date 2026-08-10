@@ -1,28 +1,29 @@
 # NEXT — jco-ventures
 
-- **Capability:** Company-first website (v2) — complete and live
-- **Slice:** Level-up pass (share card, analytics, search) — complete
-- **Finish-line movement:** v2 live at https://jco.ventures · hello@jco.ventures proven end to end
-  by a real email (Jack, 2026-08-07) · og:image share card live · Cloudflare Web Analytics beacon
-  live (site tag bf5fa43d…) · Google Search Console domain property verified by Jack ·
-  sitemap.xml + robots.txt live
+- **Capability:** Company front door for products, services and selective collaboration
+- **Slice:** Separated Option A production candidate — locally integrated; deployment approved
+- **Finish-line movement:** The approved visual system, Kuuki Lamp and separated current-work
+  hierarchy are integrated locally. Magpie Net now has its own venture chapter; Desk Sensor and
+  Kuuki are paired as physical prototypes. No commit, push, deployment or publication has occurred.
 
 ## Single next action
 
-Nothing pending in this repo. Next slice candidates, in rough value order: live bench telemetry
-replacing the simulated feed (gated on desk-sensor streaming); CLAUDE.md tool adapter file.
-Off-repo but linked: fill in the GitHub profile and LinkedIn rewrite (Jack, human tasks); record
-the site-vs-socials brand split in `~/brand`.
+Complete the final release audit, commit explicit in-scope paths, push `main` and confirm the
+existing GitHub Pages site live.
 
 ## Decisions and hazards that remain open
 
-- **Protected decision changed 2026-08-07:** Coco now appears publicly as founder (photo + first
-  name only) — Jack approved explicitly. `~/brand` (LLM_HANDOFF "Coco not part of the public
-  brand story") is now stale and must be updated at the next brand session.
-- Jack to delete the `jco-email-routing` Cloudflare API token (all its jobs are done) unless it
-  was created with an expiry.
-- Optional: manually submit `sitemap.xml` in Search Console (robots.txt already advertises it).
+- The built-in browser is unavailable for production pixel-level quality assurance, so desktop and
+  approximately 375px visual inspection still needs a working browser.
+- `hello@jco.ventures` was previously proven end to end; this slice verifies its links but did not
+  send another real email.
+- Magpie Net remains under review. Its J & Co status and destination must stay aligned with the live
+  Magpie status page.
+- Desk Sensor and Kuuki Lamp do not have public proof pages. Their truthful prototype evidence is
+  stated on this page and their calls to action remain email-only.
 
 ## Current approval boundary
 
-This slice is closed. Any further change to the live site needs fresh approval that session.
+Jack explicitly approved committing, pushing `main` and deploying the selected separated Option A
+design through the existing GitHub Pages workflow on 2026-08-10. Hosting-provider, DNS, analytics,
+email-routing and further public messaging changes remain outside this approval.

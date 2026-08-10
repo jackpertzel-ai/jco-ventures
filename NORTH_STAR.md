@@ -2,34 +2,54 @@
 
 ## Destination
 
-A one-page company front door at https://jco.ventures that a stranger — prospect, partner, bank,
-accountant or curious follower — can read in two minutes and conclude: *this is a real Melbourne
-company, it ships finished things, here is what it houses, here is how to reach it, and there is a
-human founder behind it worth following.*
+A one-page company front door at https://jco.ventures where a prospective customer, collaborator
+or partner can understand what J & Co is, see truthful evidence of its current work, recognise when
+a selective paid collaboration fits and take a clear next step.
 
-The split of surfaces is deliberate: **this site is about the company; Jack as a person is the
-story on Instagram (@j_co_adventures) and other social channels** (decided 2026-08-07).
+The company is founded in Melbourne and global in scope. Melbourne is its origin, not a claim that
+its questions, products or potential collaborators are geographically limited.
 
 ## Audience
 
-Primary: someone checking whether J & Co Ventures Pty Ltd is real and serious (prospect, partner,
-bank, accountant). Secondary: someone who found Jack on socials and wants the company behind him.
+Primary: people and organisations considering a J & Co product, service or collaboration.
+
+Secondary: partners, curious followers and professional counterparties checking the company behind
+the work.
+
+## Public positioning
+
+**We follow deep questions into useful things.** J & Co is an independent science and technology
+company that turns curiosity into products, ventures and collaborations. Its work should expand
+what people can understand and do while helping them remain connected to what matters.
+
+The deeper worldview is curiosity about reality; freedom from unnecessary control; freedom to grow
+and pursue meaningful possibilities; connection to self, family and community; and technology that
+can feel magical while giving people more understanding and control, not less.
 
 ## Finish line
 
-- The live page at https://jco.ventures leads with the company, not Jack, in title, hero and voice.
-- It lists exactly the public portfolio: Magpie Net (linking to magpienet.com), the instruments/
-  sensing line, and a reserved next-line slot. Nothing unshipped is promised.
-- A founder section links to Jack's real channels, including Instagram @j_co_adventures.
-- hello@jco.ventures is shown and actually delivers mail to Jack.
-- A stranger on a phone can read the whole page without horizontal scrolling or invisible content.
+- The title, hero and voice are company-first and use the approved positioning above.
+- The location reads as founded in Melbourne and global in scope, without claiming an existing
+  worldwide footprint.
+- Current work and paid collaborations are visibly separate.
+- Magpie Net, Desk Sensor and Kuuki Lamp use status-specific, demonstrable copy and truthful
+  destinations.
+- Services invite a worthwhile question without presenting J & Co as a general-purpose agency.
+- The public page contains no six-week delivery promise, reserved portfolio slot, simulated data,
+  health claim, Holistic or MicroVibe reference.
+- Jack and Coco appear within the approved first-name/photo boundary.
+- `Explore our work` reaches real work; `Discuss a project` and `hello@jco.ventures` open a direct
+  contact route.
+- The page remains readable at about 375px without horizontal scrolling and with JavaScript off.
+- Metadata and the social share card agree with the visible page.
 
 ## Out of scope
 
-Holistic anywhere on the page · Coco in the public story · MicroVibe naming (until trademark/FTO
-clear) · health claims · multi-page expansion · hosting/DNS changes beyond email routing.
+Multi-page expansion · contact forms or customer-data collection · pricing · unverified product
+claims · hosting/DNS/email/analytics changes · public deployment without a separate approval.
 
 ## Gate
 
-No Level 2 gate for this project is recorded in `brand` yet — flagged 2026-08-07; the site-vs-
-socials brand split should also be recorded in `brand` at the next brand session.
+Jack explicitly approved the selected separated Option A design and publication through the
+existing GitHub Pages `main` branch on 2026-08-10. Later public messaging, offer, hosting, DNS,
+analytics or email-routing changes require fresh approval.
