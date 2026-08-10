@@ -1,20 +1,22 @@
 # NEXT — jco-ventures
 
 - **Capability:** Company front door for products, services and selective collaboration
-- **Slice:** Separated Option A production candidate — locally integrated; deployment approved
-- **Finish-line movement:** The approved visual system, Kuuki Lamp and separated current-work
-  hierarchy are integrated locally. Magpie Net now has its own venture chapter; Desk Sensor and
-  Kuuki are paired as physical prototypes. No commit, push, deployment or publication has occurred.
+- **Slice:** Separated Option A company front door — live and verified
+- **Finish-line movement:** Commit `74ab4e6` is pushed to `main` and live at
+  https://jco.ventures. Magpie Net has its own venture chapter; Desk Sensor and Kuuki are paired
+  as physical prototypes. GitHub Pages run `31361463597` succeeded, and the public page plus all
+  production images, `robots.txt` and `sitemap.xml` returned HTTP 200 on 2026-08-10.
 
 ## Single next action
 
-Complete the final release audit, commit explicit in-scope paths, push `main` and confirm the
-existing GitHub Pages site live.
+Complete one real-person walkthrough of the production page at desktop and about 375px when a
+working browser is available. Record only concrete defects; any public correction needs fresh
+approval.
 
 ## Decisions and hazards that remain open
 
-- The built-in browser is unavailable for production pixel-level quality assurance, so desktop and
-  approximately 375px visual inspection still needs a working browser.
+- Jack reviewed the isolated separated-work preview before deployment. The built-in browser was
+  unavailable for a separate pixel-level walkthrough of the production URL.
 - `hello@jco.ventures` was previously proven end to end; this slice verifies its links but did not
   send another real email.
 - Magpie Net remains under review. Its J & Co status and destination must stay aligned with the live
@@ -24,6 +26,6 @@ existing GitHub Pages site live.
 
 ## Current approval boundary
 
-Jack explicitly approved committing, pushing `main` and deploying the selected separated Option A
-design through the existing GitHub Pages workflow on 2026-08-10. Hosting-provider, DNS, analytics,
-email-routing and further public messaging changes remain outside this approval.
+This deployment slice is closed. Jack approved and the selected separated Option A design was
+published through the existing GitHub Pages workflow on 2026-08-10. Any further public messaging,
+offer, hosting-provider, DNS, analytics or email-routing change requires fresh approval.
