@@ -2,7 +2,7 @@
 
 ## Destination
 
-A one-page company front door at https://jco.ventures where a prospective customer, collaborator
+A company front door at https://jco.ventures (one page plus the `/lab/` section) where a prospective customer, collaborator
 or partner can understand what J & Co is, see truthful evidence of its current work, recognise when
 a selective paid collaboration fits and take a clear next step.
 
@@ -35,18 +35,21 @@ can feel magical while giving people more understanding and control, not less.
 - Magpie Net, Desk Sensor and Kuuki Lamp use status-specific, demonstrable copy and truthful
   destinations.
 - Services invite a worthwhile question without presenting J & Co as a general-purpose agency.
-- The public page contains no six-week delivery promise, reserved portfolio slot, simulated data,
-  health claim, Holistic or MicroVibe reference.
+- The home page contains no six-week delivery promise, reserved portfolio slot, simulated data,
+  health claim, Holistic or MicroVibe reference; the `/lab/` pages state season dates and
+  deliverables as plans, never as accuracy claims or health advice.
 - Jack and Coco appear within the approved first-name/photo boundary.
 - `Explore our work` reaches real work; `Discuss a project` and `hello@jco.ventures` open a direct
   contact route.
-- The page remains readable at about 375px without horizontal scrolling and with JavaScript off.
-- Metadata and the social share card agree with the visible page.
+- Every page remains readable at about 375px without horizontal scrolling and with JavaScript off.
+- Metadata and share cards agree with their visible pages.
 
 ## Out of scope
 
-Multi-page expansion · contact forms or customer-data collection · pricing · unverified product
-claims · hosting/DNS/email/analytics changes · public deployment without a separate approval.
+Multi-page expansion beyond the `/lab/` section (the Pertzel Lab's home and one page per post,
+approved by Jack 2026-10-16) · contact forms or customer-data collection · pricing · unverified
+product claims · hosting/DNS/email/analytics changes · public deployment without a separate
+approval.
 
 ## Gate
 

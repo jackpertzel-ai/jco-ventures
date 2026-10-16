@@ -1,6 +1,6 @@
 # jco-ventures repository rules
 
-One static page (`index.html`), no build step. Deployed to https://jco.ventures by GitHub Pages
+A static site (`index.html` plus the `/lab/` section), no build step. Deployed to https://jco.ventures by GitHub Pages
 from `main` — **pushing `main` IS publishing publicly** and always needs Jack's explicit approval
 that session.
 
@@ -12,8 +12,8 @@ No automated verify command yet. Verify by consumer use:
 python3 -m http.server 8741   # from the repo root, then open http://localhost:8741/
 ```
 
-Check: the page renders with content visible (also with JavaScript disabled), has no horizontal
-scroll at about 375px, and its keyboard focus states remain visible. Verify the Magpie Net,
+Check: the home page, `/lab/` and each lab post render with content visible (also with JavaScript
+disabled), have no horizontal scroll at about 375px, and keep their keyboard focus states visible. Verify the Magpie Net,
 Instagram, GitHub, LinkedIn and Substack routes plus every `mailto:hello@jco.ventures` link. After
 any separately approved deploy, confirm https://jco.ventures serves the new content and that the
 email route still delivers to Jack.
