@@ -1,8 +1,8 @@
 # NEXT — jco-ventures
 
 - **Capability:** Company front door for products, services and selective collaboration
-- **Slice:** The lab on the site — built and reviewed on branch `lab-page`; waiting for Jack's
-  preview review, his word on the items below, and his push of `main` (that push is publication).
+- **Slice:** The lab on the site — **live since 2026-10-18** (`4a49a92` on `main`, pushed by Jack).
+  Remaining: the decisions below, none of them blocking.
 - **Finish-line movement:** "Explore our work reaches real work" gains a fifth real line of work
   (Pertzel Lab); research has its own chapter so current work and paid collaborations stay
   visibly separate; the notes panel points at the lab's record here and keeps Substack for essays.
@@ -31,39 +31,29 @@ correction cycle, a medium recheck, a second correction cycle and a bounded veri
 - `AGENTS.md`, `README.md` and the North Star destination and finish line now cover the home
   page plus `/lab/`.
 
-Checked in the browser: no horizontal scroll at 375, 744 and 1280 px; content present without
-JavaScript (the only scripts are JSON-LD and the analytics beacon); keyboard focus rings visible;
-every local link and asset resolves; external routes answer. Not yet exercised by a person:
-Jack's preview review. Not pushed, not deployed.
+Checked in the browser before the push: no horizontal scroll at 375, 744 and 1280 px; content
+present without JavaScript (the only scripts are JSON-LD and the analytics beacon); keyboard focus
+rings visible; every local link and asset resolves; external routes answer. **Deployed 2026-10-18:**
+Jack approved the three decisions and pushed `main`; the home page, `/lab/`, the announcement, the
+share image, the stylesheet and the sitemap all answered 200 on the live domain, and the live
+announcement carries the corrected figure C caption.
 
 ## Single next action
 
-Jack reviews the preview at desktop and phone width (`python3 -m http.server 8741` from the repo
-root, then http://localhost:8741/ and http://localhost:8741/lab/; hard-refresh, or add `?x=1`,
-because the local server sends no cache headers and Chrome will otherwise show a stale page),
-decides the items below, then on 2026-10-18 fast-forwards `main` to `lab-page` and pushes.
-After the deploy, confirm https://jco.ventures/lab/ serves the new pages and the share image
-resolves at https://jco.ventures/lab/assets/s1-og.png.
+Nothing is in flight. The next change to this site is the next lab post: one new page under
+`lab/`, a line in the posts list on `lab/index.html`, the dated "Latest from the lab" line on the
+home page, and a `sitemap.xml` entry. Before that, Jack decides the deploy allowlist below.
+Local preview: `python3 -m http.server 8741` from the repo root, then http://localhost:8741/ and
+/lab/ with a hard refresh (the local server sends no cache headers).
 
-## Decisions for Jack before the push
+## Decisions Jack made on 2026-10-18
 
-- **His own announcement text.** The page differs from the edited draft in three places, all
-  factual corrections made after review and listed at the end of
-  `~/pertzel-lab-data/content/2026-10-season1-week1/announcement-draft.md`: "over the next six
-  weeks" became "over the rest of this six-week season (it ends on 22 November)"; "every
-  heartbeat marked by anaesthesiologists" became "with stretches where every heartbeat was
-  checked by anaesthesiologists" (the dataset's page says a classifier screened about twenty
-  minutes per case and at least two of five anaesthesiologists validated each segment); "what the
-  anaesthesiologists marked" became "checked". Approve, reword, or revert. Two phrases were left
-  as written but flagged by the reviewer as undemonstrated: "a hospital-grade model" and "a model
-  people are already using".
-- **The lab's possessive.** The masthead now quotes the season plan, "Jack's research practice
-  within J & Co"; the ledes say "an independent research practice run by Jack, J & Co's
-  founder". If Jack wants a different framing, it changes in both places and in the lab's own
-  North Star.
-- **Three places carry the 18 Oct 2026 date:** the home-page line, the announcement's byline and
-  `article:published_time`, and every `lastmod` in `sitemap.xml`. Deploy on that day or change
-  all three first.
+- The three factual corrections to his announcement text (listed at the end of
+  `~/pertzel-lab-data/content/2026-10-season1-week1/announcement-draft.md`): approved as
+  published. "A hospital-grade model" and "a model people are already using" stay as written.
+- The lab's possessive: "Jack's research practice within J & Co" on the masthead, "an independent
+  research practice run by Jack, J & Co's founder" in the ledes. Kept.
+- Pushed on the dated day, so the 18 Oct dates stand.
 
 ## Hazards that remain open
 
