@@ -93,12 +93,13 @@
         <h2 id="season-heading">How well does an open ECG model <em>travel?</em></h2>
         <div class="season-meta">
           <span class="ok">Week 1 check passed, 13 October</span>
+          <span class="ok">Week 2 check met, 21 October</span>
           <span>Model: ECGFounder, published weights, run unchanged</span>
           <span>No accuracy claim yet</span>
         </div>
         <ol class="season-steps" role="list">
           <li><span class="n">01</span><span class="done">Set up and prove the pipeline: the model runs on ten PTB-XL records on a laptop. Done.</span></li>
-          <li><span class="n">02</span><span>Reproduce the authors' published PTB-XL score, with the tolerance written down before the run.</span></li>
+          <li><span class="n">02</span><span class="done">Reproduce the authors' published PTB-XL score, with the tolerance written down before the run. Done: finding by finding it reproduces (29 of 30 within 0.001); the stated average does not follow from the paper's own table, and the gap is documented.</span></li>
           <li><span class="n">03</span><span>Run the model on VitalDB, surgery recordings it has never seen, on the screened segments where every beat was checked by at least two anaesthesiologists.</span></li>
           <li><span class="n">04</span><span>Report the transfer gap: discrimination, calibration and subgroups.</span></li>
           <li><span class="n">05</span><span>Publish the code, a preprint, the figures and the weekly record, including what broke.</span></li>
@@ -113,6 +114,13 @@
         <span class="section-aside micro">As it happens · Honest status</span>
       </div>
       <ul class="posts" role="list">
+        <li>
+          <time datetime="2026-10-25">25 Oct 2026</time>
+          <div>
+            <a href="season-1-week-2.html">I checked a published AI number. Finding by finding it held. The headline didn't.</a>
+            <p>Week 2: the published PTB-XL score reproduced on a laptop. 29 of 30 per-finding scores match to three decimals; the stated average of 0.924 does not follow from the paper's own table, which averages to 0.898.</p>
+          </div>
+        </li>
         <li>
           <time datetime="2026-10-18">18 Oct 2026</time>
           <div>

@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="theme-color" content="#f3ede2">
+<title>I checked a published AI number. Finding by finding it held. The headline didn't. — Pertzel Lab</title>
+<meta name="description" content="Season 1, week 2 of Pertzel Lab: the published PTB-XL score of an open ECG model, reproduced on a laptop. 29 of 30 per-finding scores match to three decimals; the stated average of 0.924 does not follow from the paper's own table.">
+<meta property="og:title" content="I checked a published AI number. Finding by finding it held. The headline didn't.">
+<meta property="og:description" content="Week 2 of a one-person research lab: the same public model, the same 21,799 hospital ECGs, the authors' own label file, run on a laptop, with the match written down before the run.">
+<meta property="og:type" content="article">
+<meta property="article:published_time" content="2026-10-25">
+<meta property="og:url" content="https://jco.ventures/lab/season-1-week-2.html">
+<meta property="og:image" content="https://jco.ventures/lab/assets/s1-og.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Can a public AI model read an ECG as well as the doctors who labelled it? Pertzel Lab, Season 1.">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://jco.ventures/lab/assets/s1-og.png">
+<link rel="canonical" href="https://jco.ventures/lab/season-1-week-2.html">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' fill='%2312161b'/%3E%3Ctext x='16' y='22' font-family='Georgia,serif' font-style='italic' font-size='15' fill='%23ffb454' text-anchor='middle'%3EJ%26Co%3C/text%3E%3C/svg%3E">
+<link rel="stylesheet" href="../assets/site.css">
+<style>
+  .article { max-width: 720px; padding: 48px 0 24px; }
+  .article .eyebrow { margin-bottom: 14px; }
+  .article h1 { max-width: none; font-family: var(--serif); font-size: clamp(34px, 5vw, 50px); font-weight: 400; line-height: 1.08; margin: 0 0 18px; letter-spacing: -0.01em; }
+  .byline { font-family: var(--mono); font-size: 12px; letter-spacing: 0.06em; text-transform: uppercase; color: var(--muted); margin: 0 0 34px; display: flex; flex-wrap: wrap; gap: 8px 18px; }
+  .article p:not(.eyebrow):not(.byline) { font-size: 18px; line-height: 1.65; margin: 0 0 22px; }
+  .article .lab-figure { margin: 34px 0; }
+  .article table { width: 100%; border-collapse: collapse; font-size: 15px; margin: 0 0 26px; }
+  .article th, .article td { text-align: left; padding: 8px 10px 8px 0; border-bottom: 1px solid var(--line); vertical-align: top; }
+  .article td.num, .article th.num { text-align: right; font-family: var(--mono); font-size: 14px; }
+  .article caption { text-align: left; font-family: var(--mono); font-size: 12px; letter-spacing: 0.04em; text-transform: uppercase; color: var(--muted); padding: 0 0 8px; }
+  .rule-box { background: var(--night); color: var(--night-ink); padding: 22px 24px; margin: 36px 0 20px; font-size: 16px; line-height: 1.55; }
+  .rule-box .micro { color: var(--gold); display: block; margin-bottom: 8px; }
+  .article-foot { display: flex; flex-wrap: wrap; gap: 14px 28px; align-items: baseline; padding: 22px 0 40px; border-top: 1px solid var(--line); }
+  .article-foot .card-link { padding-top: 0; margin-top: 0; }
+</style>
+</head>
+<body>
+  <a class="skip-link" href="#main-content">Skip to content</a>
+
+  <div class="masthead-strip">
+    <div class="masthead-inner wrap micro">
+      <span>Pertzel Lab · Jack's research practice within J &amp; Co</span>
+      <span>Season 1 · October to November 2026</span>
+    </div>
+  </div>
+
+  <header class="site-header">
+    <nav class="nav wrap" aria-label="Main navigation">
+      <a class="wordmark" href="../">J<em>&amp;</em>Co Ventures</a>
+      <div class="nav-links">
+        <a href="../#work">Work</a>
+        <a href="./" aria-current="true">Lab</a>
+        <a href="../#services">Services</a>
+        <a href="../#thinking">Thinking</a>
+        <a href="../#about">About</a>
+      </div>
+      <a class="nav-cta" href="mailto:hello@jco.ventures?subject=Pertzel%20Lab">Write to the lab</a>
+    </nav>
+  </header>
+
+  <main id="main-content">
+    <article class="article wrap">
+      <p class="eyebrow"><strong>Pertzel Lab</strong> · Season 1 · Week 2</p>
+      <h1>I checked a published AI number. Finding by finding it held. The headline didn't.</h1>
+      <p class="byline"><span>Jack Pertzel</span><time datetime="2026-10-25">25 October 2026</time><span>About five minutes</span></p>
+
+      <p>Week 2 of the lab, and the first real test: checking someone else's number. The paper behind ECGFounder, an open AI model trained on ten million ECGs, reports a score of 0.924 on PTB-XL, a public set of 21,799 hospital heart recordings, each one read by cardiologists. The model is free, the recordings are free, and the authors publish the file that says which findings each recording has. So I ran the same model on the same recordings, on my laptop, and compared.</p>
+
+      <p>Before running anything I wrote down what would count as a match: within 0.01 of 0.924. Then, before scoring anything, I wrote down which findings the average would cover. That way I couldn't move the goalposts afterwards, and anyone can check that I didn't.</p>
+
+      <p>A word on the score, because everything turns on it. For each finding a cardiologist might note, like atrial fibrillation or a slow rhythm, the AI gives every recording a probability. Take one recording that has the finding and one that doesn't: does the AI rate the first one higher? Over every such pair, how often does it get the order right? That is the score. 0.5 is a coin toss, 1.0 is perfect, and 0.924 means the right order about 92 times in 100. It is not "92% accurate": it says nothing about where the AI draws its yes-or-no line. Its technical name is AUROC; the paper gives one per finding and averages them.</p>
+
+      <figure class="lab-figure">
+        <a class="figure-link" href="assets/s1-fig-d-published-vs-reproduced.png" aria-label="Open figure D at full size"><img src="assets/s1-fig-d-published-vs-reproduced.png" alt="A scatter plot of 30 dots, the paper's score across and my score up, all on the diagonal line except one gold dot labelled sinus rhythm, paper 0.923, mine 0.823" width="1600" height="1000"></a>
+        <figcaption><strong>Figure D. Finding by finding, published versus reproduced.</strong> Each dot is one finding. Across: the score in the paper's table. Up: the score from my run. A dot on the line means the same answer. 29 of 30 are within 0.001 of the line. Published: ECGFounder, Li et al. (<em>NEJM AI</em> 2025; arXiv:2410.04133 v4, Table 2). Reproduced: the public 12-lead weights, run unchanged on all 21,799 PTB-XL records (v1.0.3, PhysioNet, CC BY 4.0) with the authors' own label file and their evaluation script's preprocessing.</figcaption>
+      </figure>
+
+      <p>Finding by finding, the paper holds. Of the 30 scores in its PTB-XL table, 29 match mine to three decimal places. That is not luck; it means the weights, the preprocessing and the label file I used are the ones behind their table. The one that doesn't match is sinus rhythm, the normal heartbeat: the paper says 0.923, I get 0.823, exactly 0.100 apart. I checked that the label is exactly PTB-XL's sinus-rhythm statement on every record, and that no other output of the model scores 0.923 against it. Everything else agrees, so a typo in the table is the simplest explanation. I've asked.</p>
+
+      <figure class="lab-figure">
+        <a class="figure-link" href="assets/s1-fig-e-headline.png" aria-label="Open figure E at full size"><img src="assets/s1-fig-e-headline.png" alt="Four dots on a ruler from 0.88 to 0.94: the paper's headline 0.924 in gold inside a shaded band, the paper's own scores averaged 0.898, my z-score run 0.891 and my band-pass run 0.891" width="1600" height="1000"></a>
+        <figcaption><strong>Figure E. The headline number.</strong> The paper states an average of 0.924 (95% CI 0.917 to 0.931). Its own 30 per-finding scores average to 0.898. My run gives 0.891 over the 31 findings PTB-XL contains, on either preprocessing path, and 0.894 over the paper's 30. The shaded band is the match I wrote down before the run: within 0.01 of 0.924.</figcaption>
+      </figure>
+
+      <p>The headline doesn't add up. The paper's summary says 0.924. Average the 30 scores in the paper's own table and you get 0.898. My run gives 0.891. I tried every way of averaging I could think of, plain, weighted by how common each finding is, the median, dropping the rare ones, dropping the weak ones, and none of them reaches 0.924. So the check I set myself came out outside the band, by 0.033, and the reason is the summary number, not the model. Under the rule I froze, that is a documented gap, not a failed replication, and not a reason to re-run anything.</p>
+
+      <table>
+        <caption>The numbers, labelled</caption>
+        <thead><tr><th scope="col">What</th><th scope="col" class="num">Score</th><th scope="col">Label</th></tr></thead>
+        <tbody>
+          <tr><th scope="row">Average stated in the paper</th><td class="num">0.924</td><td>published (95% CI 0.917 to 0.931)</td></tr>
+          <tr><th scope="row">The paper's own 30 per-finding scores, averaged</th><td class="num">0.898</td><td>published, plain mean of the table</td></tr>
+          <tr><th scope="row">My run, the paper's 30 findings</th><td class="num">0.894</td><td>reproduced</td></tr>
+          <tr><th scope="row">My run, all 31 findings PTB-XL contains</th><td class="num">0.891</td><td>reproduced, the check (bootstrap 95% 0.888 to 0.894)</td></tr>
+          <tr><th scope="row">My run with the README's filtering step</th><td class="num">0.891</td><td>reproduced, sensitivity</td></tr>
+        </tbody>
+      </table>
+
+      <p>One more thing the paper skips. The authors' README says a filtering step is mandatory before using the model: notch out the mains hum, drop the slow wander and the fast noise. Their evaluation script doesn't do it, and their published table clearly came from the script, because that is the path that matches. So I ran it both ways. With the filtering on, the average moves by 0.0004, nothing. But single findings move: inferior infarct and first-degree AV block gain about 0.03, QT lengthening loses 0.034. Same model, same data, different per-finding answers, depending on an instruction the paper doesn't mention. Small print changes answers.</p>
+
+      <p>On Wednesday I emailed the corresponding author with three questions: which findings and which average produced 0.924; whether the sinus-rhythm row is a typo; and which preprocessing path and which counts sit behind the table. If they reply and are happy for me to, I'll quote the answer here.</p>
+
+      <p>What I take from the week, and would hand to anyone who reads papers. The model is as good as its table says it is, finding by finding, and that is worth knowing. The headline number in the summary is not backed by the paper's own figures, and nobody seems to have checked until now. And a replication needs three things: the exact pipeline, the exact set of findings, and the target written down before the run. Everything else is choosing the flattering number afterwards.</p>
+
+      <p>Next week: the same model on heart recordings it has never seen, taken during surgery, with stretches where every beat was checked by anaesthesiologists. Does it still work away from home? The code, the per-finding tables and every number on this page are in the lab repository, which goes public with the Season 1 preprint.</p>
+
+      <div class="rule-box">
+        <span class="micro">One rule for everything I post here</span>
+        I report what the data and the model show, never what it means for anyone's health. That's a different job, and not mine yet.
+      </div>
+
+      <div class="article-foot">
+        <a class="card-link" href="./">← The lab</a>
+        <a class="card-link" href="season-1-announcement.html">The Season 1 announcement →</a>
+        <a class="card-link" href="https://www.instagram.com/j_co_adventures/">Follow on Instagram →</a>
+        <a class="card-link" href="mailto:hello@jco.ventures?subject=Pertzel%20Lab%20Season%201">Write to the lab →</a>
+      </div>
+    </article>
+  </main>
+
+  <footer>
+    <div class="wrap">
+      <div class="footer-grid" aria-label="J and Co Ventures company details">
+        <div class="footer-cell"><span class="k">Entity</span><span class="v">J &amp; Co Ventures Pty Ltd</span></div>
+        <div class="footer-cell"><span class="k">Founded</span><span class="v">Melbourne, Australia</span></div>
+        <div class="footer-cell"><span class="k">Scope</span><span class="v">Global in scope</span></div>
+        <div class="footer-cell"><span class="k">Focus</span><span class="v">Science · Technology</span></div>
+      </div>
+      <p class="footer-note">Independent science and technology company · Deep questions, useful things.</p>
+    </div>
+  </footer>
+
+<!-- Cloudflare Web Analytics --><script type="module" src="https://static.cloudflareinsights.com/beacon.min.js" data-cf-beacon='{"token": "a05a8e57742f431893a7942d96ac429e"}'></script><!-- End Cloudflare Web Analytics -->
+</body>
+</html>
