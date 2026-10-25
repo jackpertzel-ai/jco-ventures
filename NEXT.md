@@ -1,8 +1,11 @@
 # NEXT — jco-ventures
 
 - **Capability:** Company front door for products, services and selective collaboration
-- **Slice:** The lab on the site — **live since 2026-10-18** (`4a49a92` on `main`, pushed by Jack).
-  Remaining: the decisions below, none of them blocking.
+- **Slice:** The lab on the site — live since 2026-10-18 (`4a49a92`); **Week 2 post live since
+  2026-10-25** (`bdd9210`, pushed with Jack's word; Pages run 40161132866 green; the page, its two
+  figures and the home-page line answered 200 on the live domain). **Pages now deploys only the site
+  files** (`c7b3726`, Jack's call on the allowlist loose end): `/NEXT.md` answers 404 on the live
+  domain, as checked after the deploy.
 - **Finish-line movement:** "Explore our work reaches real work" gains a fifth real line of work
   (Pertzel Lab); research has its own chapter so current work and paid collaborations stay
   visibly separate; the notes panel points at the lab's record here and keeps Substack for essays.
@@ -40,9 +43,11 @@ announcement carries the corrected figure C caption.
 
 ## Single next action
 
-Nothing is in flight. The next change to this site is the next lab post: one new page under
-`lab/`, a line in the posts list on `lab/index.html`, the dated "Latest from the lab" line on the
-home page, and a `sitemap.xml` entry. Before that, Jack decides the deploy allowlist below.
+Nothing is in flight. The next change to this site is the next lab post (Week 3 or the Season 1
+result): one new page under `lab/`, a line in the posts list on `lab/index.html`, the dated
+"Latest from the lab" line on the home page, and a `sitemap.xml` entry, as done for Week 2 on
+2026-10-25 (`lab/season-1-week-2.html`; figures rendered by the lab's content tools in the site
+palette). The deploy allowlist is decided and live.
 Local preview: `python3 -m http.server 8741` from the repo root, then http://localhost:8741/ and
 /lab/ with a hard refresh (the local server sends no cache headers).
 
