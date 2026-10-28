@@ -43,25 +43,34 @@ announcement carries the corrected figure C caption.
 
 ## Single next action
 
-Add and publish sequential navigation at the bottom of the weekly posts, requested by Jack after
-this session’s publication: move forward/back through published weeks or return to the weekly
-journal, like a book. This is a small follow-up to the approved live reader journey. Week 1 must
-link to Week 2; Week 2 must link to Week 1; both must link to the journal. First/latest boundaries
-must be honest, with no links to unpublished work. Reuse the existing visual language, keep clear
-phone-sized targets and keyboard focus, and work with JavaScript disabled. Retain existing project,
-contact and social routes. Carry this rule into the authoring guidance for future weekly posts.
+No additional website implementation is queued. Continue the evidence-backed research work in
+`pertzel-lab`; when a new weekly entry is approved for publication, update both ends of the
+previous/next sequence as required by `README.md`.
 
-Seat route: the current Builder implements directly; one fresh-context Evaluator performs a
-focused production check before the existing main/Pages deployment. No research/content changes,
-new dependencies, paid generators, analytics/hosting changes or messages. Jack’s exact follow-up
-and earlier publish instruction authorise this scoped update in the same session; no new
-publication decision is needed for these navigation links. Scope: two weekly HTML pages, shared
-scoped CSS, README authoring rule and this owner. Resource authority: current session allowance,
-existing checkout/tools/hosting; one site writer, evaluator owns only ignored review evidence,
-no recursive delegation or new spending. Evidence: ignored workflow/week-navigation-2026-10-28/.
-Success: actual previous/next/journal clicks work, boundary states are not links, existing page
-content is unchanged, mobile/desktop and JS-off checks pass, exact reviewed changes deploy and
-live routes behave the same. The earlier release receipt follows for context.
+### Published weekly navigation — 28 October 2026
+
+Jack requested book-style movement at the end of each weekly entry after approving publication in
+this session. The scoped follow-up is live: Week 1 links forward to Week 2, Week 2 links back to
+Week 1, and both return to the weekly journal. First/latest boundaries are explanatory text with
+no links to unpublished weeks. The controls form a row on desktop and stack on phones. README
+records the paired-link publishing rule for future weeks.
+
+Release commit `8eacc21852356584340ba80a4bbed5464beb028e` was independently reviewed with no supported
+findings under `week-navigation-20261028`, integrated, and published through the unchanged Pages
+workflow. [Successful deployment](https://github.com/jackpertzel-ai/jco-ventures/actions/runs/40690186963).
+Both live post files and the shared stylesheet match the exact reviewed Git bytes. Live checks
+covered 24 phone/desktop renders with JavaScript on/off, 48 internal destinations and four complete
+reading journeys including previous, next and journal navigation. The independent check exercised
+all four changed links, actual keyboard Tab/Enter behavior and honest boundary states. Research
+content and existing project/contact/social routes were preserved. Physical-phone and screen-reader
+use were not exercised; human usefulness remains unmeasured. No email was sent or delivery tested.
+
+Evidence is local and ignored under `workflow/week-navigation-2026-10-28/` (manifest, local/live
+browser checks and screenshots, independent review and deployment byte comparison). Work included
+implementation, required independent review, Windows test setup recovery and live verification.
+No new generation, research run, paid service, analytics, hosting or deployment configuration change
+was made. This receipt closes the current navigation request; later scientific updates retain their
+own evidence and publication boundary.
 
 ### Published reader journey
 
