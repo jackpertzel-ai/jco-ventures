@@ -121,3 +121,7 @@
 .lab-reader .reader-figure p {font-family:var(--sans);}
 .lab-reader .reader-figure .score-comparison p {font-family:var(--sans);}
 .lab-reader #contact {scroll-margin-top:120px;}
+/* Keep the article label/prose grid readable at tablet widths. */
+@media (min-width:761px) and (max-width:980px) {
+ .lab-reader .section-intro {margin-left:0;grid-template-columns:1fr;gap:15px;}
+}

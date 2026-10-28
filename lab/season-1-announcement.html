@@ -32,6 +32,8 @@
   .article-foot { display: flex; flex-wrap: wrap; gap: 14px 28px; align-items: baseline; padding: 22px 0 40px; border-top: 1px solid var(--line); }
   .article-foot .card-link { padding-top: 0; margin-top: 0; }
 </style>
+<link rel="stylesheet" href="/assets/mobile-navigation.css">
+<script src="/assets/mobile-navigation.js" defer></script>
 </head>
 <body>
   <a class="skip-link" href="#main-content">Skip to content</a>
@@ -43,7 +45,7 @@
     </div>
   </div>
 
-  <header class="site-header">
+  <header class="site-header" data-site-path="/lab/season-1-announcement.html">
     <nav class="nav wrap" aria-label="Main navigation">
       <a class="wordmark" href="../">J<em>&amp;</em>Co Ventures</a>
       <div class="nav-links">
@@ -54,7 +56,17 @@
         <a href="../#about">About</a>
       </div>
       <a class="nav-cta" href="https://arxiv.org/html/2410.04133v4">Original paper ↗</a>
-    </nav>
+    <div class="mobile-actions">
+<a class="mobile-lab-link" href="/lab/" aria-current="true">Lab</a>
+<details class="site-menu">
+<summary aria-controls="site-menu-panel"><span class="menu-closed-label">Menu</span><span class="menu-open-label">Close</span><span class="menu-icon" aria-hidden="true"></span></summary>
+<div class="site-menu-panel" id="site-menu-panel"><div class="site-menu-inner wrap">
+<div class="site-menu-heading"><span class="site-menu-kicker">Explore J&amp;Co</span><span class="site-menu-location">Week 1</span></div>
+<nav class="site-menu-links" aria-label="Mobile site navigation"><a href="/#work" data-section="work"><span>Our work</span><span aria-hidden="true">→</span></a><a href="/lab/" aria-current="true"><span>Lab</span><span aria-hidden="true">→</span></a><a href="/#services" data-section="services"><span>Services</span><span aria-hidden="true">→</span></a><a href="/#thinking" data-section="thinking"><span>Our thinking</span><span aria-hidden="true">→</span></a><a href="/#about" data-section="about"><span>About</span><span aria-hidden="true">→</span></a><a href="/#contact" data-section="contact"><span>Contact</span><span aria-hidden="true">→</span></a></nav>
+<div class="site-menu-research"><span class="site-menu-kicker">Current research · ECGFounder</span><nav class="site-menu-links" aria-label="Research shortcuts"><a href="/lab/ecgfounder/"><span>ECGFounder project</span><span aria-hidden="true">→</span></a><a href="/lab/ecgfounder/journal/"><span>Weekly journal</span><span aria-hidden="true">→</span></a><a href="https://arxiv.org/html/2410.04133v4"><span>Original paper</span><span aria-hidden="true">↗</span></a></nav></div>
+<a class="site-menu-contact" href="mailto:hello@jco.ventures?subject=Project%20conversation%20with%20J%20%26%20Co"><span>Discuss a project</span><span aria-hidden="true">↗</span></a>
+</div></div></details></div>
+</nav>
   </header>
 
   <main id="main-content">
