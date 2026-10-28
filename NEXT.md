@@ -43,6 +43,28 @@ announcement carries the corrected figure C caption.
 
 ## Single next action
 
+Add and publish sequential navigation at the bottom of the weekly posts, requested by Jack after
+this session’s publication: move forward/back through published weeks or return to the weekly
+journal, like a book. This is a small follow-up to the approved live reader journey. Week 1 must
+link to Week 2; Week 2 must link to Week 1; both must link to the journal. First/latest boundaries
+must be honest, with no links to unpublished work. Reuse the existing visual language, keep clear
+phone-sized targets and keyboard focus, and work with JavaScript disabled. Retain existing project,
+contact and social routes. Carry this rule into the authoring guidance for future weekly posts.
+
+Seat route: the current Builder implements directly; one fresh-context Evaluator performs a
+focused production check before the existing main/Pages deployment. No research/content changes,
+new dependencies, paid generators, analytics/hosting changes or messages. Jack’s exact follow-up
+and earlier publish instruction authorise this scoped update in the same session; no new
+publication decision is needed for these navigation links. Scope: two weekly HTML pages, shared
+scoped CSS, README authoring rule and this owner. Resource authority: current session allowance,
+existing checkout/tools/hosting; one site writer, evaluator owns only ignored review evidence,
+no recursive delegation or new spending. Evidence: ignored workflow/week-navigation-2026-10-28/.
+Success: actual previous/next/journal clicks work, boundary states are not links, existing page
+content is unchanged, mobile/desktop and JS-off checks pass, exact reviewed changes deploy and
+live routes behave the same. The earlier release receipt follows for context.
+
+### Published reader journey
+
 The approved website release is published. Jack authorised it with “Yep go let’s publish” on
 28 October 2026. Release commit `03efa56c2b43e730365c17a62baf48795b44a1cd` was independently evaluated under
 `lab-reader-release-20261028`, then pushed through the unchanged main/Pages workflow.
