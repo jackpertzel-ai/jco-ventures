@@ -18,7 +18,7 @@
 .lab-reader .section-intro {display:grid;grid-template-columns:200px minmax(0,1fr);gap:40px;align-items:start;}
 .lab-reader .section-label {font:11px/1.8 var(--mono);text-transform:uppercase;letter-spacing:.12em;color:#6b6b63;margin-top:8px;}
 .lab-reader .section-label b {display:block;color:var(--cobalt);font-size:14px;margin-bottom:8px;}
-.lab-reader .reading {max-width:720px;}
+.lab-reader .reading {min-width:0;max-width:720px;}
 .lab-reader h2 {font:400 clamp(29px,3.4vw,40px)/1.16 var(--serif);letter-spacing:-.015em;margin:0 0 22px;}
 .lab-reader h3 {font:400 25px/1.25 var(--serif);margin:0 0 12px;}
 .lab-reader .reading p, .lab-reader .read-section>p {font-size:18px;line-height:1.75;margin:0 0 20px;}
