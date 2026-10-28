@@ -9,7 +9,7 @@
 - **Finish-line movement:** "Explore our work reaches real work" gains a fifth real line of work
   (Pertzel Lab); research has its own chapter so current work and paid collaborations stay
   visibly separate; the notes panel points at the lab's record here and keeps Substack for essays.
-- **Seat route:** builder-evaluator
+- **Seat route:** native
 
 ## Where things stand
 
@@ -43,46 +43,39 @@ announcement carries the corrected figure C caption.
 
 ## Single next action
 
-Publish the accepted mobile navigation across the home page and all five existing lab pages.
-Jack explicitly approved the exact connected preview on 29 October 2026 with “Publish this version”.
-[Approved phone preview](https://p.superdesign.dev/draft/29027e6c-2224-4639-910b-852d5213b822).
-The six accepted drafts are version 2, with canonical source and evidence in ignored
-`.superdesign/mobile-navigation/`; `.superdesign/resume.json` records their identities.
+The approved mobile navigation is published and verified. No further website implementation is
+queued. Later research updates retain their own evidence and publication decision.
 
-Scope: sticky J&Co wordmark/Lab/Menu bar, full-width menu for Our work, Lab, Services, Our thinking,
-About and Contact, plus ECGFounder project, weekly journal and original-paper shortcuts. Keep the
-cream/blue visual style, large touch targets, current-location cues, closing after selection,
-keyboard use and native no-JavaScript disclosure. Preserve desktop, project and weekly navigation.
-Include the accepted 761–980px lab-reader grid fix for Week 2's previously reproduced overflow.
-Future labs should continue to enter through the collection, with current-project shortcuts updated
-when appropriate. Record this authoring rule in README.
+### Published mobile navigation — 29 October 2026
 
-Integrate only the approved local headers, shared CSS/JS and tablet rule into existing production
-files. Do not copy hosted exports wholesale: they contain preview routes, noindex markers, inline
-styles and altered analytics. Preserve original content, metadata, analytics, image paths and real
-routes. Research claims, hosting/DNS/deployment configuration and company messaging are out of scope.
+Jack approved the connected version-2 preview with “Publish this version”. Release commit
+`c3cc3f9a01fc5ac5028bcf6060153073fd4b986f` was reviewed under `mobile-navigation-release-20261029`,
+integrated after the independent check, and published through the unchanged main/Pages workflow.
+[Successful deployment](https://github.com/jackpertzel-ai/jco-ventures/actions/runs/40701508229).
 
-Success: verify actual integrated pages at phone, tablet and desktop widths with JavaScript on/off;
-exercise the menu, section destinations, current-location cues, keyboard Escape/focus return, short
-screens, Lab/project/journal transitions and previous/next weeks. Inspect the final diff for scope
-and preservation. One fresh independent focused production review must finish before main is pushed.
-Publish through the existing Pages workflow, verify the live routes and exact reviewed file bytes,
-and record the deployment receipt here after the assignment closes. Do not claim physical-phone,
-screen-reader or email-delivery testing; no email will be sent.
+All six pages now have the sticky J&Co/Lab/Menu phone header with the main sections and current
+research/project/journal/original-paper shortcuts. Location cues, large touch targets, keyboard
+focus, Escape and selection closing are present. Native disclosure and links work without
+JavaScript; automatic closing/current-section updates are enhancements. Desktop, project and
+previous/next week navigation are preserved. The accepted 761–980px Week 2 grid fix is included.
+README records how future projects/weeks keep the shared navigation consistent.
 
-Seat route: builder-evaluator because this changes production. Resource authority is this session,
-existing local tools and existing Pages hosting, one site writer and one fresh same-model Evaluator
-for useful independent review. No recursive delegation, paid generator, service, data destination,
-research run or infrastructure change is authorised. Existing resource controls are tool timeouts,
-scoped files and sequential review/rework; unknown runtime usage remains unknown. NEXT stays frozen
-while assignment `mobile-navigation-release-20261029` is open. Publication is approved; no further
-visual approval is required unless a material departure from the accepted design becomes necessary.
+Observed locally: 48 renders at 320/375/768/1280 with JavaScript on/off, actual Tab/Enter use,
+Escape/focus return, section jumps, short-screen scrolling, desktop resize and complete reading
+journeys. Source comparison confirms original content, metadata, analytics and desktop links were
+preserved. The independent review exercised the affected interface; see its report for coverage.
+Observed live: 24 phone/desktop renders with JavaScript on/off, 49 internal destinations,
+the connected Lab/project/journal/previous/next/home journey and exact reviewed bytes for all nine
+changed public files. External routes answered 200 except LinkedIn's automated-request 999.
+Email links still address hello@jco.ventures; no message was sent or delivery tested. Physical phones
+and screen readers were not exercised by the automated checks.
 
-Preview work already completed: 48 local renders at 320/375/768/1280 with JavaScript on/off,
-keyboard/short-screen/resize checks and a connected six-page hosted journey. All six hosted readbacks
-matched version 2. The tablet correction resolved an overflow also observed on the live site. These
-are preview evidence, not evidence of production integration. No generation credits or additional
-agents ran during the preview stage. Physical phones and screen readers were not exercised.
+Evidence is local and ignored under `workflow/mobile-navigation-release-2026-10-29/`; accepted
+preview source remains `.superdesign/mobile-navigation/`. Work included integration, content
+preservation checks, browser verification, required independent review with Windows setup recovery,
+publication and live verification. No new generators, research runs, paid services, infrastructure,
+analytics configuration or scientific-content changes were made. Review overhead is part of this
+release effort; user benefit beyond the approved preview has not been independently measured.
 
 ### Published weekly navigation — 28 October 2026
 
