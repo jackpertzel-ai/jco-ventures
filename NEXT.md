@@ -9,7 +9,7 @@
 - **Finish-line movement:** "Explore our work reaches real work" gains a fifth real line of work
   (Pertzel Lab); research has its own chapter so current work and paid collaborations stay
   visibly separate; the notes panel points at the lab's record here and keeps Substack for essays.
-- **Seat route:** native
+- **Seat route:** builder-evaluator
 
 ## Where things stand
 
@@ -43,10 +43,29 @@ announcement carries the corrected figure C caption.
 
 ## Single next action
 
-Ask Jack whether to publish the implemented lab revision. His “Yep that looks good” on 28 October
-approved the connected structure and opening; that direction has now been implemented locally on
-`prototype/ecg-reader-journey`. Deployment remains a separate decision. No website branch was
-pushed; the remote main was still `3400c59e70e0f214af52e1e741d89a7742f5a624` after the checks.
+Publish the approved lab revision. Jack explicitly authorised publication in this conversation
+on 28 October: “Yep go let’s publish”. Release the implemented branch `prototype/ecg-reader-journey`
+(after release cleanup and focused independent evaluation), deploy through the existing main/Pages
+workflow, and check the actual live pages. The reviewed implementation is commit
+`c23afa0ec68f5c4fad01597cb8744d35b8f1c3c0`; remote main was
+`3400c59e70e0f214af52e1e741d89a7742f5a624` before this release. Preserve other work if it moved.
+
+**Release review:** builder-evaluator, focused, because this changes the public production site.
+The current session is Builder; one fresh-context Evaluator checks the exact release candidate,
+its important claims and actual consumer behaviour. Use the existing approved design and eight
+correction boundaries below; no new research, claims or redesign. Success: release markers removed,
+real correction date/status, original paper/PDF easy to find, six routes usable on phones and with
+JavaScript off, existing company links/assets and historical post URLs preserved, existing
+analytics/Pages allowlist retained, exact candidate reviewed before push, then live checks.
+
+**Resource authority and controls:** Jack’s publication request authorises this release, its
+required independent review and ordinary within-scope fixes. Use the existing local checkout,
+current model/tool allowance and existing hosting; no purchases, paid generators, new services,
+DNS changes, messages or new data destinations. One writer for site files. Evaluator owns only
+its review evidence. No recursive delegation. Each external command/review remains observable and
+interruptible; unexposed model usage stays unknown. Release evidence is local under
+`workflow/release-2026-10-28/`, excluded from the published site and public Git commits; a summary
+and review screenshots may be saved in the already-approved private lab repo.
 
 The site now has `/lab/` as the collection, `/lab/ecgfounder/` as the project overview, and
 `/lab/ecgfounder/journal/` as the dated record. The project begins with Jack’s question and role,
@@ -71,7 +90,7 @@ hello@jco.ventures; delivery was not tested. A final image-scaling change passed
 all three affected pages at both widths. Browser evidence and actual screenshots are in the
 private lab repo at `design/implemented-journey/`; its season Content stream owns the review links.
 
-Before the separately approved publication: remove the draft banners and noindex markers from
+For the now-approved publication: remove the draft banners and noindex markers from
 all four draft pages, change the Week 2 correction wording/status to the actual publication date,
 and restore the existing analytics inclusion on the four changed/new lab pages. Preserve the
 historical Week 1 announcement and existing post URLs. Follow the required production review
@@ -106,14 +125,14 @@ analysis, inference, patient-grouped comparison or single-lead baseline ran in t
 
 Extended 28 October: local prototype authoring and browser review of the agreed ECG corrections,
 introductory reader journey, optional wired electrode illustration, clear result figures, source
-links and roadmap. Native route for this prototype, no deployment or production write. Private
-lab-repo review artifacts are authorised by the ongoing session. Superdesign review drafts are explicitly authorised. Jack approved the connected layout and opening on 28 October; implementation of that design is complete locally. Production deployment remains outside this scope.
+links and roadmap. The earlier prototype used the native route. Publication is now explicitly approved and uses builder-evaluator. Private
+lab-repo review artifacts are authorised by the ongoing session. Superdesign review drafts are explicitly authorised. Jack approved the connected layout and opening on 28 October; implementation of that design is complete locally. Jack’s later “Yep go let’s publish” extends this scope to publishing the approved version through the existing main/Pages deployment.
 
 
 Approved 2026-10-16 and built: the `/lab/` section, the three home-page additions, the
 notes-panel copy, the shared stylesheet, the figures with attribution, the dated line, sitemap and
 metadata, and the contract-text corrections that follow from them. Not approved for the model:
-pushing `main`, changing the deploy workflow, any change to the Magpie, Desk Sensor, Kuuki,
+changing the deploy workflow, any change to the Magpie, Desk Sensor, Kuuki,
 services, worldview or founders copy, hosting, DNS, analytics, forms, or any health claim.
 
 ### Connected project journey — 28 October 2026
