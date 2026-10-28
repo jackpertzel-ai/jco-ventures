@@ -9,7 +9,7 @@
 - **Finish-line movement:** "Explore our work reaches real work" gains a fifth real line of work
   (Pertzel Lab); research has its own chapter so current work and paid collaborations stay
   visibly separate; the notes panel points at the lab's record here and keeps Substack for essays.
-- **Seat route:** none
+- **Seat route:** native
 
 ## Where things stand
 
@@ -43,13 +43,33 @@ announcement carries the corrected figure C caption.
 
 ## Single next action
 
-Nothing is in flight. The next change to this site is the next lab post (Week 3 or the Season 1
-result): one new page under `lab/`, a line in the posts list on `lab/index.html`, the dated
-"Latest from the lab" line on the home page, and a `sitemap.xml` entry, as done for Week 2 on
-2026-10-25 (`lab/season-1-week-2.html`; figures rendered by the lab's content tools in the site
-palette). The deploy allowlist is decided and live.
-Local preview: `python3 -m http.server 8741` from the repo root, then http://localhost:8741/ and
-/lab/ with a hard refresh (the local server sends no cache headers).
+Review the 28 October ECG reader prototype with Jack before deployment. The two lab pages, the
+home page’s existing Week 2 teaser, scoped reader stylesheet, social image, wiring diagrams and
+new result figures are implemented on local branch `prototype/ecg-reader-journey`. No website
+branch has been pushed and no deployment was made. Eight agreed corrections, source HTML/PDF
+links near the top and in the phone header, ECG/model/dataset explanation, evidence-based roadmap
+and a collapsed-by-default illustration are included. Both single-lead contacts measure; their
+voltage difference gives one trace. The diagrams include separate wires, recorder boxes and a
+legend; positions and recorder traces are explicitly schematic. Later devices stay deferred.
+
+Actual desktop (1280px) and phone (375px) screenshots are saved and pushed only in the already
+approved private lab repository: `design/reader-preview/`. Its season Content stream owns the
+review links and the agreed copy. The local server is temporary. Native disclosure works with
+keyboard and JavaScript off; visible focus, page width, images, local links and 31-row score table
+were checked. The new graphs use saved aggregate results, not new inference or uncertainty
+analysis. Compare only the same 30-finding means directly; .924 is separate and unexplained.
+
+Automatic approval review rejected sending the unpublished drafts to Superdesign: that new
+external destination was not explicitly approved. Two already-public baseline pages are on the
+canvas; the corrected prototypes were NOT uploaded. Do not describe those baseline URLs as the
+new prototype. The local corrected HTML and private screenshots remain available. A new
+Superdesign upload requires explicit permission for that destination; do not bypass the block.
+
+Before a separately approved deployment: finish Jack’s visual/wording review, remove the draft
+banner and noindex marker, retain a dated substantive correction note, and restore the existing
+analytics inclusion on the two lab pages (omitted from the review prototype). Keep the deploy
+allowlist and all unrelated company routes unchanged. The project is not ready for an automatic
+main push. Publication date of the correction must reflect actual deployment, not this draft.
 
 ## Decisions Jack made on 2026-10-18
 
@@ -78,6 +98,13 @@ Local preview: `python3 -m http.server 8741` from the repo root, then http://loc
   to their full-size PNGs.
 
 ## Current approval boundary
+
+Extended 28 October: local prototype authoring and browser review of the agreed ECG corrections,
+introductory reader journey, optional wired electrode illustration, clear result figures, source
+links and roadmap. Native route for this prototype, no deployment or production write. Private
+lab-repo review artifacts are authorised by the ongoing session. Corrected prototype upload to
+Superdesign was rejected by automatic approval review and remains unapproved.
+
 
 Approved 2026-10-16 and built: the `/lab/` section, the three home-page additions, the
 notes-panel copy, the shared stylesheet, the figures with attribution, the dated line, sitemap and

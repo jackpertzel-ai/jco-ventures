@@ -1,0 +1,16 @@
+{
+  "source": "saved run aggregates, not new inference",
+  "sources": [
+    "runs/s1-w2-ptbxl/zscore/scores.json",
+    "runs/s1-w2-ptbxl/bandpass/scores.json",
+    "runs/s1-w2-ptbxl/published.json"
+  ],
+  "records": 21799,
+  "within_0_001": 29,
+  "macro31": 0.8909,
+  "filtered_macro31": 0.8913,
+  "macro30": 0.8943,
+  "paper_table_mean": 0.8977,
+  "filter_figure_selection": "four largest absolute per-finding changes out of 31",
+  "uncertainty": "No intervals for paired changes estimated; patient-grouped followup planned."
+}

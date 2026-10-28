@@ -4,51 +4,35 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="theme-color" content="#f3ede2">
-<title>I checked a published AI number. Finding by finding it held. The headline didn't. — Pertzel Lab</title>
-<meta name="description" content="Season 1, week 2 of Pertzel Lab: the published PTB-XL score of an open ECG model, reproduced on a laptop. 29 of 30 per-finding scores match to three decimals; the stated average of 0.924 does not follow from the paper's own table.">
-<meta property="og:title" content="I checked a published AI number. Finding by finding it held. The headline didn't.">
-<meta property="og:description" content="Week 2 of a one-person research lab: the same public model, the same 21,799 hospital ECGs, the authors' own label file, run on a laptop, with the match written down before the run.">
+<title>Most individual results reproduced. The reported average is still unexplained. — Pertzel Lab</title>
+<meta name="description" content="An independent ECGFounder reproduction: 29 of 30 individual AUROCs within 0.001, an unresolved headline average, and the limits of the comparison.">
+<meta property="og:title" content="Most individual results reproduced. The reported average is still unexplained.">
+<meta property="og:description" content="An independent ECGFounder reproduction: 29 of 30 individual AUROCs within 0.001, an unresolved headline average, and the limits of the comparison.">
 <meta property="og:type" content="article">
 <meta property="article:published_time" content="2026-10-25">
 <meta property="og:url" content="https://jco.ventures/lab/season-1-week-2.html">
-<meta property="og:image" content="https://jco.ventures/lab/assets/s1-og.png">
+<meta property="og:image" content="https://jco.ventures/lab/assets/s1-reader-og.png">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
-<meta property="og:image:alt" content="Can a public AI model read an ECG as well as the doctors who labelled it? Pertzel Lab, Season 1.">
+<meta property="og:image:alt" content="How well does an ECG model travel? An independent check of ECGFounder. Pertzel Lab, Season 1.">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:image" content="https://jco.ventures/lab/assets/s1-og.png">
+<meta name="twitter:image" content="https://jco.ventures/lab/assets/s1-reader-og.png">
 <link rel="canonical" href="https://jco.ventures/lab/season-1-week-2.html">
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' fill='%2312161b'/%3E%3Ctext x='16' y='22' font-family='Georgia,serif' font-style='italic' font-size='15' fill='%23ffb454' text-anchor='middle'%3EJ%26Co%3C/text%3E%3C/svg%3E">
 <link rel="stylesheet" href="../assets/site.css">
-<style>
-  .article { max-width: 720px; padding: 48px 0 24px; }
-  .article .eyebrow { margin-bottom: 14px; }
-  .article h1 { max-width: none; font-family: var(--serif); font-size: clamp(34px, 5vw, 50px); font-weight: 400; line-height: 1.08; margin: 0 0 18px; letter-spacing: -0.01em; }
-  .byline { font-family: var(--mono); font-size: 12px; letter-spacing: 0.06em; text-transform: uppercase; color: var(--muted); margin: 0 0 34px; display: flex; flex-wrap: wrap; gap: 8px 18px; }
-  .article p:not(.eyebrow):not(.byline) { font-size: 18px; line-height: 1.65; margin: 0 0 22px; }
-  .article .lab-figure { margin: 34px 0; }
-  .article table { width: 100%; border-collapse: collapse; font-size: 15px; margin: 0 0 26px; }
-  .article th, .article td { text-align: left; padding: 8px 10px 8px 0; border-bottom: 1px solid var(--line); vertical-align: top; }
-  .article td.num, .article th.num { text-align: right; font-family: var(--mono); font-size: 14px; }
-  .article caption { text-align: left; font-family: var(--mono); font-size: 12px; letter-spacing: 0.04em; text-transform: uppercase; color: var(--muted); padding: 0 0 8px; }
-  .rule-box { background: var(--night); color: var(--night-ink); padding: 22px 24px; margin: 36px 0 20px; font-size: 16px; line-height: 1.55; }
-  .rule-box .micro { color: var(--gold); display: block; margin-bottom: 8px; }
-  .article-foot { display: flex; flex-wrap: wrap; gap: 14px 28px; align-items: baseline; padding: 22px 0 40px; border-top: 1px solid var(--line); }
-  .article-foot .card-link { padding-top: 0; margin-top: 0; }
-</style>
-</head>
-<body>
-  <a class="skip-link" href="#main-content">Skip to content</a>
 
-  <div class="masthead-strip">
+<link rel="stylesheet" href="../assets/lab-reader.css">
+<meta name="robots" content="noindex,nofollow">
+</head>
+<body class="lab-reader"><a class="skip-link" href="#main-content">Skip to content</a><div class="masthead-strip">
     <div class="masthead-inner wrap micro">
       <span>Pertzel Lab · Jack's research practice within J &amp; Co</span>
       <span>Season 1 · October to November 2026</span>
     </div>
   </div>
+<header class="site-header">
 
-  <header class="site-header">
-    <nav class="nav wrap" aria-label="Main navigation">
+<nav class="nav wrap" aria-label="Main navigation">
       <a class="wordmark" href="../">J<em>&amp;</em>Co Ventures</a>
       <div class="nav-links">
         <a href="../#work">Work</a>
@@ -57,71 +41,229 @@
         <a href="../#thinking">Thinking</a>
         <a href="../#about">About</a>
       </div>
-      <a class="nav-cta" href="mailto:hello@jco.ventures?subject=Pertzel%20Lab">Write to the lab</a>
-    </nav>
-  </header>
+      <a class="nav-cta" href="https://arxiv.org/html/2410.04133v4">Original paper ↗</a>
 
-  <main id="main-content">
-    <article class="article wrap">
-      <p class="eyebrow"><strong>Pertzel Lab</strong> · Season 1 · Week 2</p>
-      <h1>I checked a published AI number. Finding by finding it held. The headline didn't.</h1>
-      <p class="byline"><span>Jack Pertzel</span><time datetime="2026-10-25">25 October 2026</time><span>About five minutes</span></p>
+</nav>
 
-      <p>Week 2 of the lab, and the first real test: checking someone else's number. The paper behind ECGFounder, an open AI model trained on ten million ECGs, reports a score of 0.924 on PTB-XL, a public set of 21,799 hospital heart recordings, each one read by cardiologists. The model is free, the recordings are free, and the authors publish the file that says which findings each recording has. So I ran the same model on the same recordings, on my laptop, and compared.</p>
-
-      <p>Before running anything I wrote down what would count as a match: within 0.01 of 0.924. Then, before scoring anything, I wrote down which findings the average would cover. That way I couldn't move the goalposts afterwards, and anyone can check that I didn't.</p>
-
-      <p>A word on the score, because everything turns on it. For each finding a cardiologist might note, like atrial fibrillation or a slow rhythm, the AI gives every recording a probability. Take one recording that has the finding and one that doesn't: does the AI rate the first one higher? Over every such pair, how often does it get the order right? That is the score. 0.5 is a coin toss, 1.0 is perfect, and 0.924 means the right order about 92 times in 100. It is not "92% accurate": it says nothing about where the AI draws its yes-or-no line. Its technical name is AUROC; the paper gives one per finding and averages them.</p>
-
-      <figure class="lab-figure">
-        <a class="figure-link" href="assets/s1-fig-d-published-vs-reproduced.png" aria-label="Open figure D at full size"><img src="assets/s1-fig-d-published-vs-reproduced.png" alt="A scatter plot of 30 dots, the paper's score across and my score up, all on the diagonal line except one gold dot labelled sinus rhythm, paper 0.923, mine 0.823" width="1600" height="1000"></a>
-        <figcaption><strong>Figure D. Finding by finding, published versus reproduced.</strong> Each dot is one finding. Across: the score in the paper's table. Up: the score from my run. A dot on the line means the same answer. 29 of 30 are within 0.001 of the line. Published: ECGFounder, Li et al. (<em>NEJM AI</em> 2025; arXiv:2410.04133 v4, Table 2). Reproduced: the public 12-lead weights, run unchanged on all 21,799 PTB-XL records (v1.0.3, PhysioNet, CC BY 4.0) with the authors' own label file and their evaluation script's preprocessing.</figcaption>
-      </figure>
-
-      <p>Finding by finding, the paper holds. Of the 30 scores in its PTB-XL table, 29 match mine to three decimal places. That is not luck; it means the weights, the preprocessing and the label file I used are the ones behind their table. The one that doesn't match is sinus rhythm, the normal heartbeat: the paper says 0.923, I get 0.823, exactly 0.100 apart. I checked that the label is exactly PTB-XL's sinus-rhythm statement on every record, and that no other output of the model scores 0.923 against it. Everything else agrees, so a typo in the table is the simplest explanation. I've asked.</p>
-
-      <figure class="lab-figure">
-        <a class="figure-link" href="assets/s1-fig-e-headline.png" aria-label="Open figure E at full size"><img src="assets/s1-fig-e-headline.png" alt="Four dots on a ruler from 0.88 to 0.94: the paper's headline 0.924 in gold inside a shaded band, the paper's own scores averaged 0.898, my z-score run 0.891 and my band-pass run 0.891" width="1600" height="1000"></a>
-        <figcaption><strong>Figure E. The headline number.</strong> The paper states an average of 0.924 (95% CI 0.917 to 0.931). Its own 30 per-finding scores average to 0.898. My run gives 0.891 over the 31 findings PTB-XL contains, on either preprocessing path, and 0.894 over the paper's 30. The shaded band is the match I wrote down before the run: within 0.01 of 0.924.</figcaption>
-      </figure>
-
-      <p>The headline doesn't add up. The paper's summary says 0.924. Average the 30 scores in the paper's own table and you get 0.898. My run gives 0.891. I tried every way of averaging I could think of, plain, weighted by how common each finding is, the median, dropping the rare ones, dropping the weak ones, and none of them reaches 0.924. So the check I set myself came out outside the band, by 0.033, and the reason is the summary number, not the model. Under the rule I froze, that is a documented gap, not a failed replication, and not a reason to re-run anything.</p>
-
-      <table>
-        <caption>The numbers, labelled</caption>
-        <thead><tr><th scope="col">What</th><th scope="col" class="num">Score</th><th scope="col">Label</th></tr></thead>
-        <tbody>
-          <tr><th scope="row">Average stated in the paper</th><td class="num">0.924</td><td>published (95% CI 0.917 to 0.931)</td></tr>
-          <tr><th scope="row">The paper's own 30 per-finding scores, averaged</th><td class="num">0.898</td><td>published, plain mean of the table</td></tr>
-          <tr><th scope="row">My run, the paper's 30 findings</th><td class="num">0.894</td><td>reproduced</td></tr>
-          <tr><th scope="row">My run, all 31 findings PTB-XL contains</th><td class="num">0.891</td><td>reproduced, the check (bootstrap 95% 0.888 to 0.894)</td></tr>
-          <tr><th scope="row">My run with the README's filtering step</th><td class="num">0.891</td><td>reproduced, sensitivity</td></tr>
-        </tbody>
-      </table>
-
-      <p>One more thing the paper skips. The authors' README says a filtering step is mandatory before using the model: notch out the mains hum, drop the slow wander and the fast noise. Their evaluation script doesn't do it, and their published table clearly came from the script, because that is the path that matches. So I ran it both ways. With the filtering on, the average moves by 0.0004, nothing. But single findings move: inferior infarct and first-degree AV block gain about 0.03, QT lengthening loses 0.034. Same model, same data, different per-finding answers, depending on an instruction the paper doesn't mention. Small print changes answers.</p>
-
-      <p>On Wednesday I emailed the corresponding author with three questions: which findings and which average produced 0.924; whether the sinus-rhythm row is a typo; and which preprocessing path and which counts sit behind the table. If they reply and are happy for me to, I'll quote the answer here.</p>
-
-      <p>What I take from the week, and would hand to anyone who reads papers. The model is as good as its table says it is, finding by finding, and that is worth knowing. The headline number in the summary is not backed by the paper's own figures, and nobody seems to have checked until now. And a replication needs three things: the exact pipeline, the exact set of findings, and the target written down before the run. Everything else is choosing the flattering number afterwards.</p>
-
-      <p>Next week: the same model on heart recordings it has never seen, taken during surgery, with stretches where every beat was checked by anaesthesiologists. Does it still work away from home? The code, the per-finding tables and every number on this page are in the lab repository, which goes public with the Season 1 preprint.</p>
-
-      <div class="rule-box">
-        <span class="micro">One rule for everything I post here</span>
-        I report what the data and the model show, never what it means for anyone's health. That's a different job, and not mine yet.
-      </div>
-
-      <div class="article-foot">
-        <a class="card-link" href="./">← The lab</a>
-        <a class="card-link" href="season-1-announcement.html">The Season 1 announcement →</a>
-        <a class="card-link" href="https://www.instagram.com/j_co_adventures/">Follow on Instagram →</a>
-        <a class="card-link" href="mailto:hello@jco.ventures?subject=Pertzel%20Lab%20Season%201">Write to the lab →</a>
-      </div>
-    </article>
-  </main>
-
-  <footer>
+</header><div class="prototype-note">REVIEW DRAFT · 28 OCTOBER 2026 · NOT YET PUBLISHED</div>
+<main id="main-content"><div class="wrap">
+<header class="reader-hero">
+<p class="eyebrow"><strong>Pertzel Lab</strong> · Season 1 · Week 2
+</p>
+<h1>Most individual results reproduced.<br><em>The reported average is still unexplained.</em>
+</h1>
+<p class="intro">I ran the authors’ released ECG model on a dataset they had already tested. Most individual scores came back very close. The remaining differences are worth understanding, without claiming more than this experiment shows.
+</p>
+<p class="byline"><span>Jack Pertzel</span><time datetime="2026-10-25">25 October 2026</time><span>Correction draft · 28 October</span><span>About 9 minutes</span>
+</p>
+<aside class="paper-source" aria-label="Original research paper"><div><span class="micro">Start with the primary source</span><strong>Original study · ECGFounder</strong>
+<p>Li et al. · Version 4, the version compared in this evaluation.
+</p></div><div class="source-actions"><a class="read-paper" href="https://arxiv.org/html/2410.04133v4">Read the paper ↗</a><a href="https://arxiv.org/pdf/2410.04133v4">PDF ↓</a></div>
+</aside>
+</header>
+<nav class="reader-jump" aria-label="On this page"><a href="#checked">The experiment</a><a href="#individual">Individual results</a><a href="#average">The average</a><a href="#preparation">Preparation</a><a href="#next">Next checks</a>
+</nav>
+<section class="read-section" id="checked"><div class="section-intro"><div class="section-label"><b>01</b>What I did</div><div class="reading">
+<h2>An independent check of an existing evaluation.
+</h2>
+<p>Before asking how well ECGFounder works in another setting, I wanted to check whether I could reproduce one of the evaluations in its paper. I used the authors&#x27; released 12-lead model on PTB-XL, a dataset they had already tested. I did not train a new model.
+</p>
+<p>Most individual scores came back very close to the published table. I also found an unexplained difference in the reported average and showed how changing the signal preparation can move individual scores.
+</p>
+<p>The authors had already tested ECGFounder on several datasets outside the one used to train it. My contribution here is an independent check of one of those evaluations, with the choices and discrepancies documented. That gives me a clearer starting point for testing it in another setting. Whether it helps clinicians or patients is a further question this experiment does not answer.
+</p>
+<details><summary>New to ECGs and the model?</summary><div class="disclosure-body">
+<p>An ECG records changes in the heart’s electrical activity. ECGFounder is the trained AI software that reads it. PTB-XL is the test dataset: recordings together with reference labels used to evaluate the model’s outputs.
+</p>
+<p><a href="./#start">Start with the illustrated introduction →</a>
+</p></div>
+</details></div></div>
+</section>
+<section class="read-section" id="individual"><div class="section-intro"><div class="section-label"><b>02</b>Reading the result</div><div class="reading">
+<h2>A ranking score, not “percent accurate”.
+</h2>
+<p>The score used here is <strong>AUROC</strong>. Imagine choosing one recording with a finding and one without it. Does the model give the first recording the higher score? AUROC measures how well it ranks those pairs: 0.5 is chance-level ranking and 1.0 is perfect ranking on the evaluated data.
+</p>
+<p>It is not a percentage of correct diagnoses. It does not tell us where to draw a yes-or-no threshold, how many false alarms we will get, or whether the model’s probabilities are well calibrated.
+</p>
+<figure class="reader-figure" id="week2-reproduction"><span class="micro">Figure 1 · Same 30 findings</span>
+<h3>Most dots sit on the agreement line.
+</h3>
+<p class="figure-lede">Each dot is a finding. A dot on the diagonal means the paper and lab report the same AUROC.
+</p><picture><source media="(max-width:600px)" srcset="assets/week2-reproduction-mobile.svg"><img src="assets/week2-reproduction.svg" alt="Scatter plot from 0.5 to 1.0 on both axes: 29 of 30 findings lie close to the agreement line. Sinus rhythm is lower in the lab run." width="750" height="540" loading="lazy"></picture><figcaption>Published: ECGFounder, arXiv v4, Table 2. Lab: released 12-lead model, PTB-XL v1.0.3, 21,799 recordings, evaluation-script preparation. Circles can overlap. Sinus rhythm: 0.923 in the paper versus 0.8233 in the saved run. No uncertainty intervals are shown.</figcaption><div class="figure-tools"><a href="assets/week2-reproduction.png">Open figure at full size ↗</a><a href="assets/week2-scores.csv" download>Download all 31 scores (CSV) ↓</a></div>
+</figure>
+<p>Of the 30 scores in the paper&#x27;s table, 29 were within 0.001 of my run. That gives me confidence that most of the individual results reproduce closely. It also points towards the evaluation script as a useful route for reproducing them, although matching scores don&#x27;t establish the authors&#x27; exact setup.
+</p>
+<p>Sinus rhythm was the exception: 0.923 in the paper and 0.823 in my run. I checked the label mapping and the model&#x27;s other outputs without resolving the difference. A typo is one possible explanation, but I haven&#x27;t established the cause.
+</p></div></div>
+</section>
+<section class="read-section" id="average"><div class="section-intro"><div class="section-label"><b>03</b>An unresolved difference</div><div class="reading">
+<h2>The headline average needs explaining.
+</h2>
+<p>The paper reports an average of <strong>0.924</strong>. The plain mean of the 30 scores printed in its table is <strong>0.8977</strong>. My mean across those same 30 findings is <strong>0.8943</strong>.
+</p>
+<p>Those are two different questions: can I reproduce the individual results, and can I explain the reported average? Most individual results reproduce closely. I still do not know which scope or calculation produced the headline number, so I cannot establish its cause from this run.
+</p>
+<figure class="reader-figure" id="headline-comparison"><span class="micro">Figure 2 · Keep the label sets explicit</span>
+<h3>The same 30 findings, averaged.
+</h3><div class="score-comparison"><div><span class="micro">Paper’s printed table</span><strong class="score">0.8977</strong>
+<p>Plain mean of its 30 published AUROCs.
+</p></div><div><span class="micro">My reproduction</span><strong class="score">0.8943</strong>
+<p>Plain mean across those same 30 findings.
+</p></div></div><div class="unresolved-score"><strong>0.924</strong>
+<p><b>The paper’s reported headline.</b> Its scope and calculation remain unexplained. It is shown separately because I have not established that it is the same aggregate.
+</p></div><figcaption>Means are rounded to four decimal places. The paper also reports a headline 95% interval of 0.917–0.931; its relationship to the table mean remains unclear.</figcaption>
+</figure><div class="notice">
+<p><strong>The original numerical check was not met.</strong> Before the run, I set a tolerance of 0.01 around 0.924. The pre-stated 31-finding mean was 0.8909, about 0.0331 below that target. Reporting close individual matches does not change that result.
+</p></div>
+<p>The 31-finding mean includes one additional evaluable label, “anterolateral leads”, that is absent from the paper’s 30-row table. That is why 0.8909 should not be presented as a directly comparable mean of those 30 rows.
+</p></div></div>
+</section>
+<section class="read-section" id="preparation"><div class="section-intro"><div class="section-label"><b>04</b>Signal preparation</div><div class="reading">
+<h2>The instructions don’t quite line up.
+</h2>
+<p>The instructions for preparing the ECGs don’t quite line up. The paper describes filtering out noise. The README points to a filtering routine with different settings. But the released PTB-XL evaluation script skips those filters and just centres and rescales each recording.
+</p>
+<p>So I ran the model both ways: following the evaluation script, then following the README’s filtering instructions. The average across 31 findings barely moved—just 0.0004. But underneath that average, some individual scores improved and others got worse, with changes of up to 0.044.
+</p>
+<p>That caught my attention because the model and the recordings hadn’t changed. Preparing the signal differently was enough to shift some results, and looking only at the average would have hidden that. Anyone trying to reproduce or build on this work needs to know which preparation steps were used. This experiment doesn’t establish which approach is best in clinical use.
+</p>
+<figure class="reader-figure" id="week2-filtering"><span class="micro">Figure 3 · The four largest absolute changes</span>
+<h3>A small average can hide larger movements.
+</h3>
+<p class="figure-lede">Right of zero: a higher AUROC after filtering. Left: a lower AUROC. These are the four largest changes among all 31 findings.
+</p><picture><source media="(max-width:600px)" srcset="assets/week2-filtering-mobile.svg"><img src="assets/week2-filtering.svg" alt="Diverging dot plot: QT lengthened minus 0.0344, first-degree AV block plus 0.0231, inferior infarct plus 0.0330, anterolateral leads plus 0.0436." width="750" height="540" loading="lazy"></picture><figcaption>Difference = README-filtered AUROC minus evaluation-script AUROC, on the same recordings and model. The 31-finding mean moves from 0.8909 to 0.8913. These are observed changes, not established improvements or harms in clinical use. Uncertainty around the paired changes has not yet been estimated.</figcaption><div class="figure-tools"><a href="assets/week2-filtering.png">Open figure at full size ↗</a><a href="assets/week2-scores.csv" download>Download all 31 scores (CSV) ↓</a></div>
+</figure>
+<details id="all-scores"><summary>See every finding and both preparation paths</summary><div class="data-wrap" role="region" aria-label="All 31 score comparisons; scroll horizontally on a small screen" tabindex="0"><table><caption>All 31 evaluable findings. AUROC, not percentage accuracy. A dash means no corresponding paper-table row. On a phone, scroll this table sideways.</caption><thead>
+<tr><th scope="col">Finding</th><th scope="col">Paper</th><th scope="col">Script</th><th scope="col">Filtered</th><th scope="col">Change</th>
+</tr></thead><tbody>
+<tr><th scope="row">Anterior infarct</th><td>0.635</td><td>0.6348</td><td>0.6412</td><td>+0.0064</td>
+</tr>
+<tr><th scope="row">Anterolateral infarct</th><td>0.945</td><td>0.9453</td><td>0.9448</td><td>-0.0005</td>
+</tr>
+<tr><th scope="row">Anterolateral leads</th><td>—</td><td>0.7883</td><td>0.8319</td><td>+0.0436</td>
+</tr>
+<tr><th scope="row">Anteroseptal infarct</th><td>0.945</td><td>0.9454</td><td>0.9422</td><td>-0.0032</td>
+</tr>
+<tr><th scope="row">Atrial fibrillation</th><td>0.993</td><td>0.9933</td><td>0.9933</td><td>+0.0000</td>
+</tr>
+<tr><th scope="row">Atrial flutter</th><td>0.993</td><td>0.9927</td><td>0.9913</td><td>-0.0014</td>
+</tr>
+<tr><th scope="row">Electronic atrial pacemaker</th><td>0.909</td><td>0.9086</td><td>0.9004</td><td>-0.0082</td>
+</tr>
+<tr><th scope="row">Inferior infarct</th><td>0.851</td><td>0.8506</td><td>0.8836</td><td>+0.0330</td>
+</tr>
+<tr><th scope="row">Lateral infarct</th><td>0.916</td><td>0.9156</td><td>0.9077</td><td>-0.0079</td>
+</tr>
+<tr><th scope="row">Left anterior fascicular block</th><td>0.972</td><td>0.9717</td><td>0.9738</td><td>+0.0021</td>
+</tr>
+<tr><th scope="row">Left atrial enlargement</th><td>0.799</td><td>0.7992</td><td>0.8065</td><td>+0.0073</td>
+</tr>
+<tr><th scope="row">Left bundle branch block</th><td>0.989</td><td>0.9894</td><td>0.9884</td><td>-0.0010</td>
+</tr>
+<tr><th scope="row">Left posterior fascicular block</th><td>0.840</td><td>0.8402</td><td>0.8286</td><td>-0.0116</td>
+</tr>
+<tr><th scope="row">Left ventricular hypertrophy</th><td>0.900</td><td>0.9001</td><td>0.8900</td><td>-0.0101</td>
+</tr>
+<tr><th scope="row">Low voltage qrs</th><td>0.581</td><td>0.5811</td><td>0.5762</td><td>-0.0049</td>
+</tr>
+<tr><th scope="row">Nonspecific intraventricular block</th><td>0.766</td><td>0.7661</td><td>0.7505</td><td>-0.0156</td>
+</tr>
+<tr><th scope="row">Normal ecg</th><td>0.887</td><td>0.8867</td><td>0.8847</td><td>-0.0020</td>
+</tr>
+<tr><th scope="row">Premature ventricular complexes</th><td>0.987</td><td>0.9867</td><td>0.9888</td><td>+0.0021</td>
+</tr>
+<tr><th scope="row">Qt has lengthened</th><td>0.931</td><td>0.9310</td><td>0.8966</td><td>-0.0344</td>
+</tr>
+<tr><th scope="row">Right atrial enlargement</th><td>0.959</td><td>0.9585</td><td>0.9520</td><td>-0.0065</td>
+</tr>
+<tr><th scope="row">Right bundle branch block</th><td>0.976</td><td>0.9758</td><td>0.9779</td><td>+0.0021</td>
+</tr>
+<tr><th scope="row">Right ventricular hypertrophy</th><td>0.913</td><td>0.9131</td><td>0.9104</td><td>-0.0027</td>
+</tr>
+<tr><th scope="row">Septal infarct</th><td>0.947</td><td>0.9468</td><td>0.9453</td><td>-0.0015</td>
+</tr>
+<tr><th scope="row">Sinus bradycardia</th><td>0.950</td><td>0.9498</td><td>0.9540</td><td>+0.0042</td>
+</tr>
+<tr><th scope="row">Sinus rhythm</th><td>0.923</td><td>0.8233</td><td>0.8262</td><td>+0.0029</td>
+</tr>
+<tr><th scope="row">Sinus tachycardia</th><td>0.994</td><td>0.9938</td><td>0.9939</td><td>+0.0001</td>
+</tr>
+<tr><th scope="row">Supraventricular tachycardia</th><td>0.995</td><td>0.9949</td><td>0.9926</td><td>-0.0023</td>
+</tr>
+<tr><th scope="row">Ventricular tachycardia</th><td>0.987</td><td>0.9865</td><td>0.9910</td><td>+0.0045</td>
+</tr>
+<tr><th scope="row">With 1st degree av block</th><td>0.911</td><td>0.9109</td><td>0.9340</td><td>+0.0231</td>
+</tr>
+<tr><th scope="row">With qrs widening</th><td>0.618</td><td>0.6177</td><td>0.6134</td><td>-0.0043</td>
+</tr>
+<tr><th scope="row">Wolff-parkinson-white</th><td>0.919</td><td>0.9188</td><td>0.9207</td><td>+0.0019</td>
+</tr></tbody></table></div>
+</details>
+<details><summary>The preparation details</summary><div class="disclosure-body">
+<p>The paper describes a 0.5–50 Hz filter and mains-frequency notch filters. The README routine uses a 0.67–40 Hz band-pass filter, a 50 Hz notch and baseline correction. The released evaluation script uses global z-score normalisation without those filters.
+</p>
+<p>I compared the script path with the README path. I did not run a separate literal implementation of the paper’s stated filtering path.
+</p></div>
+</details></div></div>
+</section>
+<section class="read-section" id="counts"><div class="section-intro"><div class="section-label"><b>05</b>Reference labels</div><div class="reading">
+<h2>A matching score doesn’t settle the counts.
+</h2>
+<p>I also found a mismatch in the counts. For low-voltage QRS, the paper lists 182, while the released label file I used marks 3,327 recordings with that finding. The label-file count comes from the reference labels used to score the model, not from the model&#x27;s own predictions.
+</p>
+<p>The score still closely matches the paper, but that doesn&#x27;t explain the count difference. I need to clarify what the paper&#x27;s count represents and check how the released labels were defined and loaded before treating the two evaluations as identical.
+</p></div></div>
+</section>
+<section class="read-section" id="uncertainty"><div class="section-intro"><div class="section-label"><b>06</b>What the ranges can tell us</div><div class="reading">
+<h2>Keep each patient’s recordings together.
+</h2>
+<p>The score changes from filtering are measured differences on this dataset. I haven&#x27;t yet estimated uncertainty around those changes.
+</p>
+<p>The uncertainty ranges I calculated for the averages also have a limitation: I resampled ECG recordings individually, even though some came from the same person. Recordings from the same person can be related, so those ranges may look too precise.
+</p>
+<p>A stronger check would keep each patient&#x27;s recordings together and compare both preparation methods on the same groups of patients. Until then, I&#x27;ll report the changes as observations from this dataset, with their wider reliability still open.
+</p>
+<p class="small">PTB-XL includes 21,799 recordings from 18,869 patients. The planned follow-up will resample patients, keep their recordings together, and compare both preparation paths using the same patient draws. It is an exploratory follow-up after seeing these results, not a newly pre-stated confirmation of them.
+</p></div></div>
+</section>
+<section class="read-section" id="next"><div class="section-intro"><div class="section-label"><b>07</b>The next comparison</div><div class="reading">
+<h2>One model, two sets of recordings.
+</h2>
+<p>Next I want to test the single-lead version of ECGFounder on recordings taken during surgery. That is a different model from the 12-lead version I used in Week 2, and it receives just one electrical view of the heart.
+</p>
+<p>To make the comparison more informative, I plan to run that same single-lead model on lead II from both PTB-XL and VitalDB, using consistent preparation and comparing findings that can be defined in both datasets. That will let me compare the same model across two sets of recordings. It will still leave differences in the patients, recording conditions and labels to consider.
+</p>
+<p>VitalDB Arrhythmia gives me selected stretches of ECG recorded during surgery, with rhythms reviewed by anaesthesiologists. Those stretches were screened for possible rhythm abnormalities, so they are not a complete picture of an operation or everyday life.
+</p>
+<p>This test can show how the model performs on those labelled recordings. It cannot, by itself, tell me how many false alarms it would produce during a full day of monitoring, or whether using it would improve someone&#x27;s care.
+</p>
+<p>VitalDB is the broader collection of surgical recordings. VitalDB Arrhythmia provides the reviewed labels for selected ECG segments. The labels are used to evaluate model outputs; they are not fed into the AI as hints.
+</p>
+<p>The additional single-lead PTB-XL baseline and patient-grouped comparison are planned research tasks. Their time will be allocated at Sunday planning on 1 November. Neither is a new result on this page.
+</p></div></div>
+</section>
+<section class="read-section" id="correction-note"><div class="section-intro"><div class="section-label"><b>08</b>An open record</div><div class="reading">
+<h2>What this correction changes.
+</h2>
+<p>This draft revises the 25 October post. It corrects the filtering description, separates the 30- and 31-finding averages, removes certainty about the authors’ exact setup and a possible typo, and makes the label-count and statistical limits explicit. It also distinguishes the next single-lead experiment from Week 2’s 12-lead reproduction.
+</p>
+<p>The underlying saved results have not changed. The headline-average discrepancy and the count questions remain open. I contacted the authors on 21 October; there is no answer recorded in this review.
+</p>
+<ul class="source-list">
+<li><a href="https://arxiv.org/html/2410.04133v4">Original ECGFounder paper, version 4</a> · <a href="https://arxiv.org/pdf/2410.04133v4">PDF</a>
+</li>
+<li><a href="https://physionet.org/content/ptb-xl/1.0.3/">PTB-XL v1.0.3</a> · Wagner et al. · CC BY 4.0
+</li>
+<li><a href="https://physionet.org/content/vitaldb/1.0.0/">VitalDB</a> · <a href="https://physionet.org/content/vitaldb-arrhythmia/1.0.0/">VitalDB Arrhythmia</a>
+</li>
+<li><a href="assets/week2-scores.csv" download>Saved per-finding scores used in these figures</a>
+</li>
+</ul>
+<p class="small">This work reports model performance against a dataset’s reference labels. It does not provide health advice or establish clinical benefit. The lab repository is planned to become public with the Season 1 research output.
+</p></div></div>
+</section><div class="article-end"><a href="./">← The lab and its roadmap</a><a href="mailto:hello@jco.ventures?subject=Pertzel%20Lab%20Week%202">Write to the lab →</a></div></div>
+</main><footer id="contact">
     <div class="wrap">
       <div class="footer-grid" aria-label="J and Co Ventures company details">
         <div class="footer-cell"><span class="k">Entity</span><span class="v">J &amp; Co Ventures Pty Ltd</span></div>
@@ -129,10 +271,8 @@
         <div class="footer-cell"><span class="k">Scope</span><span class="v">Global in scope</span></div>
         <div class="footer-cell"><span class="k">Focus</span><span class="v">Science · Technology</span></div>
       </div>
-      <p class="footer-note">Independent science and technology company · Deep questions, useful things.</p>
-    </div>
-  </footer>
 
-<!-- Cloudflare Web Analytics --><script type="module" src="https://static.cloudflareinsights.com/beacon.min.js" data-cf-beacon='{"token": "a05a8e57742f431893a7942d96ac429e"}'></script><!-- End Cloudflare Web Analytics -->
-</body>
-</html>
+<p class="footer-note">Independent science and technology company · Deep questions, useful things.
+</p>
+    </div>
+  </footer></body></html>
