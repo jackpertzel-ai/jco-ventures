@@ -43,7 +43,15 @@ announcement carries the corrected figure C caption.
 
 ## Single next action
 
-Review the two hosted navigation alternatives with Jack, then implement his chosen direction. The season Content stream in `pertzel-lab` owns the review links. A (guided story) is saved as Superdesign draft `2c927923-98c7-422a-a48b-592d8099e967`, version 3; B (research notebook) as `5ea0763b-2d32-4848-a4e2-e6762c1ed688`, version 4. Both were checked at 375px and 1280px, including actual collection/project-return navigation. The source draft stays active until selection. These alternatives are design artifacts; the site files still contain the preceding local prototype below. No direction is approved for implementation or production deployment.
+Review the connected project journey with Jack. He prefers B’s navigation with the research
+story and has corrected the opening: first explain the research project and his own role, then
+introduce ECGs, why the question matters and the approach. Lab collection > project overview >
+weekly journal now works across three hosted prototypes. The private lab’s season Content stream
+owns the review links and exact versions; final HTML/screenshots are in `design/project-journey/`.
+The actual route was exercised at 375px and 1280px, including return navigation and reading with
+JavaScript disabled. Only one project is real; the archive is explicitly empty. These remain
+review artifacts. The website files still contain the preceding local prototype below; the
+three-route implementation and production deployment are pending Jack’s review.
 
 Review the 28 October ECG reader prototype with Jack before deployment. The two lab pages, the
 home page’s existing Week 2 teaser, scoped reader stylesheet, social image, wiring diagrams and
@@ -109,10 +117,22 @@ metadata, and the contract-text corrections that follow from them. Not approved 
 pushing `main`, changing the deploy workflow, any change to the Magpie, Desk Sensor, Kuuki,
 services, worldview or founders copy, hosting, DNS, analytics, forms, or any health claim.
 
-### Navigation options requested — 28 October 2026
+### Connected project journey — 28 October 2026
 
-Jack asked for a few options before choosing the next website layout. The assistant prepared two directions: an approachable guided story and a research notebook. The durable hierarchy is Lab collection > individual project > weekly research entries. The project introduction starts with what an ECG can reveal, why it matters, and the existing real PTB-XL ten-second recording; Week 2 findings belong in the research journal. Keep primary paper/PDF links prominent, the wired electrode explanation optional, and completed work distinct from plans. Only one project is currently real; do not invent future active labs.
+Jack prefers B navigation with the research story. His latest correction supersedes the earlier
+ECG-first introduction: explain what he is researching and his role first, then background,
+importance and approach, with dated work in a separate weekly journal. The Lab collection has
+current and previous projects; only the current ECGFounder project exists. No invented projects.
 
-Jack explicitly authorised Superdesign and suitable design tools for these revisions, including sharing the review drafts. This resolves the earlier destination-approval rejection. Prepare two reviewable alternatives with phone links and inspect their rendering; preserve the eight scientific corrections. No production deployment or main push is approved. Selection and human comprehension review remain open.
+Current review drafts: collection `d35d5fac-11ae-474e-816b-ee1af29b65ed` version 1; project
+`5ea0763b-2d32-4848-a4e2-e6762c1ed688` version 5; journal
+`67287403-63e0-4d31-bd9e-bafa794b9ed6` version 1. Source links, real traces and the optional wired
+electrode guide remain. Proposed website paths are `/lab/`, `/lab/ecgfounder/` and
+`/lab/ecgfounder/journal/`; they are not deployed. The season Content stream in `pertzel-lab`
+owns the click-through links, screenshot record and review limits.
 
-The two navigation alternatives and final browser evidence are saved in the private lab repo under `design/navigation-options/`. Superdesign generation reported 112 credits for the two options; subsequent repairs used direct edits. The corrected overview upload succeeded, but the full Week 2 draft import hit asset-URL validation and remains an old remote baseline; use the corrected private report screenshots. This does not block reviewing the new navigation alternatives.
+Superdesign sharing remains explicitly authorised for these review drafts. The latest work used
+direct edits and no new generation credits. The earlier A/B artifacts are preserved privately in
+`design/navigation-options/`; B’s hosted URL now shows the selected project-first version. The
+full corrected Week 2 report still uses its private screenshot after the earlier import problem.
+Human wording, comprehension and phone review remain open. No website branch was pushed.
