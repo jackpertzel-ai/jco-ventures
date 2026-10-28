@@ -43,59 +43,37 @@ announcement carries the corrected figure C caption.
 
 ## Single next action
 
-Publish the approved lab revision. Jack explicitly authorised publication in this conversation
-on 28 October: “Yep go let’s publish”. Release the implemented branch `prototype/ecg-reader-journey`
-(after release cleanup and focused independent evaluation), deploy through the existing main/Pages
-workflow, and check the actual live pages. The reviewed implementation is commit
-`c23afa0ec68f5c4fad01597cb8744d35b8f1c3c0`; remote main was
-`3400c59e70e0f214af52e1e741d89a7742f5a624` before this release. Preserve other work if it moved.
+The approved website release is published. Jack authorised it with “Yep go let’s publish” on
+28 October 2026. Release commit `03efa56c2b43e730365c17a62baf48795b44a1cd` was independently evaluated under
+`lab-reader-release-20261028`, then pushed through the unchanged main/Pages workflow.
+[Successful deployment](https://github.com/jackpertzel-ai/jco-ventures/actions/runs/40683724221).
 
-**Release review:** builder-evaluator, focused, because this changes the public production site.
-The current session is Builder; one fresh-context Evaluator checks the exact release candidate,
-its important claims and actual consumer behaviour. Use the existing approved design and eight
-correction boundaries below; no new research, claims or redesign. Success: release markers removed,
-real correction date/status, original paper/PDF easy to find, six routes usable on phones and with
-JavaScript off, existing company links/assets and historical post URLs preserved, existing
-analytics/Pages allowlist retained, exact candidate reviewed before push, then live checks.
+Live routes: [Lab collection](https://jco.ventures/lab/),
+[ECGFounder project](https://jco.ventures/lab/ecgfounder/),
+[weekly journal](https://jco.ventures/lab/ecgfounder/journal/) and
+[corrected Week 2](https://jco.ventures/lab/season-1-week-2.html). Existing post URLs remain.
+The project introduces Jack’s research first, then background, approach and sources. Original
+paper/PDF links are prominent. Real traces, optional wired electrode diagrams and corrected
+figures are live. Draft/noindex markers are removed; Week 2 retains its 25 October publication
+date and records its 28 October correction. Existing analytics and the Pages allowlist remain.
 
-**Resource authority and controls:** Jack’s publication request authorises this release, its
-required independent review and ordinary within-scope fixes. Use the existing local checkout,
-current model/tool allowance and existing hosting; no purchases, paid generators, new services,
-DNS changes, messages or new data destinations. One writer for site files. Evaluator owns only
-its review evidence. No recursive delegation. Each external command/review remains observable and
-interruptible; unexposed model usage stays unknown. Release evidence is local under
-`workflow/release-2026-10-28/`, excluded from the published site and public Git commits; a summary
-and review screenshots may be saved in the already-approved private lab repo.
+Observed after deployment: all 36 published files matched the reviewed Git bytes;
+24 phone/desktop renders with JavaScript on/off, 48 internal destinations and four complete reader
+journeys passed. Native disclosures and visible keyboard focus work without JavaScript. Working
+notes and review evidence return 404 on the public domain. Paper/PDF, Magpie Net, Instagram,
+GitHub and Substack returned 200; LinkedIn returned 999 to the automated request. Email links
+still address hello@jco.ventures; actual delivery was not tested and no email was sent.
 
-The site now has `/lab/` as the collection, `/lab/ecgfounder/` as the project overview, and
-`/lab/ecgfounder/journal/` as the dated record. The project begins with Jack’s question and role,
-then background, approach and sources. One real current project, with an empty archive. The
-journal opens the full corrected Week 2 HTML report, and both existing weekly-post URLs have
-project/journal return links. The original paper is prominent, including on the Week 1 page.
-The company homepage’s lab card and entry labels now agree with the current project status.
+Private screenshots and publication evidence are in `pertzel-lab/design/published-journey/`;
+local review evidence is under ignored `workflow/release-2026-10-28/`. The release required
+cleanup, local browser checks, independent evaluation, a phone-table correction and targeted
+recheck, deployment and live verification. No new
+model generation or research analysis ran. Human comprehension has not been measured.
 
-Approved copy and figures are retained. Real ECG PNGs and exact wired SVGs are served locally;
-there is no Superdesign hosting dependency in the implementation. A shared lab stylesheet serves
-only the three new pages. Diagrams retain their aspect ratio at phone sizes. The new routes are
-included in the sitemap and already covered by the existing Pages file allowlist.
-
-Verification: 24 rendered combinations across all six pages, 375px/1280px and JavaScript on/off;
-48 internal destinations resolved; the full collection > project > background > journal >
-corrected report > journal > project > collection route was exercised in all four browser modes.
-No page-width overflow, missing visible images, duplicate IDs or page JavaScript errors. The
-native figures open/close from the keyboard with JavaScript off; focus is visible. Paper/PDF,
-Magpie Net, Instagram, GitHub and Substack returned 200. LinkedIn returned 999 to the automated
-request, so that external destination was not verified. Existing email links still address
-hello@jco.ventures; delivery was not tested. A final image-scaling change passed focused checks on
-all three affected pages at both widths. Browser evidence and actual screenshots are in the
-private lab repo at `design/implemented-journey/`; its season Content stream owns the review links.
-
-For the now-approved publication: remove the draft banners and noindex markers from
-all four draft pages, change the Week 2 correction wording/status to the actual publication date,
-and restore the existing analytics inclusion on the four changed/new lab pages. Preserve the
-historical Week 1 announcement and existing post URLs. Follow the required production review
-route before pushing main; confirm the live pages and routes after deployment. No new research
-analysis, inference, patient-grouped comparison or single-lead baseline ran in this UI task.
+No additional website implementation is queued. Research follow-ups remain with the private lab:
+patient-grouped uncertainty and the matched single-lead PTB-XL baseline are planned, not run;
+allocate their time at Sunday planning on 1 November. Keep the unresolved headline average and
+label counts explicit. Future research updates need their own evidence and publication decision.
 
 ## Decisions Jack made on 2026-10-18
 
@@ -146,7 +124,7 @@ Current review drafts: collection `d35d5fac-11ae-474e-816b-ee1af29b65ed` version
 `5ea0763b-2d32-4848-a4e2-e6762c1ed688` version 5; journal
 `67287403-63e0-4d31-bd9e-bafa794b9ed6` version 1. Source links, real traces and the optional wired
 electrode guide remain. Proposed website paths are `/lab/`, `/lab/ecgfounder/` and
-`/lab/ecgfounder/journal/`; they now exist locally and are not deployed. The season Content stream in `pertzel-lab`
+`/lab/ecgfounder/journal/`; they are now published; see the release receipt above. The season Content stream in `pertzel-lab`
 owns the click-through links, screenshot record and review limits.
 
 Superdesign sharing remains explicitly authorised for these review drafts. The latest work used
@@ -154,5 +132,4 @@ direct edits and no new generation credits. The earlier A/B artifacts are preser
 `design/navigation-options/`; B’s hosted URL now shows the selected project-first version. The
 full corrected Week 2 report still uses its private screenshot in the older hosted mockup after the
 earlier import problem; the implemented website now links its full corrected HTML article. Jack
-approved the connected layout and opening. The current publication checkpoint is above. No website
-branch was pushed.
+approved the connected layout and opening. The completed publication receipt is above. The reviewed release was pushed to main and is live.
