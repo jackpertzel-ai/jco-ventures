@@ -43,39 +43,40 @@ announcement carries the corrected figure C caption.
 
 ## Single next action
 
-Review the connected project journey with Jack. He prefers B’s navigation with the research
-story and has corrected the opening: first explain the research project and his own role, then
-introduce ECGs, why the question matters and the approach. Lab collection > project overview >
-weekly journal now works across three hosted prototypes. The private lab’s season Content stream
-owns the review links and exact versions; final HTML/screenshots are in `design/project-journey/`.
-The actual route was exercised at 375px and 1280px, including return navigation and reading with
-JavaScript disabled. Only one project is real; the archive is explicitly empty. These remain
-review artifacts. The website files still contain the preceding local prototype below; the
-three-route implementation and production deployment are pending Jack’s review.
+Ask Jack whether to publish the implemented lab revision. His “Yep that looks good” on 28 October
+approved the connected structure and opening; that direction has now been implemented locally on
+`prototype/ecg-reader-journey`. Deployment remains a separate decision. No website branch was
+pushed; the remote main was still `3400c59e70e0f214af52e1e741d89a7742f5a624` after the checks.
 
-Review the 28 October ECG reader prototype with Jack before deployment. The two lab pages, the
-home page’s existing Week 2 teaser, scoped reader stylesheet, social image, wiring diagrams and
-new result figures are implemented on local branch `prototype/ecg-reader-journey`. No website
-branch has been pushed and no deployment was made. Eight agreed corrections, source HTML/PDF
-links near the top and in the phone header, ECG/model/dataset explanation, evidence-based roadmap
-and a collapsed-by-default illustration are included. Both single-lead contacts measure; their
-voltage difference gives one trace. The diagrams include separate wires, recorder boxes and a
-legend; positions and recorder traces are explicitly schematic. Later devices stay deferred.
+The site now has `/lab/` as the collection, `/lab/ecgfounder/` as the project overview, and
+`/lab/ecgfounder/journal/` as the dated record. The project begins with Jack’s question and role,
+then background, approach and sources. One real current project, with an empty archive. The
+journal opens the full corrected Week 2 HTML report, and both existing weekly-post URLs have
+project/journal return links. The original paper is prominent, including on the Week 1 page.
+The company homepage’s lab card and entry labels now agree with the current project status.
 
-Actual desktop (1280px) and phone (375px) screenshots are saved and pushed only in the already
-approved private lab repository: `design/reader-preview/`. Its season Content stream owns the
-review links and the agreed copy. The local server is temporary. Native disclosure works with
-keyboard and JavaScript off; visible focus, page width, images, local links and 31-row score table
-were checked. The new graphs use saved aggregate results, not new inference or uncertainty
-analysis. Compare only the same 30-finding means directly; .924 is separate and unexplained.
+Approved copy and figures are retained. Real ECG PNGs and exact wired SVGs are served locally;
+there is no Superdesign hosting dependency in the implementation. A shared lab stylesheet serves
+only the three new pages. Diagrams retain their aspect ratio at phone sizes. The new routes are
+included in the sitemap and already covered by the existing Pages file allowlist.
 
-Jack has now explicitly authorised sharing the review drafts with Superdesign for the navigation alternatives below. The prior upload rejection is resolved for this design scope.
+Verification: 24 rendered combinations across all six pages, 375px/1280px and JavaScript on/off;
+48 internal destinations resolved; the full collection > project > background > journal >
+corrected report > journal > project > collection route was exercised in all four browser modes.
+No page-width overflow, missing visible images, duplicate IDs or page JavaScript errors. The
+native figures open/close from the keyboard with JavaScript off; focus is visible. Paper/PDF,
+Magpie Net, Instagram, GitHub and Substack returned 200. LinkedIn returned 999 to the automated
+request, so that external destination was not verified. Existing email links still address
+hello@jco.ventures; delivery was not tested. A final image-scaling change passed focused checks on
+all three affected pages at both widths. Browser evidence and actual screenshots are in the
+private lab repo at `design/implemented-journey/`; its season Content stream owns the review links.
 
-Before a separately approved deployment: finish Jack’s visual/wording review, remove the draft
-banner and noindex marker, retain a dated substantive correction note, and restore the existing
-analytics inclusion on the two lab pages (omitted from the review prototype). Keep the deploy
-allowlist and all unrelated company routes unchanged. The project is not ready for an automatic
-main push. Publication date of the correction must reflect actual deployment, not this draft.
+Before the separately approved publication: remove the draft banners and noindex markers from
+all four draft pages, change the Week 2 correction wording/status to the actual publication date,
+and restore the existing analytics inclusion on the four changed/new lab pages. Preserve the
+historical Week 1 announcement and existing post URLs. Follow the required production review
+route before pushing main; confirm the live pages and routes after deployment. No new research
+analysis, inference, patient-grouped comparison or single-lead baseline ran in this UI task.
 
 ## Decisions Jack made on 2026-10-18
 
@@ -88,10 +89,8 @@ main push. Publication date of the correction must reflect actual deployment, no
 
 ## Hazards that remain open
 
-- `deploy.yml` uploads the whole checkout, so every committed file is served at jco.ventures,
-  including this file, `AGENTS.md` and `NORTH_STAR.md`. Decision for Jack: restrict the Pages
-  upload to the site files (one-line change to the workflow). Until then the seat ledger under
-  `workflow/` stays untracked rather than published.
+- The Pages allowlist was resolved on 25 October (`c7b3726`): the workflow copies only the site
+  files. The new nested lab routes are covered by its existing recursive `lab` copy. Keep it intact.
 - Figure B is derived from VitalDB waveforms loaded from vitaldb.net (CC BY-NC-SA 4.0 plus its
   data-use agreement). It appears only on the lab pages with its licence line; the home page uses
   the PTB-XL strip. PhysioNet also hosts VitalDB under CC BY 4.0; switching the lab's waveform
@@ -108,7 +107,7 @@ main push. Publication date of the correction must reflect actual deployment, no
 Extended 28 October: local prototype authoring and browser review of the agreed ECG corrections,
 introductory reader journey, optional wired electrode illustration, clear result figures, source
 links and roadmap. Native route for this prototype, no deployment or production write. Private
-lab-repo review artifacts are authorised by the ongoing session. Superdesign review drafts are now explicitly authorised; production deployment remains outside this scope.
+lab-repo review artifacts are authorised by the ongoing session. Superdesign review drafts are explicitly authorised. Jack approved the connected layout and opening on 28 October; implementation of that design is complete locally. Production deployment remains outside this scope.
 
 
 Approved 2026-10-16 and built: the `/lab/` section, the three home-page additions, the
@@ -128,11 +127,13 @@ Current review drafts: collection `d35d5fac-11ae-474e-816b-ee1af29b65ed` version
 `5ea0763b-2d32-4848-a4e2-e6762c1ed688` version 5; journal
 `67287403-63e0-4d31-bd9e-bafa794b9ed6` version 1. Source links, real traces and the optional wired
 electrode guide remain. Proposed website paths are `/lab/`, `/lab/ecgfounder/` and
-`/lab/ecgfounder/journal/`; they are not deployed. The season Content stream in `pertzel-lab`
+`/lab/ecgfounder/journal/`; they now exist locally and are not deployed. The season Content stream in `pertzel-lab`
 owns the click-through links, screenshot record and review limits.
 
 Superdesign sharing remains explicitly authorised for these review drafts. The latest work used
 direct edits and no new generation credits. The earlier A/B artifacts are preserved privately in
 `design/navigation-options/`; B’s hosted URL now shows the selected project-first version. The
-full corrected Week 2 report still uses its private screenshot after the earlier import problem.
-Human wording, comprehension and phone review remain open. No website branch was pushed.
+full corrected Week 2 report still uses its private screenshot in the older hosted mockup after the
+earlier import problem; the implemented website now links its full corrected HTML article. Jack
+approved the connected layout and opening. The current publication checkpoint is above. No website
+branch was pushed.

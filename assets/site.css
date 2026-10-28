@@ -829,3 +829,9 @@ figcaption {
       .work-card.lab .render-figure img { height: auto; padding: 18px 14px 8px; }
       .work-card.lab .card-copy { padding: 26px 22px; }
     }
+
+/* Project context on existing lab posts. */
+.lab-post-context { display: flex; flex-wrap: wrap; align-items: center; gap: 0 12px;
+  margin: 22px 0 12px; font: 13px/1.5 var(--sans); color: var(--muted); }
+.lab-post-context a { display: inline-flex; align-items: center; min-height: 44px;
+  color: var(--cobalt); text-underline-offset: 4px; }

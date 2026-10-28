@@ -46,8 +46,8 @@ can feel magical while giving people more understanding and control, not less.
 
 ## Out of scope
 
-Multi-page expansion beyond the `/lab/` section (the Pertzel Lab's home and one page per post,
-approved by Jack 2026-10-16) · contact forms or customer-data collection · pricing · unverified
+Multi-page expansion beyond the `/lab/` section (collection, individual project overview, weekly
+journal and existing posts; connected structure approved by Jack 2026-10-28) · contact forms or customer-data collection · pricing · unverified
 product claims · hosting/DNS/email/analytics changes · public deployment without a separate
 approval.
 

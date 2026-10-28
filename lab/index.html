@@ -1,284 +1,69 @@
 <!DOCTYPE html>
+
 <html lang="en">
 <head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<meta name="theme-color" content="#f3ede2">
-<title>How well does an ECG model travel? — Pertzel Lab</title>
-<meta name="description" content="Understand ECGFounder, the PTB-XL reproduction, what remains unexplained and the planned surgical-recording comparison.">
-<meta property="og:title" content="How well does an ECG model travel?">
-<meta property="og:description" content="Understand ECGFounder, the PTB-XL reproduction, what remains unexplained and the planned surgical-recording comparison.">
-<meta property="og:type" content="website">
-<meta property="og:url" content="https://jco.ventures/lab/">
-<meta property="og:image" content="https://jco.ventures/lab/assets/s1-reader-og.png">
-<meta property="og:image:width" content="1200">
-<meta property="og:image:height" content="630">
-<meta property="og:image:alt" content="How well does an ECG model travel? An independent check of ECGFounder. Pertzel Lab, Season 1.">
-<meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:image" content="https://jco.ventures/lab/assets/s1-reader-og.png">
-<link rel="canonical" href="https://jco.ventures/lab/">
-<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' fill='%2312161b'/%3E%3Ctext x='16' y='22' font-family='Georgia,serif' font-style='italic' font-size='15' fill='%23ffb454' text-anchor='middle'%3EJ%26Co%3C/text%3E%3C/svg%3E">
-<link rel="stylesheet" href="../assets/site.css">
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1" name="viewport"/>
+<meta content="#f3ede2" name="theme-color"/>
+<title>Research projects — Pertzel Lab</title>
 
-<link rel="stylesheet" href="../assets/lab-reader.css">
-<meta name="robots" content="noindex,nofollow">
+
+<meta content="noindex,nofollow" name="robots"/><meta content="The research projects I am working through in public: the questions, experiments, findings and things I still need to understand. Pertzel Lab, within J &amp; Co Ventures." name="description"/>
+<meta content="noindex,nofollow" name="robots"/>
+<meta content="Research projects" property="og:title"/>
+<meta content="The research projects I am working through in public: the questions, experiments, findings and things I still need to understand. Pertzel Lab, within J &amp; Co Ventures." property="og:description"/>
+<meta content="website" property="og:type"/>
+<meta content="https://jco.ventures/lab/" property="og:url"/>
+<meta content="https://jco.ventures/lab/assets/s1-card-ptbxl-lead-ii.png" property="og:image"/>
+<meta content="1600" property="og:image:width"/>
+<meta content="720" property="og:image:height"/>
+<meta content="Real ten-second ECG recording from PTB-XL record 1, lead II. Wagner et al. (2020), CC BY 4.0." property="og:image:alt"/>
+<meta content="summary_large_image" name="twitter:card"/>
+<meta content="https://jco.ventures/lab/assets/s1-card-ptbxl-lead-ii.png" name="twitter:image"/>
+<link href="https://jco.ventures/lab/" rel="canonical"/>
+<link href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' fill='%2312161b'/%3E%3Ctext x='16' y='22' font-family='Georgia,serif' font-style='italic' font-size='15' fill='%23ffb454' text-anchor='middle'%3EJ%26Co%3C/text%3E%3C/svg%3E" rel="icon"/>
+<link href="/assets/lab-journey.css" rel="stylesheet"/>
 </head>
-<body class="lab-reader"><a class="skip-link" href="#main-content">Skip to content</a><div class="masthead-strip">
-    <div class="masthead-inner wrap micro">
-      <span>Pertzel Lab · Jack's research practice within J &amp; Co</span>
-      <span>Season 1 · October to November 2026</span>
-    </div>
-  </div>
+<body class="lab-journey"><div class="lab-reader">
+<a class="skip-link" href="#main-content">Skip to content</a>
+<div class="masthead-strip">
+<div class="masthead-inner wrap micro">
+<span>Pertzel Lab · Jack's research practice within J &amp; Co</span>
+<span>Current and previous research</span>
+</div>
+</div>
 <header class="site-header">
-
-<nav class="nav wrap" aria-label="Main navigation">
-      <a class="wordmark" href="../">J<em>&amp;</em>Co Ventures</a>
-      <div class="nav-links">
-        <a href="../#work">Work</a>
-        <a href="./" aria-current="page">Lab</a>
-        <a href="../#services">Services</a>
-        <a href="../#thinking">Thinking</a>
-        <a href="../#about">About</a>
-      </div>
-      <a class="nav-cta" href="https://arxiv.org/html/2410.04133v4">Original paper ↗</a>
-
+<nav aria-label="Main navigation" class="nav wrap">
+<a class="wordmark" href="/">J<em>&amp;</em>Co Ventures</a>
+<div class="nav-links">
+<a href="/#work">Work</a>
+<a aria-current="page" href="/lab/">Lab</a>
+<a href="/#services">Services</a>
+<a href="/#thinking">Thinking</a>
+<a href="/#about">About</a>
+</div>
+<a class="nav-cta" href="/lab/ecgfounder/">Current project →</a>
 </nav>
-
-</header><div class="prototype-note">REVIEW DRAFT · 28 OCTOBER 2026 · NOT YET PUBLISHED</div>
-<main id="main-content"><div class="wrap">
-<header class="reader-hero">
-<p class="eyebrow"><strong>Pertzel Lab</strong> · Season 1 · An independent research practice within J &amp; Co
-</p>
-<h1>How well does an ECG model <em>travel?</em>
-</h1>
-<p class="intro">An ECG turns the heart’s electrical activity into a trace. I’m testing how reliably an open AI model reads those traces—and what changes when the recordings come from somewhere else.
-</p>
-<p class="byline">A research notebook by Jack Pertzel · October–November 2026
-</p>
-<aside class="paper-source" aria-label="Original research paper"><div><span class="micro">Start with the primary source</span><strong>Original study · ECGFounder</strong>
-<p>Li et al. · Version 4, the version compared in this evaluation.
-</p></div><div class="source-actions"><a class="read-paper" href="https://arxiv.org/html/2410.04133v4">Read the paper ↗</a><a href="https://arxiv.org/pdf/2410.04133v4">PDF ↓</a></div>
-</aside>
 </header>
-<nav class="reader-jump" aria-label="On this page"><a href="#start">Start here</a><a href="#experiment">What I tested</a><a href="#findings">What I found</a><a href="#roadmap">What comes next</a>
-</nav>
-<section class="read-section" id="start"><div class="section-intro"><div class="section-label"><b>01</b>Start with the signal</div><div class="reading">
-<h2>One heart. Different electrical views.
-</h2>
-<p>An electrocardiogram—an ECG—records tiny changes in voltage at the skin as the heart’s electrical activity changes. Clinicians use the shape and timing of those signals to assess the heart’s rhythm and other features of its electrical function.
-</p>
-<p>A lead is one electrical view. A standard 12-lead ECG combines signals from ten skin contacts to give twelve views. A single-lead recording gives one view; it does not necessarily come from a watch.
-</p><blockquote class="definition">Two measurement contacts can give one lead, because the signal is the difference between them.</blockquote></div></div>
-</section>
-<details class="electrode-panel" id="electrode-guide"><summary>How are the electrodes connected? <span class="small">Open the visual guide</span></summary>
-<p class="diagram-intro">An <strong>electrode</strong> is a contact on the skin. A <strong>lead</strong> is an electrical view made by comparing voltages. The wires carry those signals to the ECG recorder. The AI model is separate software that reads the resulting recording.
-</p><div class="electrode-grid">
-<section class="electrode-card">
-<h3>12-lead ECG
-</h3><div class="count">10 contacts → 12 electrical views</div><img src="assets/ecg-twelve-wiring.svg" width="500" height="666" alt="Front-facing neutral figure: six chest contacts numbered 1 to 6, four limb contacts, and ten separate wires to an ECG recorder. Right-leg contact RL is blue.">
-<p class="legend"><span class="key"></span><strong>Nine measurement contacts:</strong> six on the chest (V1–V6) and three on the limbs. Their signals are combined to create twelve views.
-</p>
-<p class="legend"><span class="key blue"></span><strong>RL, right-leg contact:</strong> supports interference reduction. It is not an extra ECG view.
-</p>
-</section>
-<section class="electrode-card">
-<h3>Single-lead ECG
-</h3><div class="count">Lead II example · 2 measurement contacts</div><img src="assets/ecg-single-wiring.svg" width="500" height="666" alt="Two gold contacts: A minus on the patient's right wrist and B plus on the left lower leg. Each has its own wire to a recorder showing one illustrative trace."><span class="formula">B − A = one ECG trace</span>
-<p class="legend"><span class="key"></span><strong>Both contacts measure.</strong> The recorder subtracts the voltage at A from the voltage at B, moment by moment. That difference is one lead.
-</p>
-<p class="legend">A separate third contact can help reduce interference. It is omitted here to make the measurement pair clear; neither gold contact is that third contact.
-</p>
-</section></div>
-<p class="diagram-note">Schematic educational view; positions are approximate, and monitor traces are illustrative. This is not a device setup or clinical placement guide. Single-lead devices can use other contact positions. <a href="https://www.hssib.org.uk/patient-safety-investigations/12-lead-electrocardiograms-in-ambulance-services/second-investigation-report/">ECG placement source</a> · <a href="https://www.analog.com/en/products/ad8232.html">Two- and three-electrode recording</a>
-</p>
-</details>
-<section class="read-section" id="experiment"><div class="section-intro"><div class="section-label"><b>02</b>The model and the test</div><div class="reading">
-<h2>The AI, the dataset, and my part.
-</h2>
-<p><strong>ECGFounder is the AI software.</strong> It takes ECG recordings and produces scores for possible findings. Its authors trained it on more than ten million ECGs and evaluated it on several other datasets. I’m using their released model; I didn’t train it.
-</p>
-<p><strong>PTB-XL is a collection of recordings and reference labels.</strong> It is one of the datasets in the original paper. In Week 2, I ran the authors’ released 12-lead model on 21,799 PTB-XL recordings and checked how closely my scores matched their reported results.
-</p>
-<p>The single-lead version is separately trained. It belongs to the same ECGFounder project, but it is a different model from the 12-lead version used in Week 2.
-</p></div></div>
-</section>
-<ol class="journey">
-<li><span class="n">01 · INPUT</span><strong>A recording</strong>
-<p>Twelve electrical views from a PTB-XL ECG.
-</p>
-</li>
-<li><span class="n">02 · MODEL</span><strong>ECGFounder</strong>
-<p>The authors’ already-trained 12-lead model.
-</p>
-</li>
-<li><span class="n">03 · OUTPUT</span><strong>Finding scores</strong>
-<p>How strongly the model ranks each possible finding.
-</p>
-</li>
-<li><span class="n">04 · CHECK</span><strong>Compare with labels</strong>
-<p>Score its outputs against the dataset’s reference labels.
-</p>
-</li>
-</ol>
-<p class="small">The model receives the ECG. The reference labels are used afterwards to evaluate its predictions.
-</p>
-<section class="read-section" id="why"><div class="section-intro"><div class="section-label"><b>03</b>Why this is worth studying</div><div class="reading">
-<h2>There may be more in the signal.
-</h2>
-<p>There is more in an ECG than a heartbeat count. Researchers are investigating whether subtle patterns can help identify conditions beyond heart rhythm, including kidney disease. In the ECGFounder study, the kidney-disease experiments used <strong>fine-tuning</strong>: additional training for that particular task.
-</p>
-<p>That is promising, but it is a different claim from saying this lab has detected kidney disease, saved clinicians time or improved care. My Week 2 experiment tested none of those things. Expert interpretation also draws on years of medical training and clinical context.
-</p>
-<p>The possibility is worth investigating: a useful model might help clinicians notice patterns they would otherwise miss. First, we need to understand what it measures, where its results hold up, and where they don’t.
-</p>
-<p class="small">Source: <a href="https://pmc.ncbi.nlm.nih.gov/articles/PMC12327759/">the published ECGFounder study</a>, including its fine-tuned disease prediction experiments.
-</p></div></div>
-</section>
-<section class="read-section" id="findings"><div class="section-intro"><div class="section-label"><b>04</b>The first substantial check</div><div class="reading">
-<h2>Most individual scores reproduced closely.
-</h2>
-<p>The useful result from Week 2 is specific: I could reproduce most of one published evaluation. I also found an unexplained difference in the reported average, inconsistent preparation instructions, and label-count questions that need clarifying.
-</p><div class="finding-panel"><span class="micro">Week 2 · Observed result</span>
-<h3>29 of 30 individual scores within 0.001.
-</h3>
-<p>The headline average is still unexplained. The numerical tolerance I wrote down before the run was not met.
-</p><a href="season-1-week-2.html">Read the result, with the figures →</a></div>
-<p>This is an independent check of work the authors had already done. It gives me a better starting point for the next test. It does not establish a benefit for patients or clinicians.
-</p></div></div>
-</section>
-<section class="read-section" id="roadmap"><div class="section-intro"><div class="section-label"><b>05</b>The research roadmap</div><div class="reading">
-<h2>Where the work stands.
-</h2>
-<ol class="timeline">
-<li><span class="phase">Completed · Week 1</span><div>
-<h3>Make the pipeline work.
-</h3>
-<p>Ten PTB-XL records passed through the model. This checked the connection from data to output; it was not a performance estimate.
-</p></div>
-</li>
-<li><span class="phase open">Completed · Week 2<br>Question still open</span><div>
-<h3>Check the published evaluation.
-</h3>
-<p>29 of 30 individual scores reproduced within 0.001. The original headline tolerance was not met. The reported average and some label counts remain unexplained.
-</p></div>
-</li>
-<li><span class="phase open">Current preparation</span><div>
-<h3>Prepare the surgical comparison.
-</h3>
-<p>VitalDB contains recordings taken during surgery. VitalDB Arrhythmia adds expert-reviewed labels to selected ECG segments. The loader, label mapping and exclusions are being prepared; no new performance result is reported here.
-</p></div>
-</li>
-<li><span class="phase">Planned · Next checks</span><div>
-<h3>Make the comparisons stronger.
-</h3>
-<p>Keep each patient’s recordings together when estimating uncertainty. Add a PTB-XL lead II baseline using the same single-lead model planned for VitalDB. Allocate time at Sunday planning, 1 November.
-</p></div>
-</li>
-<li><span class="phase">Later · Not started</span><div>
-<h3>From datasets toward devices.
-</h3>
-<p>Chest-strap and three-pad hardware experiments belong to a later season. Producing a model output from a new device would not, by itself, establish that it is useful or accurate.
-</p></div>
-</li>
-</ol></div></div>
-</section>
-<section class="read-section" id="notebook"><div class="section-intro"><div class="section-label"><b>06</b>The notebook</div><div class="reading">
-<h2>Follow the evidence.
-</h2><a class="post-link" href="season-1-week-2.html"><span class="micro">25 October · Week 2 · Correction draft 28 October</span>
-<h3>Most individual results reproduced. The reported average is still unexplained.
-</h3>
-<p>The numbers, the preparation choices, and the questions that are still open.
-</p></a><a class="post-link" href="season-1-announcement.html"><span class="micro">18 October · Original announcement</span>
-<h3>How this season began.
-</h3>
-<p>The original announcement is kept as part of the record. This page carries the current interpretation and status.
-</p></a></div></div>
-</section>
-<details><summary>See the original Week 1 figures and connection check</summary><div class="disclosure-body">
-<section class="recorded-examples" id="figures" aria-labelledby="figures-heading">
-      <div class="section-head">
-        <span class="section-number">Figures</span>
-
-<h2 class="section-title" id="figures-heading">From the <em>work.</em>
-</h2>
-        <span class="section-aside micro">Real data · Licensed and attributed</span>
-      </div>
-      <div class="figure-grid">
-
-<figure class="lab-figure">
-          <a class="figure-link" href="assets/s1-fig-a-ptbxl-record-1.png" aria-label="Open figure A at full size"><img src="assets/s1-fig-a-ptbxl-record-1.png" alt="Twelve ECG traces in a grid, labelled I, II, III, aVR, aVL, aVF and V1 to V6, ten seconds each" loading="lazy" width="1600" height="1000"></a>
-          <figcaption><strong>A. What the model sees.</strong> PTB-XL record 1: twelve leads, ten seconds, 500 samples a second, labelled by cardiologists as normal ECG, sinus rhythm, low QRS voltage. Data: PTB-XL v1.0.3 (Wagner et al., 2020), PhysioNet, CC BY 4.0.</figcaption>
-
-</figure>
-
-<figure class="lab-figure">
-          <a class="figure-link" href="assets/s1-fig-b-vitaldb-case-1001.png" aria-label="Open figure B at full size"><img src="assets/s1-fig-b-vitaldb-case-1001.png" alt="A single ECG trace over ten seconds with eight marked beats: seven blue dots on normal beats and one gold dot on a taller ventricular ectopic beat" loading="lazy" width="1600" height="1000"></a>
-          <figcaption><strong>B. An example from the surgical recordings.</strong> VitalDB case 1001, lead II, ten seconds during surgery, with beat annotations reviewed by at least two anaesthesiologists after candidate segments were screened by a classifier; the gold dot is a ventricular ectopic beat. Data: VitalDB Open Dataset, CC BY-NC-SA 4.0 (Lee et al., <em>Sci Data</em> 2022, doi:10.1038/s41597-022-01411-5) and the VitalDB Arrhythmia Database, PhysioNet, CC BY 4.0 (Eun et al., 2026, doi:10.13026/axd6-wm13). This figure is a non-commercial derivative shared under the same licence.</figcaption>
-
-</figure>
-
-<figure class="lab-figure">
-          <a class="figure-link" href="assets/s1-fig-c-ten-records.png" aria-label="Open figure C at full size"><img src="assets/s1-fig-c-ten-records.png" alt="A table of ten records with the cardiologists' codes and the model's two strongest guesses; record 8 is highlighted" loading="lazy" width="1600" height="1000"></a>
-          <figcaption><strong>C. Ten records in, ten answers out.</strong> The published ECGFounder model run unchanged on the first ten PTB-XL records. Eight normal ECGs called normal, one normal ECG with a slow heart called slow. One old inferior infarct scored normal ECG 0.97 and abnormal ECG 0.91, with its inferior-infarct label at 0.02. A smoke test, not a result. Model: ECGFounder (Li et al., <em>NEJM AI</em> 2025, MIT licence).</figcaption>
-
-</figure>
-
-<details class="figure-data">
-          <summary>Figure C as text</summary>
-          <table>
-            <caption>The first ten PTB-XL records through ECGFounder, run unchanged; probabilities from runs/s1-w1-smoke/predictions.csv</caption>
-            <thead>
-<tr><th scope="col">Record</th><th scope="col">Cardiologists' codes</th><th scope="col">Model's two strongest guesses</th>
-</tr></thead>
-            <tbody>
-
-<tr><th scope="row">1</th><td>NORM, LVOLT, SR</td><td>sinus rhythm 1.00 · normal sinus rhythm 1.00</td>
-</tr>
-
-<tr><th scope="row">2</th><td>NORM, SBRAD</td><td>sinus bradycardia 1.00 · marked sinus bradycardia 0.99</td>
-</tr>
-
-<tr><th scope="row">3</th><td>NORM, SR</td><td>sinus rhythm 1.00 · normal sinus rhythm 1.00</td>
-</tr>
-
-<tr><th scope="row">4</th><td>NORM, SR</td><td>normal sinus rhythm 1.00 · sinus rhythm 1.00</td>
-</tr>
-
-<tr><th scope="row">5</th><td>NORM, SR</td><td>sinus rhythm 1.00 · normal sinus rhythm 1.00</td>
-</tr>
-
-<tr><th scope="row">6</th><td>NORM, SR</td><td>sinus rhythm 1.00 · normal sinus rhythm 1.00</td>
-</tr>
-
-<tr><th scope="row">7</th><td>NORM, SR</td><td>sinus rhythm 1.00 · normal sinus rhythm 1.00</td>
-</tr>
-
-<tr><th scope="row">8</th><td>IMI, ABQRS, SR</td><td>normal sinus rhythm 1.00 · sinus rhythm 1.00</td>
-</tr>
-
-<tr><th scope="row">9</th><td>NORM, SR</td><td>sinus rhythm 1.00 · normal sinus rhythm 1.00</td>
-</tr>
-
-<tr><th scope="row">10</th><td>NORM, SR</td><td>sinus rhythm 1.00 · normal sinus rhythm 1.00</td>
-</tr>
-            </tbody>
-          </table>
-
-</details>
-      </div>
-
-</section></div>
-</details><div class="article-end"><a href="mailto:hello@jco.ventures?subject=Pertzel%20Lab">Corrections or questions? Write to the lab →</a><a href="https://www.instagram.com/j_co_adventures/">Follow the lab on Instagram →</a></div></div>
-</main><footer id="contact">
-    <div class="wrap">
-      <div class="footer-grid" aria-label="J and Co Ventures company details">
-        <div class="footer-cell"><span class="k">Entity</span><span class="v">J &amp; Co Ventures Pty Ltd</span></div>
-        <div class="footer-cell"><span class="k">Founded</span><span class="v">Melbourne, Australia</span></div>
-        <div class="footer-cell"><span class="k">Scope</span><span class="v">Global in scope</span></div>
-        <div class="footer-cell"><span class="k">Focus</span><span class="v">Science · Technology</span></div>
-      </div>
-
-<p class="footer-note">Independent science and technology company · Deep questions, useful things.
-</p>
-    </div>
-  </footer></body></html>
+<div class="prototype-note">REVIEW DRAFT · 28 OCTOBER 2026 · NOT YET PUBLISHED</div>
+<main id="main-content">
+<div class="wrap"><header class="flow-hero"><span class="flow-label">Pertzel Lab · Jack’s research practice within J &amp; Co</span><h1>Research,<br/>as it happens.</h1><p>These are the projects I’m working through in public. Each starts with a question, then follows the evidence—through experiments, findings, and the things I still need to understand.</p></header>
+<nav aria-label="Research projects" class="collection-tabs"><a href="#current-projects">Current projects</a><a href="#past-projects">Previous projects</a></nav>
+<section id="current-projects"><div class="collection-heading"><h2>Current research</h2><span>01 project</span></div>
+<article class="project-feature"><div class="project-feature-copy"><div class="project-meta"><span class="active">Research in progress</span><span>Season 1 · Oct–Nov 2026</span></div><h3>How well does an open ECG model travel?</h3><p>I’m independently evaluating ECGFounder, an AI model for heart recordings. I started by checking a published evaluation; next I’m preparing a comparison using recordings from surgery.</p><p class="report-scope">Open the project for its background, my approach, and the week-by-week record.</p><div class="flow-actions"><a class="primary" href="/lab/ecgfounder/">Explore the research →</a></div></div>
+<figure class="project-feature-visual"><a aria-label="Explore the real ECG recording in the project background" href="/lab/ecgfounder/#background"><img alt="A real ten-second ECG trace from PTB-XL record 1, lead II" decoding="async" height="720" src="/lab/assets/s1-card-ptbxl-lead-ii.png" width="1600"/></a><figcaption>Real ECG · PTB-XL record 1 · Lead II · 10 seconds.<br/>Wagner et al. (2020), <a href="https://physionet.org/content/ptb-xl/1.0.3/">PTB-XL v1.0.3</a> · CC BY 4.0.</figcaption></figure></article></section>
+<section class="archive-note" id="past-projects"><span class="flow-label">The archive</span><h2>Previous projects</h2><p>This is the first project. As projects finish, they’ll stay here with their findings and the record of how the work developed.</p></section></div><aside aria-label="ECGFounder project sections" class="legacy-project-links"><a href="/lab/ecgfounder/#background" id="start">ECG background</a><a href="/lab/ecgfounder/#background" id="ecg">ECG background</a><a href="/lab/ecgfounder/#approach" id="model">The model and my approach</a><a href="/lab/ecgfounder/journal/" id="roadmap">Research roadmap</a><a href="/lab/ecgfounder/journal/" id="journal">Weekly journal</a><a href="/lab/ecgfounder/#electrode-guide" id="electrode-guide">How the leads connect</a><a href="/lab/ecgfounder/#sources" id="sources">Original sources</a></aside></main>
+<!-- Lab Collection Preview Footer -->
+<footer id="contact">
+<div class="wrap">
+<div aria-label="J and Co Ventures company details" class="footer-grid">
+<div class="footer-cell" style="display:flex;flex-direction:column;gap:5px;padding:18px;border:1px solid #cbc1b1"><span class="k">Entity</span><span class="v">J &amp; Co Ventures Pty Ltd</span></div>
+<div class="footer-cell" style="display:flex;flex-direction:column;gap:5px;padding:18px;border:1px solid #cbc1b1"><span class="k">Founded</span><span class="v">Melbourne, Australia</span></div>
+<div class="footer-cell" style="display:flex;flex-direction:column;gap:5px;padding:18px;border:1px solid #cbc1b1"><span class="k">Scope</span><span class="v">Global in scope</span></div>
+<div class="footer-cell" style="display:flex;flex-direction:column;gap:5px;padding:18px;border:1px solid #cbc1b1"><span class="k">Focus</span><span class="v">Science · Technology</span></div>
+</div>
+<p class="footer-note">Independent science and technology company · Deep questions, useful things.</p>
+</div>
+</footer>
+</div></body>
+</html>

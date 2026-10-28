@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1" name="viewport"/>
+<meta content="#f3ede2" name="theme-color"/>
+<title>How well does an open ECG model travel? — Pertzel Lab</title>
+
+
+<meta content="noindex,nofollow" name="robots"/><meta content="I am independently evaluating ECGFounder: first checking a published evaluation, then preparing a comparison with surgical recordings. The background, approach and open questions." name="description"/>
+<meta content="noindex,nofollow" name="robots"/>
+<meta content="How well does an open ECG model travel?" property="og:title"/>
+<meta content="I am independently evaluating ECGFounder: first checking a published evaluation, then preparing a comparison with surgical recordings. The background, approach and open questions." property="og:description"/>
+<meta content="website" property="og:type"/>
+<meta content="https://jco.ventures/lab/ecgfounder/" property="og:url"/>
+<meta content="https://jco.ventures/lab/assets/s1-card-ptbxl-lead-ii.png" property="og:image"/>
+<meta content="1600" property="og:image:width"/>
+<meta content="720" property="og:image:height"/>
+<meta content="Real ten-second ECG recording from PTB-XL record 1, lead II. Wagner et al. (2020), CC BY 4.0." property="og:image:alt"/>
+<meta content="summary_large_image" name="twitter:card"/>
+<meta content="https://jco.ventures/lab/assets/s1-card-ptbxl-lead-ii.png" name="twitter:image"/>
+<link href="https://jco.ventures/lab/ecgfounder/" rel="canonical"/>
+<link href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' fill='%2312161b'/%3E%3Ctext x='16' y='22' font-family='Georgia,serif' font-style='italic' font-size='15' fill='%23ffb454' text-anchor='middle'%3EJ%26Co%3C/text%3E%3C/svg%3E" rel="icon"/>
+<link href="/assets/lab-journey.css" rel="stylesheet"/>
+</head>
+<body class="lab-journey"><div class="lab-reader">
+<a class="skip-link" href="#main-content">Skip to content</a>
+<div class="masthead-strip">
+<div class="masthead-inner wrap micro">
+<span>Pertzel Lab · Jack's research practice within J &amp; Co</span>
+<span>Season 1 · October to November 2026</span>
+</div>
+</div>
+<header class="site-header">
+<nav aria-label="Main navigation" class="nav wrap">
+<a class="wordmark" href="/">J<em>&amp;</em>Co Ventures</a>
+<div class="nav-links">
+<a href="/#work">Work</a>
+<a aria-current="true" href="/lab/">Lab</a>
+<a href="/#services">Services</a>
+<a href="/#thinking">Thinking</a>
+<a href="/#about">About</a>
+</div>
+<a class="nav-cta" href="https://arxiv.org/html/2410.04133v4">Original paper ↗</a>
+</nav>
+</header>
+<div class="prototype-note">REVIEW DRAFT · 28 OCTOBER 2026 · NOT YET PUBLISHED</div>
+<main id="main-content">
+<div class="notebook-layout wrap">
+<!-- Desktop Sidebar -->
+<aside class="notebook-rail">
+<a class="back-link" href="/lab/">← All research projects</a>
+<nav aria-label="Project chapters" class="rail-nav">
+<span class="micro">In this project</span>
+<ul><li><a aria-current="page" href="#overview">Project overview</a></li><li><a href="#background">Background</a></li><li><a href="#approach">My approach</a></li><li><a href="/lab/ecgfounder/journal/">Weekly journal</a></li><li><a href="#sources">Sources</a></li></ul>
+</nav>
+<div class="rail-actions">
+<a href="https://arxiv.org/html/2410.04133v4">Paper HTML ↗</a>
+<a href="https://arxiv.org/pdf/2410.04133v4">Paper PDF ↓</a>
+</div>
+</aside>
+<!-- Main Content Area -->
+<article class="notebook-content"><nav aria-label="Project location" class="review-breadcrumb"><a href="/lab/">Lab</a><span aria-hidden="true">/</span><a href="/lab/ecgfounder/">ECGFounder</a><span aria-hidden="true">/</span><span>Overview</span></nav>
+<!-- Mobile Alternative Nav -->
+<div class="mobile-menu-row"><div class="mobile-quick-links"><a href="/lab/ecgfounder/journal/">Journal ↓</a></div><details class="mobile-rail-nav">
+<summary>In this project</summary>
+<div class="mobile-nav-links"><a href="#overview">Project overview</a><a href="#background">Background</a><a href="#approach">My approach</a><a href="/lab/ecgfounder/journal/">Weekly journal</a><a href="#sources">Sources</a></div>
+</details></div>
+<div class="project-status">Project 01 · Research in progress · Oct–Nov 2026</div>
+<section class="notebook-section" id="overview">
+<span class="flow-label">The research project</span><h1 class="project-title">How well does an open ECG model travel?</h1>
+<p class="project-opening">I’m independently evaluating ECGFounder, an AI model built by another research team to analyse the heart’s electrical recordings.</p>
+<p class="project-opening">I started by checking whether I could reproduce one of their published evaluations. Next, I’m preparing a fair comparison using their separately trained single-lead model and recordings taken during surgery.</p>
+<p class="project-opening">This is the running record of that work: what I tried, what I found, and what I still need to understand.</p>
+<div class="flow-actions"><a class="primary" href="#background">Start with the background ↓</a><a href="/lab/ecgfounder/journal/">Follow the weekly work →</a></div>
+<p class="review-source-links"><a href="https://arxiv.org/html/2410.04133v4">Original paper ↗</a><a href="https://arxiv.org/pdf/2410.04133v4">PDF ↓</a></p>
+<dl class="project-brief"><div><dt>My role</dt><dd>Independent evaluation of a released model.</dd></div><div><dt>Starting point</dt><dd>PTB-XL, one of the paper’s test datasets.</dd></div><div><dt>Current focus</dt><dd>Preparing the single-lead comparison.</dd></div></dl></section><section class="notebook-section" id="background"><span class="flow-label">01 · Background</span><h2>Why look at the heart’s electrical signal?</h2><p class="intro">An ECG records tiny electrical changes as the heart beats. The timing and shape of the trace help clinicians assess heart rate, rhythm and how electrical signals travel through the heart.</p><figure class="primary-figure" id="signal">
+<img alt="A ten second real single-lead ECG recording" decoding="async" height="720" loading="lazy" src="/lab/assets/s1-card-ptbxl-lead-ii.png" width="1600"/>
+<figcaption>
+<strong>Real recording · PTB-XL record 1 · Lead II · 10 seconds.</strong>
+            The 12-lead model receives all twelve signals as numbers, not this picture. Horizontal axis is time in seconds; vertical axis is voltage in millivolts.
+            <br/>Data: PTB-XL v1.0.3, Wagner et al. (2020), PhysioNet, CC BY 4.0.
+          <br/><a href="https://physionet.org/content/ptb-xl/1.0.3/">Recording source and licence ↗</a></figcaption>
+<div class="fig-tools">
+<a href="/lab/assets/s1-card-ptbxl-lead-ii.png">Open full-size trace ↗</a>
+</div>
+</figure><details class="electrode-panel" id="twelve-lead-fig">
+<summary>View the full 12-lead input recording</summary>
+<div class="disclosure-body">
+<figure class="primary-figure" style="margin-top:0;">
+<img alt="12 separate waveform traces in a grid" decoding="async" height="1000" loading="lazy" src="/lab/assets/s1-fig-a-ptbxl-record-1.png" width="1600"/>
+<div class="fig-tools">
+<a href="/lab/assets/s1-fig-a-ptbxl-record-1.png">Open full 12-lead figure ↗</a>
+</div>
+ PTB-XL record 1 · All twelve simultaneous ten-second signals · 500 samples/second · Wagner et al. (2020), CC BY 4.0.</figure>
+</div>
+</details><p>Researchers are also studying subtler patterns linked to wider health. The ECGFounder paper explores kidney disease using extra training for that task. That possibility interests me; it is not something this lab has demonstrated. <a href="https://arxiv.org/html/2410.04133v4#S2.SS5">Study methods ↗</a></p><details class="electrode-panel" id="electrode-guide">
+<summary>How do the leads connect?</summary>
+<div class="disclosure-body">
+<p class="diagram-intro">An <strong>electrode</strong> is a contact on the skin. A <strong>lead</strong> is an electrical view made by comparing voltages. The AI model is separate software that reads the resulting recording.</p>
+<div class="electrode-grid">
+<div class="electrode-card">
+<h3>12-lead ECG</h3>
+<div class="count">10 contacts → 12 electrical views</div>
+<img alt="Front-facing neutral figure showing 12-lead contacts" decoding="async" height="666" loading="lazy" src="/lab/assets/ecg-twelve-wiring.svg" width="500"/>
+<p class="legend"><span class="key"></span><strong>Nine measurement contacts:</strong> six on the chest and three on the limbs. Their signals combine into twelve views.</p>
+</div>
+<div class="electrode-card">
+<h3>Single-lead ECG</h3>
+<div class="count">Lead II example · 2 measurement contacts</div>
+<img alt="Two gold contacts on wrist and leg showing single lead difference" decoding="async" height="666" loading="lazy" src="/lab/assets/ecg-single-wiring.svg" width="500"/>
+<p class="legend"><span class="key"></span><strong>Both contacts measure.</strong> The recorder subtracts the voltage at A from B to produce one lead trace. A third contact for interference is omitted here.</p>
+</div>
+</div>
+</div>
+<p class="review-diagram-note">Educational schematic: contact positions are approximate and recorder traces illustrative. A standard twelve-lead ECG uses ten skin contacts, including a right-leg contact that supports interference reduction. This single-lead example shows only the two measurement contacts; a separate third contact may reduce interference. It is not a device setup guide.</p></details></section>
+<section class="notebook-section" id="approach"><span class="flow-label">02 · My approach</span>
+<h2>What the researchers built. What I’m checking.</h2>
+<p>ECGFounder is the authors’ AI model; PTB-XL is a public collection of ECGs with reference labels; my work is an independent evaluation. The paper already used PTB-XL. I did not train the model.</p>
+<p>The paper includes twelve-lead and separately trained single-lead models. This season starts with the twelve-lead reproduction. A matched PTB-XL lead-II baseline using the single-lead model is planned before the VitalDB comparison.</p>
+<p>I’m checking how closely the released model reproduces the published evaluation, and how choices in preparing the ECG change the scores. Before comparing datasets, I also need a matched single-lead baseline so that a change of model is not confused with a change of recordings.</p><p>That is an evaluation of the model’s behaviour. It does not establish a benefit for patients or show that the model is ready to use on a new device.</p></section>
+<section class="notebook-section" id="follow-research"><span class="flow-label">03 · Follow the work</span><h2>A project that develops week by week.</h2><p>The journal keeps the dated experiments, findings and open questions together. The introduction stays focused on what the project is about.</p><div class="flow-actions"><a class="primary" href="/lab/ecgfounder/journal/">Open the weekly journal →</a></div></section><section class="notebook-section" id="sources"><span class="flow-label">04 · Sources</span><h2>Start with the original work.</h2><p>The ECGFounder paper is the starting point for this project. My own evaluation and its limitations are documented in the weekly journal.</p><p class="review-source-links"><a href="https://arxiv.org/html/2410.04133v4">Read the paper · version 4 ↗</a><a href="https://arxiv.org/pdf/2410.04133v4">Download PDF ↓</a></p><p><a href="https://physionet.org/content/ptb-xl/1.0.3/">PTB-XL: recording source and licence ↗</a></p></section>
+</article>
+</div>
+</main>
+<!-- Lab Collection Preview Footer -->
+<footer id="contact">
+<div class="wrap">
+<div aria-label="J and Co Ventures company details" class="footer-grid">
+<div class="footer-cell" style="display:flex;flex-direction:column;gap:5px;padding:18px;border:1px solid #cbc1b1"><span class="k">Entity</span><span class="v">J &amp; Co Ventures Pty Ltd</span></div>
+<div class="footer-cell" style="display:flex;flex-direction:column;gap:5px;padding:18px;border:1px solid #cbc1b1"><span class="k">Founded</span><span class="v">Melbourne, Australia</span></div>
+<div class="footer-cell" style="display:flex;flex-direction:column;gap:5px;padding:18px;border:1px solid #cbc1b1"><span class="k">Scope</span><span class="v">Global in scope</span></div>
+<div class="footer-cell" style="display:flex;flex-direction:column;gap:5px;padding:18px;border:1px solid #cbc1b1"><span class="k">Focus</span><span class="v">Science · Technology</span></div>
+</div>
+<p class="footer-note">Independent science and technology company · Deep questions, useful things.</p>
+</div>
+</footer>
+</div></body>
+</html>
