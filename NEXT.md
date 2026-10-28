@@ -43,6 +43,8 @@ announcement carries the corrected figure C caption.
 
 ## Single next action
 
+Review the two hosted navigation alternatives with Jack, then implement his chosen direction. The season Content stream in `pertzel-lab` owns the review links. A (guided story) is saved as Superdesign draft `2c927923-98c7-422a-a48b-592d8099e967`, version 3; B (research notebook) as `5ea0763b-2d32-4848-a4e2-e6762c1ed688`, version 4. Both were checked at 375px and 1280px, including actual collection/project-return navigation. The source draft stays active until selection. These alternatives are design artifacts; the site files still contain the preceding local prototype below. No direction is approved for implementation or production deployment.
+
 Review the 28 October ECG reader prototype with Jack before deployment. The two lab pages, the
 home page’s existing Week 2 teaser, scoped reader stylesheet, social image, wiring diagrams and
 new result figures are implemented on local branch `prototype/ecg-reader-journey`. No website
@@ -59,11 +61,7 @@ keyboard and JavaScript off; visible focus, page width, images, local links and 
 were checked. The new graphs use saved aggregate results, not new inference or uncertainty
 analysis. Compare only the same 30-finding means directly; .924 is separate and unexplained.
 
-Automatic approval review rejected sending the unpublished drafts to Superdesign: that new
-external destination was not explicitly approved. Two already-public baseline pages are on the
-canvas; the corrected prototypes were NOT uploaded. Do not describe those baseline URLs as the
-new prototype. The local corrected HTML and private screenshots remain available. A new
-Superdesign upload requires explicit permission for that destination; do not bypass the block.
+Jack has now explicitly authorised sharing the review drafts with Superdesign for the navigation alternatives below. The prior upload rejection is resolved for this design scope.
 
 Before a separately approved deployment: finish Jack’s visual/wording review, remove the draft
 banner and noindex marker, retain a dated substantive correction note, and restore the existing
@@ -102,8 +100,7 @@ main push. Publication date of the correction must reflect actual deployment, no
 Extended 28 October: local prototype authoring and browser review of the agreed ECG corrections,
 introductory reader journey, optional wired electrode illustration, clear result figures, source
 links and roadmap. Native route for this prototype, no deployment or production write. Private
-lab-repo review artifacts are authorised by the ongoing session. Corrected prototype upload to
-Superdesign was rejected by automatic approval review and remains unapproved.
+lab-repo review artifacts are authorised by the ongoing session. Superdesign review drafts are now explicitly authorised; production deployment remains outside this scope.
 
 
 Approved 2026-10-16 and built: the `/lab/` section, the three home-page additions, the
@@ -111,3 +108,11 @@ notes-panel copy, the shared stylesheet, the figures with attribution, the dated
 metadata, and the contract-text corrections that follow from them. Not approved for the model:
 pushing `main`, changing the deploy workflow, any change to the Magpie, Desk Sensor, Kuuki,
 services, worldview or founders copy, hosting, DNS, analytics, forms, or any health claim.
+
+### Navigation options requested — 28 October 2026
+
+Jack asked for a few options before choosing the next website layout. The assistant prepared two directions: an approachable guided story and a research notebook. The durable hierarchy is Lab collection > individual project > weekly research entries. The project introduction starts with what an ECG can reveal, why it matters, and the existing real PTB-XL ten-second recording; Week 2 findings belong in the research journal. Keep primary paper/PDF links prominent, the wired electrode explanation optional, and completed work distinct from plans. Only one project is currently real; do not invent future active labs.
+
+Jack explicitly authorised Superdesign and suitable design tools for these revisions, including sharing the review drafts. This resolves the earlier destination-approval rejection. Prepare two reviewable alternatives with phone links and inspect their rendering; preserve the eight scientific corrections. No production deployment or main push is approved. Selection and human comprehension review remain open.
+
+The two navigation alternatives and final browser evidence are saved in the private lab repo under `design/navigation-options/`. Superdesign generation reported 112 credits for the two options; subsequent repairs used direct edits. The corrected overview upload succeeded, but the full Week 2 draft import hit asset-URL validation and remains an old remote baseline; use the corrected private report screenshots. This does not block reviewing the new navigation alternatives.
