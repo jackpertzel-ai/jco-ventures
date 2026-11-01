@@ -1,0 +1,273 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="theme-color" content="#f3ede2">
+<title>Preparing ECG data for testing the AI fairly. — Pertzel Lab</title>
+<meta name="description" content="Week 3 of Pertzel Lab: 482 surgical ECG recordings cut into 53,100 ten-second clips, the doctors’ labels mapped onto the model’s words and lined up on the right clock, and the scoring rules frozen before the run.">
+<meta property="og:title" content="Preparing ECG data for testing the AI fairly.">
+<meta property="og:description" content="Three things a fair test needs, and a clock problem found on the way. No score yet, on purpose.">
+<meta property="og:type" content="article">
+<meta property="article:published_time" content="2026-11-01">
+<meta property="og:url" content="https://jco.ventures/lab/season-1-week-3.html">
+<meta property="og:image" content="https://jco.ventures/lab/assets/s1-reader-og.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="How well does an ECG model travel? An independent check of ECGFounder. Pertzel Lab, Season 1.">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://jco.ventures/lab/assets/s1-reader-og.png">
+<link rel="canonical" href="https://jco.ventures/lab/season-1-week-3.html">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' fill='%2312161b'/%3E%3Ctext x='16' y='22' font-family='Georgia,serif' font-style='italic' font-size='15' fill='%23ffb454' text-anchor='middle'%3EJ%26Co%3C/text%3E%3C/svg%3E">
+<link rel="stylesheet" href="../assets/site.css">
+
+<link rel="stylesheet" href="../assets/lab-reader.css">
+<link rel="stylesheet" href="/assets/mobile-navigation.css">
+<style>.loop-figure video{display:block;width:100%;max-width:520px;height:auto;margin:0 auto;background:#fbf7f2;border:1px solid rgba(25,32,42,.12)}.loop-figure .figure-tools{justify-content:center}.numbers td:first-child{white-space:nowrap;font-variant-numeric:tabular-nums}</style>
+<script src="/assets/mobile-navigation.js" defer></script>
+</head>
+<body class="lab-reader"><a class="skip-link" href="#main-content">Skip to content</a><div class="masthead-strip">
+    <div class="masthead-inner wrap micro">
+      <span>Pertzel Lab · Jack's research practice within J &amp; Co</span>
+      <span>Season 1 · October to November 2026</span>
+    </div>
+  </div>
+<header class="site-header" data-site-path="/lab/season-1-week-3.html">
+
+<nav class="nav wrap" aria-label="Main navigation">
+      <a class="wordmark" href="../">J<em>&amp;</em>Co Ventures</a>
+      <div class="nav-links">
+        <a href="../#work">Work</a>
+        <a href="./" aria-current="true">Lab</a>
+        <a href="../#services">Services</a>
+        <a href="../#thinking">Thinking</a>
+        <a href="../#about">About</a>
+      </div>
+      <a class="nav-cta" href="https://arxiv.org/html/2410.04133v4">Original paper ↗</a>
+
+<div class="mobile-actions">
+<a class="mobile-lab-link" href="/lab/" aria-current="true">Lab</a>
+<details class="site-menu">
+<summary aria-controls="site-menu-panel"><span class="menu-closed-label">Menu</span><span class="menu-open-label">Close</span><span class="menu-icon" aria-hidden="true"></span></summary>
+<div class="site-menu-panel" id="site-menu-panel"><div class="site-menu-inner wrap">
+<div class="site-menu-heading"><span class="site-menu-kicker">Explore J&amp;Co</span><span class="site-menu-location">Week 3</span></div>
+<nav class="site-menu-links" aria-label="Mobile site navigation"><a href="/#work" data-section="work"><span>Our work</span><span aria-hidden="true">→</span></a><a href="/lab/" aria-current="true"><span>Lab</span><span aria-hidden="true">→</span></a><a href="/#services" data-section="services"><span>Services</span><span aria-hidden="true">→</span></a><a href="/#thinking" data-section="thinking"><span>Our thinking</span><span aria-hidden="true">→</span></a><a href="/#about" data-section="about"><span>About</span><span aria-hidden="true">→</span></a><a href="/#contact" data-section="contact"><span>Contact</span><span aria-hidden="true">→</span></a></nav>
+<div class="site-menu-research"><span class="site-menu-kicker">Current research · ECGFounder</span><nav class="site-menu-links" aria-label="Research shortcuts"><a href="/lab/ecgfounder/"><span>ECGFounder project</span><span aria-hidden="true">→</span></a><a href="/lab/ecgfounder/journal/"><span>Weekly journal</span><span aria-hidden="true">→</span></a><a href="https://arxiv.org/html/2410.04133v4"><span>Original paper</span><span aria-hidden="true">↗</span></a></nav></div>
+<a class="site-menu-contact" href="mailto:hello@jco.ventures?subject=Project%20conversation%20with%20J%20%26%20Co"><span>Discuss a project</span><span aria-hidden="true">↗</span></a>
+</div></div></details></div>
+</nav>
+
+</header>
+<main id="main-content"><div class="wrap">
+<nav class="lab-post-context" aria-label="Research navigation"><a href="/lab/">Lab</a><span aria-hidden="true">/</span><a href="/lab/ecgfounder/">ECGFounder</a><span aria-hidden="true">/</span><a href="/lab/ecgfounder/journal/">Weekly journal</a><span aria-hidden="true">/</span><span aria-current="page">Week 3</span></nav>
+<header class="reader-hero">
+<p class="eyebrow"><strong>Pertzel Lab</strong> · Season 1 · Week 3
+</p>
+<h1>Preparing ECG data for testing the AI fairly.<br><em>Three things a fair test needs, and a clock problem found on the way.</em>
+</h1>
+<p class="intro">No score this week, on purpose. Before an AI can be tested on 482 heart recordings from surgery, the recordings have to become questions it can take, each one needs an answer key that matches it, and the marking rules have to be fixed before anyone sees an answer. That took the week, and it turned up a problem that would have made any score meaningless.
+</p>
+<p class="byline"><span>Jack Pertzel</span><time datetime="2026-11-01">1 November 2026</time><span>About 8 minutes</span>
+</p>
+<aside class="paper-source" aria-label="Original research paper"><div><span class="micro">Start with the primary source</span><strong>Original study · ECGFounder</strong>
+<p>Li et al. · Version 4. This week uses the released single-lead model.
+</p></div><div class="source-actions"><a class="read-paper" href="https://arxiv.org/html/2410.04133v4">Read the paper ↗</a><a href="https://arxiv.org/pdf/2410.04133v4">PDF ↓</a></div>
+</aside>
+</header>
+<nav class="reader-jump" aria-label="On this page"><a href="#why">Why prepare</a><a href="#data">The data</a><a href="#clock">The clock</a><a href="#words">The words</a><a href="#counts">What counts</a><a href="#limits">Limits</a><a href="#next">Next week</a>
+</nav>
+<section class="read-section" id="why"><div class="section-intro"><div class="section-label"><b>01</b>Why prepare</div><div class="reading">
+<h2>A fair test needs three things.
+</h2>
+<p>The AI I am testing, ECGFounder, learned to read heart traces from standard ten-second ECG tests. I want to know how it does on traces it was never trained on: recorded off the monitor during surgery, by a different machine, for hours at a time. Scoring it against the doctors’ labels is an exam, and an exam is only fair if three things hold.
+</p>
+<p><strong>Questions the sitter can take.</strong> The model reads ten seconds at a time, so every labelled stretch is cut into ten-second clips on a fixed grid from the start of the stretch, never slid to catch an event.
+</p>
+<p><strong>An answer key that matches each question.</strong> The anaesthesiologists’ labels have to be in words the model can be scored on, and on the same clock as the clips.
+</p>
+<p><strong>Rules fixed before marking.</strong> What counts, what is set aside and how the two answers are compared were written down and frozen on 29 October, before a single clip is scored, so the flattering numbers cannot be chosen afterwards.
+</p>
+<details><summary>New to ECGs and the model?</summary><div class="disclosure-body">
+<p>An ECG records the heart’s electrical activity as a trace. ECGFounder is the trained AI software that reads a trace and makes 150 statements about it. VitalDB Arrhythmia is this week’s test material: surgical recordings with reference labels written by anaesthesiologists, the doctors who keep a patient under and watched through an operation.
+</p>
+<p><a href="/lab/ecgfounder/#background">Start with the illustrated introduction →</a>
+</p></div>
+</details>
+<figure class="reader-figure loop-figure" id="figure-2"><span class="micro">Figure 1 · The three things</span>
+<h3>Questions, answer key, marking scheme.</h3>
+<p class="figure-lede">A minute of one recording is cut into six clips, each clip gets the doctors’ word for it, and the frozen rules land.</p>
+<video autoplay muted loop playsinline preload="metadata" poster="assets/week3-slide-2.png" width="1080" height="1350" aria-label="Questions, answer key, marking scheme."><source src="assets/week3-slide-2.mp4" type="video/mp4"></video>
+<figcaption>Case 208, the first minute of its labelled stretch, lead II. The tags are the doctors’ rhythm word for each ten-second clip. Every number on this page is measured from the released files unless it is marked as published.</figcaption><div class="figure-tools"><a href="assets/week3-slide-2.png">Open the still ↗</a></div>
+</figure>
+</div></div>
+</section>
+<section class="read-section" id="data"><div class="section-intro"><div class="section-label"><b>02</b>The data</div><div class="reading">
+<h2>482 operations. 473 people. 148 hours of labelled heartbeat.
+</h2>
+<p>VitalDB Arrhythmia is a public release from a Seoul hospital: 482 surgical cases, each with a stretch of the monitor’s ECG labelled beat by beat by anaesthesiologists, at least two per stretch, with consensus. The release’s metadata lists 473 distinct patient identifiers across the 482 cases, so eight people appear more than once, 17 cases between them. The dataset page says 482 patients; I use the released identifiers and keep each person’s cases together.
+</p>
+<p>The labelled stretches add up to 148.4 hours in the released analysis windows. The dataset page states 734,528 seconds, about 204 hours. I have not resolved that difference and report the measured figure.
+</p>
+<p>The stretches are not a random sample of an operation. They were screened by an automated classifier for suspected rhythm trouble before labelling, so the labelled minutes lean towards hearts doing something unusual. That shapes what next week’s score can say.
+</p>
+<figure class="reader-figure loop-figure" id="figure-3"><span class="micro">Figure 2 · The whole release</span>
+<h3>One square per operation.</h3>
+<p class="figure-lede">482 squares, shortest labelled stretch to longest.</p>
+<video autoplay muted loop playsinline preload="metadata" poster="assets/week3-slide-3.png" width="1080" height="1350" aria-label="One square per operation."><source src="assets/week3-slide-3.mp4" type="video/mp4"></video>
+<figcaption>Operations sorted by labelled minutes, 2.3 to 49.8 each. Hours measured from the released analysis windows; the dataset page states 204.</figcaption><div class="figure-tools"><a href="assets/week3-slide-3.png">Open the still ↗</a></div>
+</figure>
+<figure class="reader-figure loop-figure" id="figure-4"><span class="micro">Figure 3 · One operation</span>
+<h3>An answer key for 17 minutes of it.</h3>
+<p class="figure-lede">A liver transplant, 8 hours 40 minutes from first record to last; the labelled 17 minutes become 104 ten-second clips.</p>
+<video autoplay muted loop playsinline preload="metadata" poster="assets/week3-slide-4.png" width="1080" height="1350" aria-label="An answer key for 17 minutes of it."><source src="assets/week3-slide-4.mp4" type="video/mp4"></video>
+<figcaption>Case 12. Of its 104 clips, 75 carry normal rhythm throughout, 14 contain a run of early beats from the lower chambers, and 15 contain noise or a beat with no rhythm written. Times from the released metadata.</figcaption><div class="figure-tools"><a href="assets/week3-slide-4.png">Open the still ↗</a></div>
+</figure>
+</div></div>
+</section>
+<section class="read-section" id="clock"><div class="section-intro"><div class="section-label"><b>03</b>The clock</div><div class="reading">
+<h2>The labels and the recording didn’t share a clock.
+</h2>
+<p>The label times count from the start of the operation’s record. The ECG track in the waveform file starts later: 0.37 seconds later in case 230, and 8,633 seconds later, 2 hours 24 minutes, in case 12. Treat the first sample of the trace as time zero and every label slides off its beat by that gap.
+</p>
+<p>Lined up wrong, the answer key points at the wrong beats. In the worst case I would be comparing the model’s reading of one part of an operation with the doctors’ word for a different part, and no score would mean anything.
+</p>
+<p>The check uses the signal’s own evidence. I find the heartbeats in the trace without looking at the labels, then ask whether each label lands within 40 milliseconds of one. On the record’s clock, 95 to 100 percent of labels do in the 20 cases checked so far; on the trace’s own clock, between 0 and 36 percent. The check runs for every case before any score is read.
+</p>
+<p>What it cannot tell me is whether the letter is the right letter. It proves where the labels sit, not that a beat marked N was normal or that a stretch marked AF was atrial fibrillation. For that there is only the doctors’ agreement, which is the reference I am scoring against, not the truth.
+</p>
+<figure class="reader-figure loop-figure" id="figure-5"><span class="micro">Figure 4 · Two clocks</span>
+<h3>Every label misses, then every label lands.</h3>
+<p class="figure-lede">The operation’s record and the heart trace start at different moments; on the wrong clock the labels fall between beats.</p>
+<video autoplay muted loop playsinline preload="metadata" poster="assets/week3-slide-5.png" width="1080" height="1350" aria-label="Every label misses, then every label lands."><source src="assets/week3-slide-5.mp4" type="video/mp4"></video>
+<figcaption>Case 230, the first ten labelled seconds, lead II. The thin lines drop from each label to where it says a beat is: red while they miss, dark once the labels sit on the record’s clock.</figcaption><div class="figure-tools"><a href="assets/week3-slide-5.png">Open the still ↗</a></div>
+</figure>
+</div></div>
+</section>
+<section class="read-section" id="words"><div class="section-intro"><div class="section-label"><b>04</b>The words</div><div class="reading">
+<h2>The doctors and the AI don’t use the same words.
+</h2>
+<p>The doctors describe stretches of rhythm with eleven labels. The model makes 150 statements about each ten-second clip. Only two meanings line up cleanly, and those are the two that get scored.
+</p>
+<div class="data-wrap" role="region" aria-label="How the doctors’ labels map onto the model’s outputs" tabindex="0"><table><caption>The frozen mapping, protocol v1. Rhythm labels as released; model outputs as named by the model.</caption><thead><tr><th scope="col">Doctors’ label</th><th scope="col">Scored against</th><th scope="col">Why</th></tr></thead><tbody>
+<tr><td>N</td><td>SINUS RHYTHM, positive; negative for the atrial fibrillation or flutter endpoint</td><td>Rhythm-level comparison only; extra beats may coexist.</td></tr>
+<tr><td>AFIB/AFL</td><td>The larger of ATRIAL FIBRILLATION and ATRIAL FLUTTER, positive; negative for sinus</td><td>The release does not separate fibrillation from flutter. The maximum is a ranking score, not a calibrated probability.</td></tr>
+<tr><td>Patterned Ventricular Ectopy, Patterned Atrial Ectopy, SND, AVB, WAP/MAT, SVTA, VT</td><td>Set aside</td><td>Pooled categories, patterns that span more than one clip, or no single matching output. Not marked wrong.</td></tr>
+<tr><td>Noise, Unclassifiable, blank</td><td>Unknown; set aside</td><td>No trustworthy reference. Never used as a negative example.</td></tr>
+</tbody></table></div>
+<p>Even “ventricular tachycardia” appears on both sides. But the doctors’ label covers an event that may run across many clips, and whether a ten-second slice of it is what the model’s output means is not established by the release. It waits for a documented later version of the rules, not a quiet assumption.
+</p>
+<p>Set aside is not wrong. It means the model’s answer on that clip cannot be checked against a label I trust. So the model is scored on two things only, normal rhythm and atrial fibrillation or flutter, and everything else it says about these hearts stays unscored this season.
+</p>
+<figure class="reader-figure loop-figure" id="figure-6"><span class="micro">Figure 5 · Two vocabularies</span>
+<h3>Two links, and the rest fades.</h3>
+<p class="figure-lede">Eleven labels beside ten of the model’s 150 statements.</p>
+<video autoplay muted loop playsinline preload="metadata" poster="assets/week3-slide-6.png" width="1080" height="1350" aria-label="Two links, and the rest fades."><source src="assets/week3-slide-6.mp4" type="video/mp4"></video>
+<figcaption>Normal rhythm maps onto sinus rhythm; atrial fibrillation or flutter onto atrial fibrillation and atrial flutter. The dashed pair, ventricular tachycardia, shares a name but not an established meaning across the two.</figcaption><div class="figure-tools"><a href="assets/week3-slide-6.png">Open the still ↗</a></div>
+</figure>
+</div></div>
+</section>
+<section class="read-section" id="counts"><div class="section-intro"><div class="section-label"><b>05</b>What counts</div><div class="reading">
+<h2>53,100 ten-second clips. 36,129 count.
+</h2>
+<p>Cutting every labelled stretch into complete ten-second clips gives 53,100 candidates. A clip counts when the doctors wrote one rhythm across all ten seconds, it is one of the two shared words, and they did not flag the signal quality: <strong>36,129 clips</strong> from 450 cases and 442 patients, of which 25,607 carry normal rhythm and 10,522 atrial fibrillation or flutter. Another 194 clips meet every rule except the quality flag and form a separate side check. The remaining 16,777 are set aside.
+</p>
+<div class="data-wrap" role="region" aria-label="Why clips are set aside" tabindex="0"><table class="numbers"><caption>Why a clip is set aside. Each clip is counted once, under the first rule it fails.</caption><thead><tr><th scope="col">Clips</th><th scope="col">Reason</th></tr></thead><tbody>
+<tr><td>5,923</td><td>A rhythm word the model cannot be scored on</td></tr>
+<tr><td>4,744</td><td>A beat the doctors could not classify, or a blank label</td></tr>
+<tr><td>4,371</td><td>The rhythm changed inside the ten seconds</td></tr>
+<tr><td>971</td><td>The case’s signal-quality markers could not be read (18 cases)</td></tr>
+<tr><td>406</td><td>No labelled beat inside the clip</td></tr>
+<tr><td>362</td><td>No rhythm written</td></tr>
+<tr><td><strong>16,777</strong></td><td><strong>Set aside in total</strong></td></tr>
+</tbody></table></div>
+<p>These counts come from the labels alone. The waveform quality checks run with the evaluation, and anything they remove will be reported as a further exclusion, not tuned on the results.
+</p>
+<figure class="reader-figure loop-figure" id="figure-7"><span class="micro">Figure 6 · Which clips count</span>
+<h3>The bar splits, then the set-aside part shows its reasons.</h3>
+<p class="figure-lede">53,100 clips: 36,129 count, 194 flagged for a side check, 16,777 set aside.</p>
+<video autoplay muted loop playsinline preload="metadata" poster="assets/week3-slide-7.png" width="1080" height="1350" aria-label="The bar splits, then the set-aside part shows its reasons."><source src="assets/week3-slide-7.mp4" type="video/mp4"></video>
+<figcaption>Counts from the frozen protocol’s coverage file, labels only. Rules frozen 29 October 2026.</figcaption><div class="figure-tools"><a href="assets/week3-slide-7.png">Open the still ↗</a></div>
+</figure>
+</div></div>
+</section>
+<section class="read-section" id="limits"><div class="section-intro"><div class="section-label"><b>06</b>What this week does not show</div><div class="reading">
+<h2>No result yet, and some limits already known.
+</h2>
+<ul>
+<li>There is no performance number on this page. Twenty cases went through the model as a pipeline test; no aggregate agreement has been calculated.
+</li>
+<li>Only two of the doctors’ eleven words are scored, against three of the model’s 150 outputs (sinus rhythm, and the larger of atrial fibrillation and atrial flutter). The other 147 outputs stay unscored this season.
+</li>
+<li>The labelled stretches were chosen by a screening program, so they are not a random sample of an operation or of everyday life.
+</li>
+<li>The clock check proves where the labels sit, not that they are right; the doctors’ consensus is the reference, not the truth.
+</li>
+<li>The released single-lead model was trained on lead I; VitalDB’s only ECG lead is lead II. A matched single-lead baseline on PTB-XL lead II is planned before the comparison is interpreted.
+</li>
+<li>Next week’s score first ranks the clips, as Week 2 did. Turning a ranking into a yes or no needs a line on the model’s probability, and where that line goes trades sensitivity, catching the real cases, against specificity, not raising false alarms. That line has to be written down before the run.
+</li>
+</ul>
+</div></div>
+</section>
+<section class="read-section" id="next"><div class="section-intro"><div class="section-label"><b>07</b>Next week</div><div class="reading">
+<h2>The AI reads the 36,129 clips that count.
+</h2>
+<p>The order, to be allocated at tonight’s planning session: the patient-grouped follow-up of Week 2 first, then a matched single-lead PTB-XL baseline on lead II, then the VitalDB run under the frozen rules, with calibration and subgroup views by age and recorded sex. Each clip is marked against the doctors’ word, normal rhythm or atrial fibrillation or flutter, and every case keeps all of its patient’s clips together.
+</p>
+<p>The rules are protocol v1, frozen on 29 October 2026 (file hash beginning 468bc228). Any change before scoring would be a documented new version, not an edit.
+</p>
+<figure class="reader-figure loop-figure" id="figure-8"><span class="micro">Figure 7 · Where this sits</span>
+<h3>Six weeks, one check at a time.</h3>
+<p class="figure-lede">Weeks 1 to 3 done; week 4 is the run.</p>
+<video autoplay muted loop playsinline preload="metadata" poster="assets/week3-slide-8.png" width="1080" height="1350" aria-label="Six weeks, one check at a time."><source src="assets/week3-slide-8.mp4" type="video/mp4"></video>
+<figcaption>Season 1 asks how well an open ECG model travels to data it was not trained on.</figcaption><div class="figure-tools"><a href="assets/week3-slide-8.png">Open the still ↗</a></div>
+</figure>
+</div></div>
+</section>
+<section class="read-section" id="record"><div class="section-intro"><div class="section-label"><b>08</b>An open record</div><div class="reading">
+<h2>Every number on the slides, and where it comes from.
+</h2>
+<div class="data-wrap" role="region" aria-label="Every number on this page with its source" tabindex="0"><table class="numbers"><caption>Measured: computed from the released files by the lab’s code. Published: stated by the source.</caption><thead><tr><th scope="col">Number</th><th scope="col">What it is</th><th scope="col">Status</th></tr></thead><tbody>
+<tr><td>482</td><td>Surgical cases with an annotation file</td><td>Measured; the dataset page says 482 patients</td></tr>
+<tr><td>473</td><td>Distinct patient identifiers; 8 people with more than one case (17 cases)</td><td>Measured from the released metadata</td></tr>
+<tr><td>148.4 h</td><td>Sum of the released analysis windows</td><td>Measured; the page states 734,528 s, about 204 h</td></tr>
+<tr><td>8 h 40 min, 17.5 min, 104</td><td>Case 12: record length, labelled stretch, complete ten-second clips</td><td>Measured</td></tr>
+<tr><td>0.37 s, 2 h 24 min</td><td>How much later the ECG track starts than the record, cases 230 and 12</td><td>Measured</td></tr>
+<tr><td>95 to 100 %, 0 to 36 %</td><td>Labels within 40 ms of a detected beat on the record’s clock versus the track’s clock, 20 cases</td><td>Measured, pipeline test</td></tr>
+<tr><td>11, 150</td><td>Rhythm labels in the release; output names in the model</td><td>Published by the release and the model</td></tr>
+<tr><td>53,100, 36,129, 194, 16,777</td><td>Candidate clips; clips that count; flagged side check; set aside</td><td>Measured, labels only, protocol v1 coverage</td></tr>
+<tr><td>25,607, 10,522</td><td>Counting clips labelled normal rhythm; atrial fibrillation or flutter</td><td>Measured</td></tr>
+<tr><td>450, 442</td><td>Cases and patients with at least one counting clip</td><td>Measured</td></tr>
+</tbody></table></div>
+<ul class="source-list">
+<li><a href="https://arxiv.org/html/2410.04133v4">Original ECGFounder paper, version 4</a> · <a href="https://arxiv.org/pdf/2410.04133v4">PDF</a>
+</li>
+<li><a href="https://physionet.org/content/vitaldb-arrhythmia/1.0.0/">VitalDB Arrhythmia v1.0.0</a> · Eun et al. · CC BY 4.0 · the labels and metadata
+</li>
+<li><a href="https://physionet.org/content/vitaldb/1.0.0/">VitalDB v1.0.0 on PhysioNet</a> · Lee and Jung · CC BY 4.0 · the waveforms
+</li>
+<li><a href="https://physionet.org/content/ptb-xl/1.0.3/">PTB-XL v1.0.3</a> · Wagner et al. · CC BY 4.0 · the planned matched baseline
+</li>
+</ul>
+<p class="small">The figures are the eight slides of this week’s carousel, rendered from the released files by the lab’s own code. This work reports what the data and the model show against a dataset’s reference labels. It does not provide health advice or establish clinical benefit. The lab repository is planned to become public with the Season 1 research output. The authors were contacted on 21 October; no answer is recorded as of 1 November.
+</p></div></div>
+</section><nav class="week-navigation" aria-label="Week navigation">
+  <a class="week-nav-item" href="/lab/season-1-week-2.html" rel="prev"><span class="week-nav-label">← Previous week</span><strong>Week 2</strong><span>Checking a published result</span></a>
+  <a class="week-nav-item week-nav-journal" href="/lab/ecgfounder/journal/"><span class="week-nav-label">All weeks</span><strong>Back to weekly journal</strong></a>
+  <div class="week-nav-item week-nav-boundary"><span class="week-nav-label">The record so far</span><strong>Latest published week</strong><span>The next entry will appear here when published.</span></div>
+</nav><div class="article-end"><a href="/lab/ecgfounder/">Project overview →</a><a href="mailto:hello@jco.ventures?subject=Pertzel%20Lab%20Week%203">Write to the lab →</a></div></div>
+</main><footer id="contact">
+    <div class="wrap">
+      <div class="footer-grid" aria-label="J and Co Ventures company details">
+        <div class="footer-cell"><span class="k">Entity</span><span class="v">J &amp; Co Ventures Pty Ltd</span></div>
+        <div class="footer-cell"><span class="k">Founded</span><span class="v">Melbourne, Australia</span></div>
+        <div class="footer-cell"><span class="k">Scope</span><span class="v">Global in scope</span></div>
+        <div class="footer-cell"><span class="k">Focus</span><span class="v">Science · Technology</span></div>
+      </div>
+
+<p class="footer-note">Independent science and technology company · Deep questions, useful things.
+</p>
+    </div>
+  </footer><!-- Cloudflare Web Analytics --><script type="module" src="https://static.cloudflareinsights.com/beacon.min.js" data-cf-beacon='{"token": "a05a8e57742f431893a7942d96ac429e"}'></script><!-- End Cloudflare Web Analytics -->
+<script>if(window.matchMedia&&window.matchMedia("(prefers-reduced-motion: reduce)").matches){document.querySelectorAll(".loop-figure video").forEach(function(v){v.removeAttribute("autoplay");v.pause();v.setAttribute("controls","");});}</script>
+</body></html>

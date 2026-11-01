@@ -2,7 +2,7 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
     <loc>https://jco.ventures/</loc>
-    <lastmod>2026-10-28</lastmod>
+    <lastmod>2026-11-01</lastmod>
   </url>
   <url>
     <loc>https://jco.ventures/lab/</loc>
@@ -14,7 +14,7 @@
   </url>
   <url>
     <loc>https://jco.ventures/lab/season-1-week-2.html</loc>
-    <lastmod>2026-10-28</lastmod>
+    <lastmod>2026-11-01</lastmod>
   </url>
   <url>
     <loc>https://jco.ventures/lab/ecgfounder/</loc>
@@ -22,6 +22,10 @@
   </url>
   <url>
     <loc>https://jco.ventures/lab/ecgfounder/journal/</loc>
-    <lastmod>2026-10-28</lastmod>
+    <lastmod>2026-11-01</lastmod>
+  </url>
+  <url>
+    <loc>https://jco.ventures/lab/season-1-week-3.html</loc>
+    <lastmod>2026-11-01</lastmod>
   </url>
 </urlset>
