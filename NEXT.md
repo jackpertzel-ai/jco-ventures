@@ -1,7 +1,7 @@
 # NEXT — jco-ventures
 
 - **Capability:** Company front door for products, services and selective collaboration
-- **Slice:** The lab on the site — live since 2026-10-18 (`4a49a92`); **Week 2 post live since
+- **Slice:** The lab on the site — live since 2026-10-18 (`4a49a92`); **Week 4 post live since 2026-11-08** (`89419aa`, pushed on Jack's word "Push the website"; Pages run 42474481594 green; the page, the journal entry, the home line, Week 3's forward link, the eight figures and the sitemap answered 200 on the live domain with bytes identical to the reviewed file); **Week 2 post live since
   2026-10-25** (`bdd9210`, pushed with Jack's word; Pages run 40161132866 green; the page, its two
   figures and the home-page line answered 200 on the live domain). **Pages now deploys only the site
   files** (`c7b3726`, Jack's call on the allowlist loose end): `/NEXT.md` answers 404 on the live
@@ -43,10 +43,35 @@ announcement carries the corrected figure C caption.
 
 ## Single next action
 
-The approved mobile navigation is published and verified. No further website implementation is
-queued. Later research updates retain their own evidence and publication decision.
+No website implementation is queued. The Week 5 lab post follows the same pattern when its
+research evidence is reviewed: page from the bound numbers, chrome-free figures from the week's
+carousel, Week 4's boundary turned into a forward link, journal/sitemap/home line, local preview at
+desktop and 375 px, an independent fact check, then Jack's push word.
 
-### Published mobile navigation — 29 October 2026
+### Published Week 4 lab post — 8 November 2026
+
+`lab/season-1-week-4.html` ("The same model, tested on recordings from surgery."), written from the
+lab's bound `sources.json` and research tables for Week 4 (research commit `ca96bc3`): the released
+single-lead ECGFounder model on 35,342 VitalDB clips from 432 patients against a matched PTB-XL
+lead II comparison; AF/flutter ranking almost perfect, sinus ranking weaker, filtering helped one
+measure and worsened another; cause not established, no clinical claim. Eight figures
+`lab/assets/week4-site-{2..9}.{mp4,png}` are the Week 4 carousel drawings re-rendered without slide
+chrome by the lab's `render_week4_site_figures.py`. Also changed: `lab/season-1-week-3.html`
+(forward link), `lab/ecgfounder/journal/index.html` (Week 4 entry; Week 5 reproduction as current
+work; write-up planned), `sitemap.xml`, `index.html` (latest-from-the-lab line).
+
+Checked before the push: desktop and 375 px renders with no horizontal scroll, all eight videos and
+no broken images, tag balance, local 200; an independent fresh-context fact check traced every
+number to the sources and passed, and its five low wording findings were applied (pre-freeze
+pipeline test disclosed; lead I wording matched to the protocol's knowledge; "a month" of
+accumulation; Week 2 described as on the record; the 18-to-39 subgroup's descriptive figure).
+Release commit `89419aa`; [Pages run 42474481594](https://github.com/jackpertzel-ai/jco-ventures/actions/runs/42474481594)
+succeeded; live page bytes match the committed file. Not checked: physical phones, screen readers,
+external routes beyond the paper and PhysioNet links, email delivery. Publication approved by Jack in
+the session: "Push the website".
+
+### Published mobile navigation — 29 October 2026 (previous)
+
 
 Jack approved the connected version-2 preview with “Publish this version”. Release commit
 `c3cc3f9a01fc5ac5028bcf6060153073fd4b986f` was reviewed under `mobile-navigation-release-20261029`,
