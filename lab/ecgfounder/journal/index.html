@@ -100,15 +100,21 @@
 <p class="entry-desc">482 surgical recordings cut into 53,100 ten-second clips; the doctors’ labels mapped onto the model’s words (two of eleven score) and lined up on the record’s clock after finding the ECG tracks start later than the labels count from; rules frozen 29 October. No performance result yet.</p>
 <a class="entry-link" href="/lab/season-1-week-3.html">Read the Week 3 report →</a>
 </div>
+<div class="journal-entry completed">
+<span class="entry-meta">Week 4 · Published 8 Nov</span>
+<h3 class="entry-title">The same model, tested on recordings from surgery</h3>
+<p class="entry-desc">The released single-lead model scored on 35,342 ten-second clips from 432 surgical patients under frozen rules, against a matched PTB-XL lead II comparison. Atrial fibrillation or flutter ranked almost perfectly (AUROC 0.999949); normal rhythm ranked weaker than on PTB-XL (0.846715 against 0.926300). Filtering the same clips improved sinus ranking and worsened calibration, and moved the mistakes both ways. A measured difference; cause not established.</p>
+<a class="entry-link" href="/lab/season-1-week-4.html">Read the Week 4 report →</a>
+</div>
 <div class="journal-entry progress">
-<span class="entry-meta">Current work · In progress</span>
-<h3 class="entry-title">Scoring the surgical recordings</h3>
-<p class="entry-desc">Running the single-lead model on the 36,129 clips that count, under the frozen rules, after the patient-grouped Week 2 follow-up and a matched single-lead PTB-XL baseline. Planned work, not yet a result.</p>
+<span class="entry-meta">Current work · Week 5</span>
+<h3 class="entry-title">Reproducing the whole chain from a clean setup</h3>
+<p class="entry-desc">A fresh copy of the code, data and weights checked by hash, then the full path from raw recordings to scores and figures, with tolerances written first. Any mismatch is recorded, not smoothed over. Planned work, not yet a result.</p>
 </div>
 <div class="journal-entry planned">
-<span class="entry-meta">Next checks · Planned</span>
-<h3 class="entry-title">Make the comparisons stronger</h3>
-<p class="entry-desc">Keep each patient’s recordings together when estimating uncertainty. Run a matched single-lead PTB-XL baseline before interpreting VitalDB.</p>
+<span class="entry-meta">Next · Planned</span>
+<h3 class="entry-title">Write-up and preprint draft</h3>
+<p class="entry-desc">Methods, results, limitations and data availability for the Season 1 preprint, with the code deposit prepared. The Week 2 headline discrepancy stays on record as unexplained.</p>
 </div>
 <div class="journal-entry planned">
 <span class="entry-meta">Later · Not started</span>

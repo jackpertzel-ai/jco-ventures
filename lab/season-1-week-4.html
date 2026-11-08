@@ -1,0 +1,282 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="theme-color" content="#f3ede2">
+<title>The same model, tested on recordings from surgery. — Pertzel Lab</title>
+<meta name="description" content="Week 4 of Pertzel Lab: the released single-lead ECGFounder model scored on 35,342 ten-second clips from 432 surgical patients under frozen rules. Atrial fibrillation or flutter ranked almost perfectly; normal rhythm ranked weaker than on PTB-XL. Filtering improved one measure and worsened another. The cause is not established.">
+<meta property="og:title" content="The same model, tested on recordings from surgery.">
+<meta property="og:description" content="Very strong on one rhythm, weaker on the other, and a filter that helped one measure while hurting another. A measured difference, cause not established.">
+<meta property="og:type" content="article">
+<meta property="article:published_time" content="2026-11-08">
+<meta property="og:url" content="https://jco.ventures/lab/season-1-week-4.html">
+<meta property="og:image" content="https://jco.ventures/lab/assets/s1-reader-og.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="How well does an ECG model travel? An independent check of ECGFounder. Pertzel Lab, Season 1.">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://jco.ventures/lab/assets/s1-reader-og.png">
+<link rel="canonical" href="https://jco.ventures/lab/season-1-week-4.html">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' fill='%2312161b'/%3E%3Ctext x='16' y='22' font-family='Georgia,serif' font-style='italic' font-size='15' fill='%23ffb454' text-anchor='middle'%3EJ%26Co%3C/text%3E%3C/svg%3E">
+<link rel="stylesheet" href="../assets/site.css">
+
+<link rel="stylesheet" href="../assets/lab-reader.css">
+<link rel="stylesheet" href="/assets/mobile-navigation.css">
+<style>.loop-figure video{display:block;width:100%;max-width:520px;height:auto;margin:0 auto;background:#fbf7f2;border:1px solid rgba(25,32,42,.12)}.loop-figure .figure-tools{justify-content:center}.numbers td:first-child{white-space:nowrap;font-variant-numeric:tabular-nums}.errors td{font-variant-numeric:tabular-nums}</style>
+<script src="/assets/mobile-navigation.js" defer></script>
+</head>
+<body class="lab-reader"><a class="skip-link" href="#main-content">Skip to content</a><div class="masthead-strip">
+    <div class="masthead-inner wrap micro">
+      <span>Pertzel Lab · Jack's research practice within J &amp; Co</span>
+      <span>Season 1 · October to November 2026</span>
+    </div>
+  </div>
+<header class="site-header" data-site-path="/lab/season-1-week-4.html">
+
+<nav class="nav wrap" aria-label="Main navigation">
+      <a class="wordmark" href="../">J<em>&amp;</em>Co Ventures</a>
+      <div class="nav-links">
+        <a href="../#work">Work</a>
+        <a href="./" aria-current="true">Lab</a>
+        <a href="../#services">Services</a>
+        <a href="../#thinking">Thinking</a>
+        <a href="../#about">About</a>
+      </div>
+      <a class="nav-cta" href="https://arxiv.org/html/2410.04133v4">Original paper ↗</a>
+
+<div class="mobile-actions">
+<a class="mobile-lab-link" href="/lab/" aria-current="true">Lab</a>
+<details class="site-menu">
+<summary aria-controls="site-menu-panel"><span class="menu-closed-label">Menu</span><span class="menu-open-label">Close</span><span class="menu-icon" aria-hidden="true"></span></summary>
+<div class="site-menu-panel" id="site-menu-panel"><div class="site-menu-inner wrap">
+<div class="site-menu-heading"><span class="site-menu-kicker">Explore J&amp;Co</span><span class="site-menu-location">Week 4</span></div>
+<nav class="site-menu-links" aria-label="Mobile site navigation"><a href="/#work" data-section="work"><span>Our work</span><span aria-hidden="true">→</span></a><a href="/lab/" aria-current="true"><span>Lab</span><span aria-hidden="true">→</span></a><a href="/#services" data-section="services"><span>Services</span><span aria-hidden="true">→</span></a><a href="/#thinking" data-section="thinking"><span>Our thinking</span><span aria-hidden="true">→</span></a><a href="/#about" data-section="about"><span>About</span><span aria-hidden="true">→</span></a><a href="/#contact" data-section="contact"><span>Contact</span><span aria-hidden="true">→</span></a></nav>
+<div class="site-menu-research"><span class="site-menu-kicker">Current research · ECGFounder</span><nav class="site-menu-links" aria-label="Research shortcuts"><a href="/lab/ecgfounder/"><span>ECGFounder project</span><span aria-hidden="true">→</span></a><a href="/lab/ecgfounder/journal/"><span>Weekly journal</span><span aria-hidden="true">→</span></a><a href="https://arxiv.org/html/2410.04133v4"><span>Original paper</span><span aria-hidden="true">↗</span></a></nav></div>
+<a class="site-menu-contact" href="mailto:hello@jco.ventures?subject=Project%20conversation%20with%20J%20%26%20Co"><span>Discuss a project</span><span aria-hidden="true">↗</span></a>
+</div></div></details></div>
+</nav>
+
+</header>
+<main id="main-content"><div class="wrap">
+<nav class="lab-post-context" aria-label="Research navigation"><a href="/lab/">Lab</a><span aria-hidden="true">/</span><a href="/lab/ecgfounder/">ECGFounder</a><span aria-hidden="true">/</span><a href="/lab/ecgfounder/journal/">Weekly journal</a><span aria-hidden="true">/</span><span aria-current="page">Week 4</span></nav>
+<header class="reader-hero">
+<p class="eyebrow"><strong>Pertzel Lab</strong> · Season 1 · Week 4
+</p>
+<h1>The same model, tested on recordings from surgery.<br><em>Very strong on one rhythm, weaker on the other, and a filter that helped one measure while hurting another.</em>
+</h1>
+<p class="intro">This is the week the model sat the exam. The released single-lead ECGFounder read 35,342 ten-second clips from 432 people in surgery and was marked against the anaesthesiologists’ rhythm labels, under rules frozen on 29 October. For atrial fibrillation or flutter it ranked the clips almost perfectly. For normal rhythm it ranked them less well than it had on PTB-XL, the standard resting ECGs it was first measured on. Then I filtered the same clips and marked it again: one measure improved, another got worse, and the mistakes moved. So I have a measured difference. I do not have its cause, and I am not going to guess at one yet.
+</p>
+<p class="byline"><span>Jack Pertzel</span><time datetime="2026-11-08">8 November 2026</time><span>About 9 minutes</span>
+</p>
+<aside class="paper-source" aria-label="Original research paper"><div><span class="micro">Start with the primary source</span><strong>Original study · ECGFounder</strong>
+<p>Li et al. · Version 4. This week uses the released single-lead model on lead II.
+</p></div><div class="source-actions"><a class="read-paper" href="https://arxiv.org/html/2410.04133v4">Read the paper ↗</a><a href="https://arxiv.org/pdf/2410.04133v4">PDF ↓</a></div>
+</aside>
+</header>
+<nav class="reader-jump" aria-label="On this page"><a href="#question">The question</a><a href="#held">What held fixed</a><a href="#result">The result</a><a href="#filter">The filter</a><a href="#mistakes">The mistakes</a><a href="#limits">Limits</a><a href="#next">Next week</a>
+</nav>
+<section class="read-section" id="question"><div class="section-intro"><div class="section-label"><b>01</b>The question</div><div class="reading">
+<h2>Does a model’s reading travel?
+</h2>
+<p>ECGFounder learned to read heart traces from more than ten million standard ECG tests recorded elsewhere. Week 2 checked one of its published results on PTB-XL, a public set of resting ECGs: most individual scores reproduced, the reported average still has not. The question this season asks is whether that reading travels: when the same model meets traces taken off a monitor during surgery, by different machines, from people under anaesthetic, does it still put the right clips in the right order?
+</p>
+<p>Two rhythms are scored, because only two of the doctors’ words line up cleanly with the model’s: normal rhythm, which the model calls sinus rhythm, and atrial fibrillation or flutter, scored against the larger of the model’s two outputs for those. Everything else the model says about these hearts stays unscored this season, as <a href="/lab/season-1-week-3.html#words">Week 3</a> explained.
+</p>
+<details><summary>New to ECGs and the model?</summary><div class="disclosure-body">
+<p>An ECG records the heart’s electrical activity as a trace. ECGFounder is the trained AI software that reads a trace and makes 150 statements about it. PTB-XL is a public collection of standard ten-second ECG tests; VitalDB Arrhythmia is this season’s test material, surgical recordings with reference labels written by anaesthesiologists.
+</p>
+<p><a href="/lab/ecgfounder/#background">Start with the illustrated introduction →</a>
+</p></div>
+</details>
+</div></div>
+</section>
+<section class="read-section" id="held"><div class="section-intro"><div class="section-label"><b>02</b>What held fixed</div><div class="reading">
+<h2>One model, one lead, one ruler.
+</h2>
+<p>To compare two datasets fairly, as much as possible has to be the same. The same released single-lead checkpoint read both. Both were read from lead II, the view VitalDB’s monitors record. Every clip was ten seconds, prepared the same way, and every rule, which clips count, what counts as positive, how uncertainty is estimated, was written down before a single VitalDB score was read.
+</p>
+<p>PTB-XL supplies the ruler: 18,308 of its recordings from 16,180 people, scored on lead II with the same model, so the surgical result has something matched to stand against. Week 2’s twelve-lead result stays as the reproduction of the paper; this single-lead PTB-XL run is the comparison.
+</p>
+<p>VitalDB’s main analysis holds <strong>35,342 clips</strong> from 438 cases and 432 people: 25,315 labelled normal rhythm, 10,027 labelled atrial fibrillation or flutter. Week 3 counted 36,129 from the labels alone; the waveform checks and the alignment rule frozen on 3 November set the rest apart. Five cases whose clock could not be established are out of every number. 480 clips from seven people with a sound clock but a weak beat detector, and 190 clips carrying a signal-quality flag, form side checks reported separately.
+</p>
+<p>Every uncertainty range on this page resamples whole patients, 5,000 times, because one person can contribute hundreds of clips and they are not independent evidence.
+</p>
+<p>One disclosure, as in Week 3: twenty cases went through the model as a pipeline test before the rules were frozen. No aggregate score was read until the frozen rules were in place, and nothing in those rules was tuned on what the test produced.
+</p>
+<figure class="reader-figure loop-figure" id="figure-1"><span class="micro">Figure 1 · What held fixed</span>
+<h3>Single lead. Ten seconds. One model. Rules set beforehand.</h3>
+<p class="figure-lede">The main VitalDB analysis: 432 patients, 35,342 clips, each person’s clips kept together when the uncertainty is estimated.</p>
+<video autoplay muted loop playsinline preload="metadata" poster="assets/week4-site-2.png" width="1080" height="1350" aria-label="Single lead. Ten seconds. One model. Rules set beforehand."><source src="assets/week4-site-2.mp4" type="video/mp4"></video>
+<figcaption>Lead II in both datasets. Counts from the frozen protocol’s main analysis after waveform checks and the alignment rule. Every number on this page is measured from the released files by the lab’s code unless it is marked as published.</figcaption><div class="figure-tools"><a href="assets/week4-site-2.png">Open the still ↗</a></div>
+</figure>
+</div></div>
+</section>
+<section class="read-section" id="result"><div class="section-intro"><div class="section-label"><b>03</b>The result</div><div class="reading">
+<h2>Almost perfect on one rhythm. Weaker on the other.
+</h2>
+<p>The score is a ranking score, AUROC. Take one clip the doctors labelled atrial fibrillation or flutter and one they did not, at random; how often does the model give the first the higher score? Do that over every pair and you get a number between 0.5, no better than a coin, and 1, every pair in the right order. It is not the percentage of clips classified correctly. It never asks the model to say yes or no.
+</p>
+<p>For atrial fibrillation or flutter the model ranked the surgical clips almost perfectly: <strong>0.999949</strong> (0.999823 to 0.999999), against 0.994661 (0.992131 to 0.996742) on PTB-XL. I write six decimals so as not to round that result up to a perfection it has not shown. Ninety-nine of the 432 people carried the label, and the ranges still apply.
+</p>
+<p>For normal rhythm the picture is different: <strong>0.846715</strong> (0.815316 to 0.874954) on VitalDB against 0.926300 (0.921777 to 0.930543) on PTB-XL. The gap, computed inside each resample rather than read off the two ranges, is −0.079585 (−0.110834 to −0.050751). In plain terms: on PTB-XL the model put a normal-rhythm clip above an atrial fibrillation or flutter clip about 93 times in 100 pairs; on the surgical recordings, about 85.
+</p>
+<p>The pre-stated subgroups move with the whole. Normal-rhythm ranking on VitalDB was 0.823892 (0.771648 to 0.870190) for the 173 women and 0.865913 (0.826331 to 0.901578) for the 259 men; 0.839870 for people aged 40 to 64 and 0.857700 for 65 and over. The under-18 group is too small to carry a number; the 18-to-39 group, 24 people, carries 0.826596 as a descriptive figure only. None of these was planned as a comparison to interpret.
+</p>
+<figure class="reader-figure loop-figure" id="figure-2"><span class="micro">Figure 2 · How the score works</span>
+<h3>The atrial fibrillation or flutter clip should score higher.</h3>
+<p class="figure-lede">One pair at a time: the clip the doctors labelled atrial fibrillation or flutter should get the higher score. AUROC is how often that order holds across every pair.</p>
+<video autoplay muted loop playsinline preload="metadata" poster="assets/week4-site-3.png" width="1080" height="1350" aria-label="The atrial fibrillation or flutter clip should score higher."><source src="assets/week4-site-3.mp4" type="video/mp4"></video>
+<figcaption>An illustration of the ordering, not two real clips or real scores. Ties count as half a correct ordering.</figcaption><div class="figure-tools"><a href="assets/week4-site-3.png">Open the still ↗</a></div>
+</figure>
+<figure class="reader-figure loop-figure" id="figure-3"><span class="micro">Figure 3 · Atrial fibrillation or flutter</span>
+<h3>Strong ranking on both datasets.</h3>
+<p class="figure-lede">0.994661 on PTB-XL, 0.999949 on the surgical clips, each with its patient-grouped range.</p>
+<video autoplay muted loop playsinline preload="metadata" poster="assets/week4-site-4.png" width="1080" height="1350" aria-label="Strong ranking on both datasets."><source src="assets/week4-site-4.mp4" type="video/mp4"></video>
+<figcaption>Original preparation. The axis is magnified, 0.985 to 1.000, and says so; the chart does not imply a large effect by hiding its scale.</figcaption><div class="figure-tools"><a href="assets/week4-site-4.png">Open the still ↗</a></div>
+</figure>
+<figure class="reader-figure loop-figure" id="figure-4"><span class="micro">Figure 4 · Normal rhythm</span>
+<h3>Sinus ranking fell on VitalDB.</h3>
+<p class="figure-lede">0.926300 on PTB-XL, 0.846715 on the surgical clips. The gap, −0.079585, has a range entirely below zero.</p>
+<video autoplay muted loop playsinline preload="metadata" poster="assets/week4-site-5.png" width="1080" height="1350" aria-label="Sinus ranking fell on VitalDB."><source src="assets/week4-site-5.mp4" type="video/mp4"></video>
+<figcaption>Original preparation, axis 0.75 to 1.00. Sinus rhythm is the normal-rhythm reference group in this test; the label says nothing about whether a person is healthy.</figcaption><div class="figure-tools"><a href="assets/week4-site-5.png">Open the still ↗</a></div>
+</figure>
+</div></div>
+</section>
+<section class="read-section" id="filter"><div class="section-intro"><div class="section-label"><b>04</b>The filter</div><div class="reading">
+<h2>Filter the same clips. Score them again.
+</h2>
+<p>Surgical monitor recordings carry interference that resting ECGs mostly do not: mains hum, a wandering baseline, muscle. The model’s own code ships a preset filter for it, a 50 Hz notch, a 0.67 to 40 Hz band-pass and baseline removal, applied before the usual standardisation. The protocol froze it as a sensitivity check: run the same eligible clips through the filter, score them with the same model, report both, choose neither.
+</p>
+<p>The filter changes the values and nothing else: still ten seconds, still 5,000 samples. The trace in Figure 5 is a synthetic one built to show what the filter does. It is not a patient’s recording and no model was run on it.
+</p>
+<figure class="reader-figure loop-figure" id="figure-5"><span class="micro">Figure 5 · The filter</span>
+<h3>Same ten seconds, same 5,000 samples, changed values.</h3>
+<p class="figure-lede">A synthetic trace before and after the actual filter, three seconds shown at the same time and voltage scale.</p>
+<video autoplay muted loop playsinline preload="metadata" poster="assets/week4-site-6.png" width="1080" height="1350" aria-label="Same ten seconds, same 5,000 samples, changed values."><source src="assets/week4-site-6.mp4" type="video/mp4"></video>
+<figcaption>Synthetic illustration passed through the model’s vendored filter, protocol v1. Filtering can remove useful detail as well as interference; this picture does not predict either error rate.</figcaption><div class="figure-tools"><a href="assets/week4-site-6.png">Open the still ↗</a></div>
+</figure>
+<p>After filtering, normal-rhythm ranking on VitalDB rose to <strong>0.862210</strong> (0.834078 to 0.887674), a paired change of +0.015496 (+0.002197 to +0.029478). On PTB-XL it fell, from 0.926300 to 0.900000, so the gap between the datasets narrowed from both sides, to −0.037789 (−0.066776 to −0.011464). Atrial fibrillation or flutter barely moved: +0.000009, with a range that spans zero.
+</p>
+<p>But ranking is not the only thing a score is asked to do. The model’s sinus score is also meant to behave like a probability: among clips it scores near 0.7, roughly 70 in 100 should carry the normal-rhythm label. That agreement is calibration, and its failure is measured as expected calibration error, where lower is better. On VitalDB it was 0.145242 (0.116592 to 0.176123) before the filter and <strong>0.234181</strong> (0.196877 to 0.271275) after: a paired change of +0.088939 (+0.055028 to +0.120594). Better ordering, worse probabilities. Calibration is measured for the sinus score only; the atrial fibrillation or flutter score is the larger of two outputs and was never a probability.
+</p>
+<figure class="reader-figure loop-figure" id="figure-6"><span class="micro">Figure 6 · After filtering</span>
+<h3>One measure improved. Another worsened.</h3>
+<p class="figure-lede">Normal rhythm on VitalDB: ranking 0.8467 to 0.8622, calibration error 0.1452 to 0.2342, each with its paired range.</p>
+<video autoplay muted loop playsinline preload="metadata" poster="assets/week4-site-7.png" width="1080" height="1350" aria-label="One measure improved. Another worsened."><source src="assets/week4-site-7.mp4" type="video/mp4"></video>
+<figcaption>Two separate scales on purpose: ranking and calibration are different questions and never sit on one axis. Sinus score only.</figcaption><div class="figure-tools"><a href="assets/week4-site-7.png">Open the still ↗</a></div>
+</figure>
+</div></div>
+</section>
+<section class="read-section" id="mistakes"><div class="section-intro"><div class="section-label"><b>05</b>The mistakes</div><div class="reading">
+<h2>Where the line sits decides who pays.
+</h2>
+<p>A ranking becomes a decision only when you draw a line on the score and call everything above it positive. Two lines were frozen on PTB-XL before the surgical clips were scored, one for each preparation, and carried over blind. The balanced line is the cutoff where sensitivity and specificity meet on PTB-XL. The nine-in-ten line is the strictest cutoff that still catches nine in ten positives on PTB-XL, which promises nothing about what it catches here. Because each preparation has its own cutoffs, the before-and-after counts compare two complete pipelines, not one knob.
+</p>
+<div class="data-wrap" role="region" aria-label="False alarms and misses before and after filtering, at both frozen cutoff rules" tabindex="0"><table class="errors"><caption>Counts on the 35,342 main-analysis clips, before → after filtering. False alarms are out of the clips labelled the other way; misses are out of the clips labelled positive. The change and its patient-grouped 95% range follow in brackets.</caption><thead><tr><th scope="col">Line</th><th scope="col">Rhythm</th><th scope="col">False alarms</th><th scope="col">Misses</th></tr></thead><tbody>
+<tr><td>Balanced</td><td>Normal rhythm</td><td>1,825 → 1,192 of 10,027 (−633; −1,062 to −262)</td><td>4,881 → 4,179 of 25,315 (−702; −987 to −439)</td></tr>
+<tr><td>Balanced</td><td>Atrial fibrillation or flutter</td><td>158 → 314 of 25,315 (+156; +74 to +243)</td><td>16 → 4 of 10,027 (−12; −38 to +2)</td></tr>
+<tr><td>Nine in ten</td><td>Normal rhythm</td><td>4,022 → 6,704 of 10,027 (+2,682; +1,932 to +3,492)</td><td>4,534 → 3,244 of 25,315 (−1,290; −1,741 to −868)</td></tr>
+<tr><td>Nine in ten</td><td>Atrial fibrillation or flutter</td><td>0 → 0 of 25,315</td><td>308 → 529 of 10,027 (+221; +34 to +419)</td></tr>
+</tbody></table></div>
+<p>Read across a row and there is no winner. At the balanced line the filter cut both kinds of normal-rhythm mistake and doubled the atrial fibrillation or flutter false alarms, while its reduction in misses there, twelve clips, has a range that includes zero. At the stricter line it caught more normal rhythm at the price of 2,682 more false alarms, and missed 221 more atrial fibrillation or flutter clips. Zero observed false alarms is zero in these 25,315 clips, not a promise about the next 25,315.
+</p>
+<p class="small">The cutoffs, original then filtered: normal rhythm 0.748383 and 0.906631 at the balanced line, 0.553425 and 0.755313 at the nine-in-ten line; atrial fibrillation or flutter 0.430196 and 0.460597, then 0.948224 and 0.927051. All chosen on PTB-XL; none adjusted after seeing a VitalDB result.
+</p>
+<figure class="reader-figure loop-figure" id="figure-7"><span class="micro">Figure 7 · The balanced line</span>
+<h3>At the balanced cutoffs, the mistakes moved.</h3>
+<p class="figure-lede">Fewer normal-rhythm false alarms and misses; more atrial fibrillation or flutter false alarms; an uncertain fall in its misses.</p>
+<video autoplay muted loop playsinline preload="metadata" poster="assets/week4-site-8.png" width="1080" height="1350" aria-label="At the balanced cutoffs, the mistakes moved."><source src="assets/week4-site-8.mp4" type="video/mp4"></video>
+<figcaption>Each preparation uses its own cutoff, chosen on PTB-XL before scoring. Counts with their denominators; the atrial fibrillation or flutter miss change has a range from −38 to +2.</figcaption><div class="figure-tools"><a href="assets/week4-site-8.png">Open the still ↗</a></div>
+</figure>
+<figure class="reader-figure loop-figure" id="figure-8"><span class="micro">Figure 8 · The nine-in-ten line</span>
+<h3>Another cutoff, another trade-off.</h3>
+<p class="figure-lede">More normal rhythm caught, many more false alarms; zero observed atrial fibrillation or flutter false alarms either way, and more misses after filtering.</p>
+<video autoplay muted loop playsinline preload="metadata" poster="assets/week4-site-9.png" width="1080" height="1350" aria-label="Another cutoff, another trade-off."><source src="assets/week4-site-9.mp4" type="video/mp4"></video>
+<figcaption>“Nine in ten” describes how the cutoff was chosen on PTB-XL, not what it achieves on VitalDB.</figcaption><div class="figure-tools"><a href="assets/week4-site-9.png">Open the still ↗</a></div>
+</figure>
+</div></div>
+</section>
+<section class="read-section" id="limits"><div class="section-intro"><div class="section-label"><b>06</b>What this week does not show</div><div class="reading">
+<h2>A measured difference, and the limits around it.
+</h2>
+<ul>
+<li>These are selected clips: stable normal rhythm against atrial fibrillation or flutter, with everything else the doctors wrote set aside. 147 of the model’s 150 outputs stay unscored.
+</li>
+<li>The labelled stretches were screened for suspected rhythm trouble before labelling. They are not a random sample of an operation, let alone of everyday life.
+</li>
+<li>The difference between the datasets is measured, not explained. Patients, recording conditions, the labelling process and the selection all differ at once; nothing here isolates one of them.
+</li>
+<li>The filter result is sensitivity to preparation, not a recommendation. The protocol forbids choosing the better-looking path after the fact, and I have not.
+</li>
+<li>The atrial fibrillation or flutter score is the larger of two model outputs, a ranking score only. No probability claim is made for it, and zero observed false alarms is not population perfection.
+</li>
+<li>The released single-lead model’s own loading code takes lead I, and the mix of leads it was trained on is not verified; both datasets here were read from lead II.
+</li>
+<li>The side checks are small (190 and 480 clips) and descriptive; their ranges run to the boundary and are not interpreted.
+</li>
+<li>Week 2’s unexplained headline discrepancy is still open. Nothing this week bears on it.
+</li>
+<li>None of this is a statement about any person’s health or about clinical use.
+</li>
+</ul>
+</div></div>
+</section>
+<section class="read-section" id="next"><div class="section-intro"><div class="section-label"><b>07</b>Next week</div><div class="reading">
+<h2>Start again from nothing, and see if the numbers come back.
+</h2>
+<p>Every number on this page came out of one laptop that has accumulated a month of downloads, caches and edits. Next week the whole chain runs again from a clean setup: a fresh copy of the code, the data and the model weights re-downloaded and checked by hash, the dependencies pinned, then the path from raw recordings through preparation and scores to these tables and figures, end to end on a fixed subset and across the full saved predictions for every aggregate, with tolerances written down first. Whatever fails to reproduce gets recorded as such, not called complete. The write-up for the preprint starts alongside it.
+</p>
+<p>The rules are protocol v1, frozen on 29 October 2026, with the scoring protocol and the alignment rule frozen on 3 November. Any change would be a documented new version, not an edit.
+</p>
+</div></div>
+</section>
+<section class="read-section" id="record"><div class="section-intro"><div class="section-label"><b>08</b>An open record</div><div class="reading">
+<h2>Every number on this page, and where it comes from.
+</h2>
+<div class="data-wrap" role="region" aria-label="Every number on this page with its source" tabindex="0"><table class="numbers"><caption>Measured: computed from the released files by the lab’s code, under protocol v1. Published: stated by the source.</caption><thead><tr><th scope="col">Number</th><th scope="col">What it is</th><th scope="col">Status</th></tr></thead><tbody>
+<tr><td>35,342 · 438 · 432</td><td>Main-analysis clips, cases and people on VitalDB</td><td>Measured</td></tr>
+<tr><td>25,315 · 10,027</td><td>Clips labelled normal rhythm; atrial fibrillation or flutter</td><td>Measured</td></tr>
+<tr><td>18,308 · 16,180</td><td>PTB-XL lead II comparison recordings; people</td><td>Measured</td></tr>
+<tr><td>0.994661 · 0.999949</td><td>Atrial fibrillation or flutter AUROC, PTB-XL; VitalDB, original preparation</td><td>Measured</td></tr>
+<tr><td>0.926300 · 0.846715</td><td>Normal-rhythm AUROC, PTB-XL; VitalDB, original preparation</td><td>Measured</td></tr>
+<tr><td>−0.079585</td><td>VitalDB minus PTB-XL, normal rhythm, computed within each resample</td><td>Measured</td></tr>
+<tr><td>0.900000 · 0.862210</td><td>Normal-rhythm AUROC after filtering, PTB-XL; VitalDB</td><td>Measured</td></tr>
+<tr><td>0.145242 → 0.234181</td><td>Expected calibration error, sinus score, VitalDB, before → after filtering</td><td>Measured</td></tr>
+<tr><td>−633, −702, +156, −12, +2,682, −1,290, 0, +221</td><td>Changes in false alarms and misses after filtering, both lines, both rhythms</td><td>Measured</td></tr>
+<tr><td>5,000</td><td>Patient-grouped resamples behind every range, seed 0</td><td>Protocol v1</td></tr>
+<tr><td>50 Hz · 0.67 to 40 Hz</td><td>The preset filter’s notch and band-pass</td><td>Published, the model’s released code</td></tr>
+<tr><td>More than ten million</td><td>ECGs the model was trained on</td><td>Published, the paper</td></tr>
+</tbody></table></div>
+<ul class="source-list">
+<li><a href="https://arxiv.org/html/2410.04133v4">Original ECGFounder paper, version 4</a> · <a href="https://arxiv.org/pdf/2410.04133v4">PDF</a>
+</li>
+<li><a href="https://physionet.org/content/ptb-xl/1.0.3/">PTB-XL v1.0.3</a> · Wagner et al. · CC BY 4.0 · the matched lead II comparison
+</li>
+<li><a href="https://physionet.org/content/vitaldb-arrhythmia/1.0.0/">VitalDB Arrhythmia v1.0.0</a> · Eun et al. · CC BY 4.0 · the labels and metadata
+</li>
+<li><a href="https://physionet.org/content/vitaldb/1.0.0/">VitalDB v1.0.0 on PhysioNet</a> · Lee and Jung · CC BY 4.0 · the waveforms
+</li>
+</ul>
+<p class="small">The figures are this week’s carousel drawings, re-rendered for this page without slide chrome by the lab’s own code from the run files; the filter trace is a labelled synthetic illustration. This work reports what the data and the model show against a dataset’s reference labels. It does not provide health advice or establish clinical benefit. The lab repository is planned to become public with the Season 1 research output. The authors were contacted on 21 October; no answer is recorded as of 8 November.
+</p></div></div>
+</section><nav class="week-navigation" aria-label="Week navigation">
+  <a class="week-nav-item" href="/lab/season-1-week-3.html" rel="prev"><span class="week-nav-label">← Previous week</span><strong>Week 3</strong><span>Preparing ECG data for testing the AI fairly</span></a>
+  <a class="week-nav-item week-nav-journal" href="/lab/ecgfounder/journal/"><span class="week-nav-label">All weeks</span><strong>Back to weekly journal</strong></a>
+  <div class="week-nav-item week-nav-boundary"><span class="week-nav-label">The record so far</span><strong>Latest published week</strong><span>The next entry will appear here when published.</span></div>
+</nav><div class="article-end"><a href="/lab/ecgfounder/">Project overview →</a><a href="mailto:hello@jco.ventures?subject=Pertzel%20Lab%20Week%204">Write to the lab →</a></div></div>
+</main><footer id="contact">
+    <div class="wrap">
+      <div class="footer-grid" aria-label="J and Co Ventures company details">
+        <div class="footer-cell"><span class="k">Entity</span><span class="v">J &amp; Co Ventures Pty Ltd</span></div>
+        <div class="footer-cell"><span class="k">Founded</span><span class="v">Melbourne, Australia</span></div>
+        <div class="footer-cell"><span class="k">Scope</span><span class="v">Global in scope</span></div>
+        <div class="footer-cell"><span class="k">Focus</span><span class="v">Science · Technology</span></div>
+      </div>
+
+<p class="footer-note">Independent science and technology company · Deep questions, useful things.
+</p>
+    </div>
+  </footer><!-- Cloudflare Web Analytics --><script type="module" src="https://static.cloudflareinsights.com/beacon.min.js" data-cf-beacon='{"token": "a05a8e57742f431893a7942d96ac429e"}'></script><!-- End Cloudflare Web Analytics -->
+<script>if(window.matchMedia&&window.matchMedia("(prefers-reduced-motion: reduce)").matches){document.querySelectorAll(".loop-figure video").forEach(function(v){v.removeAttribute("autoplay");v.pause();v.setAttribute("controls","");});}</script>
+</body></html>
