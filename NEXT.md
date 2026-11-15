@@ -1,7 +1,7 @@
 # NEXT — jco-ventures
 
 - **Capability:** Company front door for products, services and selective collaboration
-- **Slice:** The lab on the site — live since 2026-10-18 (`4a49a92`); **Week 4 post live since 2026-11-08** (`89419aa`, pushed on Jack's word "Push the website"; Pages run 42474481594 green; the page, the journal entry, the home line, Week 3's forward link, the eight figures and the sitemap answered 200 on the live domain with bytes identical to the reviewed file); **Week 2 post live since
+- **Slice:** The lab on the site — live since 2026-10-18 (`4a49a92`); **Week 5 post live since 2026-11-15** (`d66e3f9`, pushed on Jack's word, "Push it live now"; Pages run 43694008133 green; the page, its eight figures, the journal entry, the home line, Week 4's forward link and the sitemap answered 200 on the live domain with bytes identical to the committed files, the page being the reviewed one); **Week 4 post live since 2026-11-08** (`89419aa`, pushed on Jack's word "Push the website"; Pages run 42474481594 green; the page, the journal entry, the home line, Week 3's forward link, the eight figures and the sitemap answered 200 on the live domain with bytes identical to the reviewed file); **Week 2 post live since
   2026-10-25** (`bdd9210`, pushed with Jack's word; Pages run 40161132866 green; the page, its two
   figures and the home-page line answered 200 on the live domain). **Pages now deploys only the site
   files** (`c7b3726`, Jack's call on the allowlist loose end): `/NEXT.md` answers 404 on the live
@@ -43,10 +43,44 @@ announcement carries the corrected figure C caption.
 
 ## Single next action
 
-No website implementation is queued. The Week 5 lab post follows the same pattern when its
-research evidence is reviewed: page from the bound numbers, chrome-free figures from the week's
-carousel, Week 4's boundary turned into a forward link, journal/sitemap/home line, local preview at
-desktop and 375 px, an independent fact check, then Jack's push word.
+No website implementation is queued. If Week 6 (the season write-up) gets a lab post, it follows the
+same pattern when its research evidence is reviewed: page from the bound numbers, figures from the
+week's carousel, Week 5's boundary turned into a forward link, journal/sitemap/home line, local
+preview at desktop and 375 px, an independent fact check, then Jack's push word.
+
+### Published Week 5 lab post — 15 November 2026
+
+`lab/season-1-week-5.html` ("Every result number matched on a second computer. The check still
+failed."), written from the lab's bound sources for Week 5: the lab's own second computer re-checked
+the season's analysis under rules frozen two days before. On a sample of the raw recordings, 896,700
+model outputs differed from the first machine's by at most 0.000003 against a limit of 0.0001;
+rebuilt from the saved outputs, 10 of 10 number files and 9 of 11 tables came back equal, including
+the 6 main tables; two companion tables failed because of a note added after the script wrote them.
+Partly reproduced, not a pass, not an independent replication; no clinical claim. Eight figures
+`lab/assets/week5-site-v3-{2..9}.png` are crops of still slides 2 to 9 of the Week 5 carousel
+(version 3; those stills are unchanged in its final version 5). Section 09 points to the public
+starter pack, https://github.com/jackpertzel-ai/ecg-reproduction (release v1.0.0, published by Jack
+on 15 November). Also changed: `lab/season-1-week-4.html` (forward link),
+`lab/ecgfounder/journal/index.html` (Week 5 entry; Week 6 write-up as current work), `sitemap.xml`,
+`index.html` (latest-from-the-lab line).
+
+Checked before the push: all 338 local references on seven pages resolve to committed files; the 12
+outside addresses answered 200, LinkedIn 999 to the automated request; the home page, `/lab/`, the
+journal, Week 4 and Week 5 rendered at 375 and 1280 px with no horizontal scroll and no broken
+image; the page served locally was the reviewed file (SHA-256
+`c46992676b5d11fc21286c090b8493709c4b5490bc23bdb46717a563c93c6ad8`). An independent fresh-context
+fact check traced the page to the sources: a review, two rechecks and a final confirmation (pass),
+recorded in the lab repository under `runs/s1-w5-content/week5-site-page-*.md`.
+Release commit `d66e3f9`; [Pages run 43694008133](https://github.com/jackpertzel-ai/jco-ventures/actions/runs/43694008133)
+succeeded; all 13 published files answered 200 on the live domain with bytes identical to the
+committed files, and `/NEXT.md`, `/AGENTS.md`, `/workflow/seat-assignments.jsonl` and an unpublished
+figure file answered 404. In a browser on the live domain: Week 5 at 375 and 1280 px with no
+horizontal scroll and all eight figures loaded; the home line and Week 4's forward link lead to it;
+the journal lists it. Not checked: physical phones, screen readers, a render with JavaScript
+disabled (the page's only scripts are the shared navigation script and the analytics beacon),
+keyboard focus (no style sheet changed), email delivery. Publication approved by Jack in the
+session: he asked "Are we ready to post the website and upload that? Looks pretty good to me to
+go.", and to the question "Push the website live now?" chose "Push it live now".
 
 ### Published Week 4 lab post — 8 November 2026
 
