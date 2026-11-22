@@ -1,0 +1,268 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="theme-color" content="#f3ede2">
+<title>One person in their bedroom — Pertzel Lab</title>
+<meta name="description" content="Season 1 of Pertzel Lab, in my own words. I investigated an open AI model called ECGFounder: could I reproduce its published results, and, using its single-lead version, how did its results compare between resting recordings and recordings taken during surgery? What matched, what did not, and what is still unexplained.">
+<meta property="og:title" content="One person in their bedroom">
+<meta property="og:description" content="Six weeks investigating an open ECG model: what matched, what did not, and what is still unexplained.">
+<meta property="og:type" content="article">
+<meta property="article:published_time" content="2026-11-22">
+<meta property="og:url" content="https://jco.ventures/lab/season-1-week-6.html">
+<meta property="og:image" content="https://jco.ventures/lab/assets/s1-reader-og.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="How well does an ECG model travel? An independent check of ECGFounder. Pertzel Lab, Season 1.">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://jco.ventures/lab/assets/s1-reader-og.png">
+<link rel="canonical" href="https://jco.ventures/lab/season-1-week-6.html">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' fill='%2312161b'/%3E%3Ctext x='16' y='22' font-family='Georgia,serif' font-style='italic' font-size='15' fill='%23ffb454' text-anchor='middle'%3EJ%26Co%3C/text%3E%3C/svg%3E">
+<link rel="stylesheet" href="../assets/site.css">
+
+<link rel="stylesheet" href="../assets/lab-reader.css">
+<link rel="stylesheet" href="/assets/mobile-navigation.css">
+<style>.still-figure img{display:block;width:100%;max-width:520px;height:auto;margin:0 auto;background:#fbf7f2;border:1px solid rgba(25,32,42,.12)}.still-figure .figure-tools{justify-content:center}.prose-list li{font-size:18px;line-height:1.75;margin:0 0 10px}@media(max-width:760px){.prose-list li{font-size:17px}}</style>
+<script src="/assets/mobile-navigation.js" defer></script>
+</head>
+<body class="lab-reader"><a class="skip-link" href="#main-content">Skip to content</a><div class="masthead-strip">
+    <div class="masthead-inner wrap micro">
+      <span>Pertzel Lab · Jack&#x27;s research practice within J &amp; Co</span>
+      <span>Season 1 · October to November 2026</span>
+    </div>
+  </div>
+<header class="site-header" data-site-path="/lab/season-1-week-6.html">
+
+<nav class="nav wrap" aria-label="Main navigation">
+      <a class="wordmark" href="../">J<em>&amp;</em>Co Ventures</a>
+      <div class="nav-links">
+        <a href="../#work">Work</a>
+        <a href="./" aria-current="true">Lab</a>
+        <a href="../#services">Services</a>
+        <a href="../#thinking">Thinking</a>
+        <a href="../#about">About</a>
+      </div>
+      <a class="nav-cta" href="https://arxiv.org/html/2410.04133v4">Original paper ↗</a>
+
+<div class="mobile-actions">
+<a class="mobile-lab-link" href="/lab/" aria-current="true">Lab</a>
+<details class="site-menu">
+<summary aria-controls="site-menu-panel"><span class="menu-closed-label">Menu</span><span class="menu-open-label">Close</span><span class="menu-icon" aria-hidden="true"></span></summary>
+<div class="site-menu-panel" id="site-menu-panel"><div class="site-menu-inner wrap">
+<div class="site-menu-heading"><span class="site-menu-kicker">Explore J&amp;Co</span><span class="site-menu-location">Week 6</span></div>
+<nav class="site-menu-links" aria-label="Mobile site navigation"><a href="/#work" data-section="work"><span>Our work</span><span aria-hidden="true">→</span></a><a href="/lab/" aria-current="true"><span>Lab</span><span aria-hidden="true">→</span></a><a href="/#services" data-section="services"><span>Services</span><span aria-hidden="true">→</span></a><a href="/#thinking" data-section="thinking"><span>Our thinking</span><span aria-hidden="true">→</span></a><a href="/#about" data-section="about"><span>About</span><span aria-hidden="true">→</span></a><a href="/#contact" data-section="contact"><span>Contact</span><span aria-hidden="true">→</span></a></nav>
+<div class="site-menu-research"><span class="site-menu-kicker">Current research · ECGFounder</span><nav class="site-menu-links" aria-label="Research shortcuts"><a href="/lab/ecgfounder/"><span>ECGFounder project</span><span aria-hidden="true">→</span></a><a href="/lab/ecgfounder/journal/"><span>Weekly journal</span><span aria-hidden="true">→</span></a><a href="https://arxiv.org/html/2410.04133v4"><span>Original paper</span><span aria-hidden="true">↗</span></a></nav></div>
+<a class="site-menu-contact" href="mailto:hello@jco.ventures?subject=Project%20conversation%20with%20J%20%26%20Co"><span>Discuss a project</span><span aria-hidden="true">↗</span></a>
+</div></div></details></div>
+</nav>
+
+</header>
+<main id="main-content"><div class="wrap">
+<nav class="lab-post-context" aria-label="Research navigation"><a href="/lab/">Lab</a><span aria-hidden="true">/</span><a href="/lab/ecgfounder/">ECGFounder</a><span aria-hidden="true">/</span><a href="/lab/ecgfounder/journal/">Weekly journal</a><span aria-hidden="true">/</span><span aria-current="page">Week 6</span></nav>
+<header class="reader-hero">
+<p class="eyebrow"><strong>Pertzel Lab</strong> · Season 1 · Week 6
+</p>
+<h1 data-a="0">One person in their bedroom
+</h1>
+<p class="intro" data-a="2">I started this because it felt like I finally could.
+</p>
+<p class="byline"><span>Jack Pertzel</span><time datetime="2026-11-22">22 November 2026</time><span>About 7 minutes</span>
+</p>
+<aside class="paper-source" aria-label="Original research paper"><div><span class="micro">Start with the primary source</span><strong>Original study · ECGFounder</strong>
+<p>Li et al. · Version 4. The released models this season investigated.
+</p></div><div class="source-actions"><a class="read-paper" href="https://arxiv.org/html/2410.04133v4">Read the paper ↗</a><a href="https://arxiv.org/pdf/2410.04133v4">PDF ↓</a></div>
+</aside>
+</header>
+<nav class="reader-jump" aria-label="On this page"><a href="#why-now">Why now</a><a href="#question">The question</a><a href="#surprise">The surprise</a><a href="#role">My role</a><a href="#surgery">Surgery</a><a href="#second-computer">Second computer</a><a href="#why-it-matters">Why it matters</a><a href="#status">Where it stands</a><a href="#record">The record</a>
+</nav>
+<section class="read-section" id="why-now"><div class="section-intro"><div class="section-label"><b>01</b>Why now</div><div class="reading">
+<p data-a="3">I’ve never had formal training in writing code. Now AI can write code for me, which opens up work that previously felt out of reach. It saves me some of the time and energy of learning what feels like another language before I can get started.
+</p>
+<p data-a="4">It has also helped me understand complex topics I hadn’t studied before. It can explain things at the level I’m at, then help me go deeper as my understanding grows.
+</p>
+<p data-a="5">And I’m at a point in my life where I want to spend my energy and focus on things that genuinely excite me. Things I can grow in and go deep into. I’m using my time differently from how I did in my twenties. I’m now locking in and trying to develop my professional life.
+</p>
+<p data-a="6">That combination is what made this project possible for me.
+</p>
+</div></div>
+</section>
+<section class="read-section" id="question"><div class="section-intro"><div class="section-label"><b>02</b>The question</div><div class="reading">
+<h2 data-a="7">What I set out to do
+</h2>
+<p data-a="8">For the first six-week season of Pertzel Lab, I investigated an open AI model called ECGFounder. It reads ECGs, recordings of the heart’s electrical activity, and produces scores for different labels.
+</p>
+<p data-a="9">I was building on a model and public datasets that other teams had made available. My contribution was to investigate how its results held up.
+</p>
+<p data-a="10">There were two parts. First, could I reproduce its published results on a collection of resting ECGs called PTB-XL? Then, using its single-lead version, how did its results compare between resting recordings and recordings taken during surgery?
+</p>
+<p data-a="11">The broader question was how well the model travels. A result on one dataset does not automatically tell us what will happen on another.
+</p>
+</div></div>
+</section>
+<section class="read-section" id="surprise"><div class="section-intro"><div class="section-label"><b>03</b>The surprise</div><div class="reading">
+<h2 data-a="12">“Maybe I’ve done something wrong”
+</h2>
+<p data-a="13">I expected the first comparison to come out fairly close to the paper.
+</p>
+<p data-a="14">The headline result I had set out to compare was an average over thirty-one labels in the released data. It came out at about 0.891, against the paper’s reported 0.924. That was outside the tolerance I had set before the check.
+</p>
+<p data-a="15">My first reaction was: “That’s a surprise. Maybe I’ve done something wrong.”
+</p>
+<p data-a="16">So we investigated how the result had been produced. We checked the individual scores, the label mapping, and which labels and calculations went into the average. We also compared the two signal-preparation routes supplied with the model, as planned beforehand.
+</p>
+<p data-a="17">Twenty-nine of the thirty individual scores printed in the paper matched within 0.001. Sinus rhythm was the exception. But even restricting the average to those same thirty labels did not resolve the headline difference. Filtering changed some individual scores while barely moving the overall average.
+</p>
+<p data-a="18">On 21 October, I emailed the corresponding author, Dr Shenda Hong, asking about the average, the sinus-rhythm result, and the preparation methods and label counts.
+</p>
+<p data-a="19">The cause remained unexplained.
+</p>
+<p data-a="20">I feel good about including that in the paper because it’s honest. We investigated the difference and still couldn’t explain it. You can’t always resolve everything in a paper. I think it’s better to publish what we found and be transparent about what’s still unresolved.
+</p>
+<figure class="reader-figure still-figure" id="figure-1"><span class="micro">Figure 1 · The headline average</span>
+<h3>0.8909 against 0.924, on one scale.</h3>
+<p class="figure-lede">My number with its range on the left. The paper’s with its range on the right, inside the band I set in advance.</p>
+<img src="assets/week5-site-v3-9.png" alt="My number for this model still sits below the paper’s. A scale from 0.88 to 0.94. Mine, 0.8909, with a short bar for its 95% range, resampling whole patients, sits to the left. The paper’s, 0.924, with a short bar for its 95% range as the paper states it, sits inside a shaded band set in advance, 0.914 to 0.934. Average score over 31 labels on 21,799 recordings: 0.0331 below the paper’s figure and outside the band. Working from the Mac’s saved model outputs, the PC rebuilt the same number; on a sample of 500 recordings its own outputs matched within the limit. It is still unexplained, and it goes in the write-up as open." width="985" height="1064" loading="lazy">
+<figcaption>The paper’s figure and its range: ECGFounder (Li et al., arXiv:2410.04133 v4, Table 2). My range, 0.8876 to 0.8938, resamples whole patients 5,000 times. The two bars are drawn from those ranges; the figure does not print them as digits. Drawn for the Week 5 report, after the second-computer check described further down.</figcaption><div class="figure-tools"><a href="assets/week5-site-v3-9.png">Open figure at full size ↗</a><a href="/lab/season-1-week-5.html#open">From the Week 5 report →</a></div>
+</figure>
+</div></div>
+</section>
+<section class="read-section" id="role"><div class="section-intro"><div class="section-label"><b>04</b>My role</div><div class="reading">
+<h2 data-a="21">What my role actually involved
+</h2>
+<p data-a="22">I wasn’t reviewing the code itself. I was looking at the inputs and outputs, and understanding how we organised and processed the data. I wanted to understand those decisions well enough to judge how much confidence I could place in the results.
+</p>
+<p data-a="23">One example was how we chose the cutoffs for calling a prediction positive: how high a model’s score had to be before it counted.
+</p>
+<p data-a="24">Those cutoffs belonged to the later comparison with surgical recordings. They were separate from the original reproduction, which compared AUROC, a measure of ranking that does not require one fixed positive/negative cutoff.
+</p>
+<p data-a="25">For the surgical comparison, we selected cutoffs using our PTB-XL analysis for each rhythm score and each signal-preparation route. We kept those cutoffs unchanged when we moved to the new data. If we started moving them to fit the results we wanted, we could make the model look better without answering our original question.
+</p>
+<p data-a="26">I wanted a consistent comparison. Studying how to adapt the cutoffs could be another experiment, with its own rules.
+</p>
+</div></div>
+</section>
+<section class="read-section" id="surgery"><div class="section-intro"><div class="section-label"><b>05</b>Surgery</div><div class="reading">
+<h2 data-a="27">What happened on the surgical recordings
+</h2>
+<p data-a="28">The surgical recordings came from VitalDB Arrhythmia. For this part, the same single-lead model read the same electrical view, lead II, in both datasets. This was a separate comparison from the twelve-lead reproduction.
+</p>
+<p data-a="29">We compared two label groups: sinus rhythm, and atrial fibrillation or flutter. The main surgical analysis contained 35,342 ten-second clips from 432 people. Many clips came from the same person.
+</p>
+<p data-a="30">The combined atrial fibrillation or flutter score ranked the labelled examples almost perfectly in both datasets. The sinus score did not hold up as well.
+</p>
+<p data-a="31">One way to understand its ranking result is to take a sinus-labelled example and an example labelled atrial fibrillation or flutter. How often does the model give the sinus example the higher sinus score? It did so in about 93 out of 100 such pairs on the resting recordings, compared with about 85 out of 100 on the surgical clips.
+</p>
+<p data-a="32">Those are rankings, not percentages of people diagnosed correctly.
+</p>
+<p data-a="33">I had expected the model to hold up more simply across the settings. These two scores told different stories.
+</p>
+<p data-a="34">Preparing the signal differently also mattered. The supplied filter improved the sinus ranking on the surgical clips, but made its probabilities less reliable by the calibration measure we used. Calibration checks whether the model’s scores line up with how often the label is actually present. Some errors at the fixed cutoffs fell; others rose.
+</p>
+<p data-a="35">So I couldn’t simply say that filtering made the model better. I had to say which result improved and what else changed.
+</p>
+<p data-a="36">The surgical clips were selected, labelled regions, not a random sample of a whole operation. The datasets also differ in equipment, patient mix and annotation. We measured a difference; we did not establish its cause or what it means for anyone’s health.
+</p>
+<figure class="reader-figure still-figure" id="figure-2"><span class="micro">Figure 2 · The sinus score</span>
+<h3>The sinus score on the two datasets.</h3>
+<p class="figure-lede">0.9263 on the resting recordings (PTB-XL) and 0.8467 on the surgical clips (VitalDB): the two scores behind “about 93” and “about 85” out of 100 pairs.</p>
+<img src="assets/week4-site-5.png" alt="Sinus ranking fell on VitalDB. Sinus rhythm, original preparation. PTB-XL: 0.9263, 95% range 0.9218 to 0.9305. VitalDB: 0.8467, 95% range 0.8153 to 0.8750. Both are marked on a scale from 0.75 to 1.00. AUROC, higher is better. The cause of this gap is still unresolved. Selected clips. Ranking is not accuracy." width="1080" height="1350" loading="lazy">
+<figcaption>Original preparation, axis 0.75 to 1.00. Sinus rhythm is the normal-rhythm reference group in this test; the label says nothing about whether a person is healthy.</figcaption><div class="figure-tools"><a href="assets/week4-site-5.png">Open figure at full size ↗</a><a href="/lab/season-1-week-4.html">From the Week 4 report →</a></div>
+</figure>
+</div></div>
+</section>
+<section class="read-section" id="second-computer"><div class="section-intro"><div class="section-label"><b>06</b>Second computer</div><div class="reading">
+<h2 data-a="37">Could another computer get my numbers?
+</h2>
+<p data-a="38">I also wanted to know what another person might encounter when trying to reproduce the work.
+</p>
+<p data-a="39">A Windows PC ran the model again on a fixed sample of the original recordings. The compared outputs agreed within the pre-set tolerances. Then, using saved model outputs and source data, it rebuilt the numerical records and tables specified in the reproduction procedure.
+</p>
+<p data-a="40">Every regenerated result number matched. Two of the eleven tables still failed the check.
+</p>
+<p data-a="41">A note had been typed into those tables after the script made them. The note contained numbers, but it wasn’t part of the script’s recipe. When the PC re-created the tables, it couldn’t reproduce the note.
+</p>
+<p data-a="42">The recorded outcome is <strong>partly reproduced</strong>. Moving the note beside the tables afterwards did not change the original result.
+</p>
+<p data-a="43">This was a sampled model rerun followed by rebuilding the specified results from saved outputs. It was not a full rerun of every recording or an independent reproduction by another person.
+</p>
+<p data-a="44">I want someone else to be able to follow the recipe and understand what happened, including where it failed.
+</p>
+<figure class="reader-figure still-figure" id="figure-3"><span class="micro">Figure 3 · The call</span>
+<h3>Every result number matched. It is still not called a pass.</h3>
+<p class="figure-lede">One tick, one cross, and the rule that decides between them.</p>
+<img src="assets/week5-site-v3-8.png" alt="Partly reproduced. A tick beside: Every result number matched. A cross beside: Two companion tables: not equal, because of a note added after the script wrote them. A tinted box holds the rule, frozen before the run: “No criterion is relaxed after the run.” So it is not called a pass." width="985" height="969" loading="lazy">
+<figcaption>“Partly reproduced” is the frozen protocol’s own term for a run in which a criterion fails.</figcaption><div class="figure-tools"><a href="assets/week5-site-v3-8.png">Open figure at full size ↗</a><a href="/lab/season-1-week-5.html#call">From the Week 5 report →</a></div>
+</figure>
+</div></div>
+</section>
+<section class="read-section" id="why-it-matters"><div class="section-intro"><div class="section-label"><b>07</b>Why it matters</div><div class="reading">
+<h2 data-a="45">Why it matters to me
+</h2>
+<p data-a="46">I initially started this project out of curiosity. I didn’t fully appreciate why it mattered until I got into it.
+</p>
+<p data-a="47">As I learned more, I began to see how significant this kind of technology could become for medicine. What excites me is the possibility that, if it proves useful and reliable in practice, AI could take some work off doctors and give them more time to provide better care.
+</p>
+<p data-a="48">I’d hope that means more attention for the individual patient in front of them. More capacity to see, diagnose and treat people. And hopefully, fewer mistakes.
+</p>
+<p data-a="49">Those are hopes for future care. This study did not measure doctors’ workload or patient outcomes, and it does not establish that ECGFounder is ready for clinical use.
+</p>
+<p data-a="50">But it has made me more interested in the field and what it might become.
+</p>
+</div></div>
+</section>
+<section class="read-section" id="status"><div class="section-intro"><div class="section-label"><b>08</b>Where it stands</div><div class="reading">
+<h2 data-a="51">Where the work stands
+</h2>
+<p data-a="52">I submitted the manuscript to medRxiv on 18 November. It was declined at screening, and that decision was upheld after I asked for clarification. On 21 November I submitted it to a journal, which has confirmed receiving it. The manuscript has not been peer reviewed.
+</p>
+<p data-a="53">The supporting materials are already public: the <a href="https://doi.org/10.5281/zenodo.24307491">code and scientific records</a>, the <a href="https://doi.org/10.5281/zenodo.24308910">reference outputs and supporting files</a>, and the <a href="https://github.com/jackpertzel-ai/ecg-reproduction">guide and runnable code package</a>.
+</p>
+<p data-a="54">The reference files support rebuilding the tables and numerical records named in the reproduction procedure. They do not reconstruct every result in the paper or replace the original datasets.
+</p>
+<p data-a="55">The unresolved headline difference is still in the work. So are the limits of the surgical comparison and the second-computer check. I want other people to be able to look at the evidence and try the procedure themselves.
+</p>
+<p data-a="56">I’ve come away with a simple thought: now more than ever, it’s possible for one person in their bedroom to contribute to the future of healthcare.
+</p>
+<p data-a="57">And that’s amazing.
+</p>
+<p class="small" data-a="58">The work builds on <a href="https://arxiv.org/abs/2410.04133">ECGFounder</a>, <a href="https://doi.org/10.13026/kfzx-aw45">PTB-XL v1.0.3</a>, <a href="https://doi.org/10.13026/czw8-9p62">VitalDB v1.0.0</a>, and <a href="https://doi.org/10.13026/axd6-wm13">VitalDB Arrhythmia v1.0.0</a>.
+</p>
+</div></div>
+</section>
+<section class="read-section" id="record"><div class="section-intro"><div class="section-label"><b>09</b>The record</div><div class="reading">
+<h2>The weekly record behind this article.
+</h2>
+<p>This article looks back over the season. Each week’s report gives its results in detail.
+</p>
+<ul class="source-list">
+<li><a href="/lab/season-1-week-2.html">Week 2 · Checking a published result</a>
+</li>
+<li><a href="/lab/season-1-week-3.html">Week 3 · Preparing ECG data for testing the AI fairly</a>
+</li>
+<li><a href="/lab/season-1-week-4.html">Week 4 · The same model, tested on recordings from surgery</a>
+</li>
+<li><a href="/lab/season-1-week-5.html">Week 5 · Every result number matched, and the check still failed</a>
+</li>
+</ul>
+<p class="small">This work does not provide health advice or establish clinical benefit.
+</p></div></div>
+</section><nav class="week-navigation" aria-label="Week navigation">
+  <a class="week-nav-item" href="/lab/season-1-week-5.html" rel="prev"><span class="week-nav-label">← Previous week</span><strong>Week 5</strong><span>Every result number matched, and the check still failed</span></a>
+  <a class="week-nav-item week-nav-journal" href="/lab/ecgfounder/journal/"><span class="week-nav-label">All weeks</span><strong>Back to weekly journal</strong></a>
+  <div class="week-nav-item week-nav-boundary"><span class="week-nav-label">The record so far</span><strong>Latest published week</strong><span>The next entry will appear here when published.</span></div>
+</nav><div class="article-end"><a href="/lab/ecgfounder/">Project overview →</a><a href="mailto:hello@jco.ventures?subject=Pertzel%20Lab%20Week%206">Write to the lab →</a></div></div>
+</main><footer id="contact">
+    <div class="wrap">
+      <div class="footer-grid" aria-label="J and Co Ventures company details">
+        <div class="footer-cell"><span class="k">Entity</span><span class="v">J &amp; Co Ventures Pty Ltd</span></div>
+        <div class="footer-cell"><span class="k">Founded</span><span class="v">Melbourne, Australia</span></div>
+        <div class="footer-cell"><span class="k">Scope</span><span class="v">Global in scope</span></div>
+        <div class="footer-cell"><span class="k">Focus</span><span class="v">Science · Technology</span></div>
+      </div>
+
+<p class="footer-note">Independent science and technology company · Deep questions, useful things.
+</p>
+    </div>
+  </footer><!-- Cloudflare Web Analytics --><script type="module" src="https://static.cloudflareinsights.com/beacon.min.js" data-cf-beacon='{"token": "a05a8e57742f431893a7942d96ac429e"}'></script><!-- End Cloudflare Web Analytics -->
+</body></html>

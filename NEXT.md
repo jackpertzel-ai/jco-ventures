@@ -43,10 +43,14 @@ announcement carries the corrected figure C caption.
 
 ## Single next action
 
-No website implementation is queued. If Week 6 (the season write-up) gets a lab post, it follows the
-same pattern when its research evidence is reviewed: page from the bound numbers, figures from the
-week's carousel, Week 5's boundary turned into a forward link, journal/sitemap/home line, local
-preview at desktop and 375 px, an independent fact check, then Jack's push word.
+No website implementation is queued. Week 6, the season write-up, was published on 22 November 2026
+on Jack's word in the session ("Yeah, publish the page also."): `lab/season-1-week-6.html` ("One person
+in their bedroom", his approved article with the one sentence about the journal submission), with
+Week 5's forward link, the journal entry, the home page's latest line and the sitemap. The five files
+were built by the lab's `build_week6_site_page_v2.py` and passed `check_week6_sunday_package_v2.py page`
+with its outside links. Still open, for Jack: the lab's front page (`lab/index.html`) and the project
+page (`lab/ecgfounder/`) do not link to the Week 6 article and still describe the surgical comparison
+as being prepared.
 
 ### Published Week 5 lab post — 15 November 2026
 
